@@ -8,6 +8,13 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+    <!-- GSAP for animations (added for advanced interactivity) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Three.js for optional 3D background (added for immersive effects; disabled on mobile for performance) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -87,6 +94,7 @@
             text-align: center;
             color: white;
             padding: 20px;
+            position: relative; /* Added for parallax layering */
         }
 
         .hero h2 {
@@ -127,6 +135,17 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Parallax background layer (added for depth effect) */
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://lh3.googleusercontent.com/p/AF1QipPyy7O6FaxZGh5FWeZSaoGXueAtDPvcgOxawP3U=s1360-w1360-h1020-rw") no-repeat center/cover;
+            z-index: -1;
         }
 
         /* ---------- SECTION ---------- */
@@ -348,6 +367,9 @@
 </head>
 <body>
 
+<!-- 3D Background Canvas (added for immersive floating particles; disabled on mobile) -->
+<canvas id="threejs-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none;"></canvas>
+
 <header id="header">
     <nav>
         <h1>Jungle Spring Resort</h1>
@@ -364,6 +386,8 @@
 
 <!-- HERO -->
 <div class="hero">
+    <!-- Parallax Background Layer (added for depth) -->
+    <div class="parallax-bg"></div>
     <div>
         <h2>Jungle Spring Resort</h2>
         <p>Experience peace, privacy and nature at Ajara, Kolhapur – surrounded by mountains, lake views and calm natural beauty.</p>
@@ -386,7 +410,7 @@
 
     <div class="rooms">
         <div class="room-card">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipOQSJV_Se6v0GTQ5Xcivw8ay_z_rDoU3mZbr_Rc=s1360-w1360-h1020-rw">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipOQSJV_Se6v0GTQ5Xcivw8ay_z_rDoU3mZbr_Rc=s1360-w1360-h1020-rw" alt="Deluxe Room">
             <div class="room-content">
                 <h3>Deluxe Rooms (Non-AC)</h3>
                 <p>Beautiful views of mountains, lake and swimming pool. Well-ventilated rooms with fresh natural air.</p>
@@ -395,7 +419,7 @@
         </div>
 
         <div class="room-card">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPjtUCR-lZ7-OaO7hhQ6v5RrlUT_RcAfU9ifWge=s1360-w1360-h1020-rw">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPjtUCR-lZ7-OaO7hhQ6v5RrlUT_RcAfU9ifWge=s1360-w1360-h1020-rw" alt="Premium Cottage">
             <div class="room-content">
                 <h3>Premium Cottages (AC)</h3>
                 <p>Spacious AC cottages with glass windows offering uninterrupted mountain and lake views.</p>
@@ -404,7 +428,7 @@
         </div>
 
         <div class="room-card">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPLEzxP1i4jYFzSpGAG_7vdCQLdypv3TA-GgdwO=s1360-w1360-h1020-rw">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPLEzxP1i4jYFzSpGAG_7vdCQLdypv3TA-GgdwO=s1360-w1360-h1020-rw" alt="Luxury Cottage">
             <div class="room-content">
                 <h3>Luxury Premium Cottages (Lake View)</h3>
                 <p>Exclusive cottages inside the lake with water on three sides and stunning dam views.</p>
@@ -450,13 +474,13 @@
             <select name="roomType" required>
                 <option value="">Select Room Type</option>
                 <option value="Deluxe Rooms (Non-AC)">Deluxe Rooms (Non-AC)</option>
-                            <option value="Premium Cottages (AC)">Premium Cottages (AC)</option>
-            <option value="Luxury Premium Cottages (Lake View)">Luxury Premium Cottages (Lake View)</option>
-        </select>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Book Now</button>
-    </form>
-</div>
+                <option value="Premium Cottages (AC)">Premium Cottages (AC)</option>
+                <option value="Luxury Premium Cottages (Lake View)">Luxury Premium Cottages (Lake View)</option>
+            </select>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
 </section>
 
 <!-- AMENITIES -->
@@ -534,8 +558,121 @@
         window.open(whatsappURL, '_blank');
         this.reset();
     });
+
+    // Advanced Animations (added for full interactivity)
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if GSAP is loaded
+        if (typeof gsap === 'undefined') {
+            console.error('GSAP not loaded. Check your internet or CDN.');
+            return;
+        }
+
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero animations (fade in on load)
+        gsap.from('.hero h2', { duration: 1.5, y: -50, opacity: 0, ease: 'power2.out' });
+        gsap.from('.hero p', { duration: 1.5, y: 30, opacity: 0, ease: 'power2.out', delay: 0.3 });
+        gsap.from('.hero .cta-button', { duration: 1.5, scale: 0.8, opacity: 0, ease: 'back.out(1.7)', delay: 0.6 });
+
+        // Scroll-triggered animations for sections
+        gsap.from('#about h2, #about .subtitle', {
+          scrollTrigger: { trigger: '#about', start: 'top 80%', end: 'bottom 20%', scrub: true },
+          y: 50, opacity: 0, stagger: 0.2,
+        });
+
+        gsap.from('.room-card', {
+          scrollTrigger: { trigger: '#rooms', start: 'top 80%', scrub: true },
+          y: 50, opacity: 0, stagger: 0.2,
+        });
+
+        gsap.from('.gallery img', {
+          scrollTrigger: { trigger: '#gallery', start: 'top 80%', scrub: true },
+          scale: 0.8, opacity: 0, stagger: 0.1,
+        });
+
+        gsap.from('.contact-form', {
+          scrollTrigger: { trigger: '#contact', start: 'top 80%', scrub: true },
+          y: 50, opacity: 0,
+        });
+
+        gsap.from('.amenities li', {
+          scrollTrigger: { trigger: '#amenities', start: 'top 80%', scrub: true },
+          x: -50, opacity: 0, stagger: 0.1,
+        });
+
+        // Hover effects for room cards (zoom on hover)
+        gsap.utils.toArray('.room-card').forEach(card => {
+          card.addEventListener('mouseenter', () => {
+            gsap.to(card, { scale: 1.05, duration: 0.3, ease: 'power1.out' });
+          });
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, { scale: 1, duration: 0.3, ease: 'power1.out' });
+          });
+        });
+
+        // Hover effects for gallery images (subtle lift)
+        gsap.utils.toArray('.gallery img').forEach(img => {
+          img.addEventListener('mouseenter', () => {
+            gsap.to(img, { y: -10, duration: 0.3, ease: 'power1.out' });
+          });
+          img.addEventListener('mouseleave', () => {
+            gsap.to(img, { y: 0, duration: 0.3, ease: 'power1.out' });
+          });
+        });
+
+        // Parallax effect on hero background
+        gsap.to('.parallax-bg', {
+          scrollTrigger: { trigger: '.hero', start: 'top bottom', end: 'bottom top', scrub: true },
+          y: -100, // Moves up as you scroll
+        });
+
+        // Optional: 3D Interactive Background (floating particles; disabled on mobile for performance)
+        if (window.innerWidth > 768 && typeof THREE !== 'undefined') { // Only on desktop and if Three.js loaded
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('threejs-bg'), alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            // Create particles (e.g., green spheres for jungle theme)
+            const geometry = new THREE.SphereGeometry(0.05, 16, 16);
+            const material = new THREE.MeshBasicMaterial({ color: 0x7CFC98 }); // Matches your green accent
+            const particles = [];
+            for (let i = 0; i < 20; i++) { // Reduced for performance
+              const particle = new THREE.Mesh(geometry, material);
+              particle.position.set(Math.random() * 20 - 10, Math.random() * 20 - 10, Math.random() * 20 - 10);
+              scene.add(particle);
+              particles.push(particle);
+            }
+            camera.position.z = 5;
+
+            // Animate particles and respond to mouse
+            const animate = () => {
+              requestAnimationFrame(animate);
+              particles.forEach(p => {
+                p.rotation.x += 0.005;
+                p.position.y += Math.sin(Date.now() * 0.001 + p.position.x) * 0.01; // Subtle floating
+              });
+              renderer.render(scene, camera);
+            };
+            animate();
+
+            document.addEventListener('mousemove', (event) => {
+              camera.position.x = (event.clientX / window.innerWidth) * 0.5 - 0.25;
+              camera.position.y = -(event.clientY / window.innerHeight) * 0.5 + 0.25;
+            });
+
+            // Resize handler for Three.js
+            window.addEventListener('resize', () => {
+              camera.aspect = window.innerWidth / window.innerHeight;
+              camera.updateProjectionMatrix();
+              renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        } else {
+            console.log('3D background disabled on mobile or Three.js not loaded.');
+        }
+    });
 </script>
 
 </body>
 </html>
-                
