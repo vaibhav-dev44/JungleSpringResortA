@@ -1,677 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Jungle Spring Resort | Ajara, Kolhapur</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Jungle Spring Resort & Adventure Park</title>
+<meta name="description" content="Nature meets adventure at Jungle Spring Resort & Adventure Park. Adventure activities, cottages, packages & nature stay.">
 
-    <!-- GSAP for animations (added for advanced interactivity) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Three.js for optional 3D background (added for immersive effects; disabled on mobile for performance) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+/* =====================================================
+   BASE + THEME
+===================================================== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#f6f8f5;color:#1f2933}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+:root{
+  --green:#1b5e20;
+  --light-green:#4caf50;
+  --accent:#ff9800;
+  --dark:#0f172a;
+  --card:#ffffff;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* =====================================================
+   GLOBAL
+===================================================== */
+section{padding:80px 16px}
+h2{text-align:center;color:var(--green);margin-bottom:30px;font-size:2rem}
+p{line-height:1.6}
 
-        body {
-            background: #f5f7f6;
-            color: #333;
-        }
+.grid{display:grid;gap:22px}
 
-        /* ---------- HEADER ---------- */
-        header {
-            position: fixed;
-            width: 100%;
-            background: rgba(0,0,0,0.6);
-            padding: 15px 40px;
-            z-index: 1000;
-            transition: background 0.3s;
-        }
+.btn{
+  display:inline-block;
+  padding:12px 24px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:500;
+  transition:.3s;
+}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-outline{border:2px solid #fff;color:#fff}
 
-        header.scrolled {
-            background: rgba(0,0,0,0.9);
-        }
+.card{
+  background:var(--card);
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  overflow:hidden;
+}
 
-        header nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* =====================================================
+   HEADER
+===================================================== */
+header{
+  position:fixed;
+  top:0;width:100%;
+  background:#fff;
+  z-index:1000;
+  box-shadow:0 2px 12px rgba(0,0,0,.1);
+}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px}
+.logo{font-size:1.3rem;font-weight:700;color:var(--green)}
+.hamburger{font-size:1.7rem;cursor:pointer}
+.menu{display:none;flex-direction:column}
+.menu a{
+  padding:14px 18px;
+  text-decoration:none;
+  color:#000;
+  border-top:1px solid #eee;
+}
 
-        header h1 {
-            color: #fff;
-            font-size: 22px;
-        }
+/* =====================================================
+   HERO
+===================================================== */
+.hero{
+  height:100vh;
+  background:url('https://images.unsplash.com/photo-1529817433561-5ecf28a74de5?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+}
+.hero-content{position:relative;max-width:700px}
+.hero h1{font-size:2.4rem;margin-bottom:12px}
+.hero p{margin-bottom:22px}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
+/* =====================================================
+   ABOUT
+===================================================== */
+.about{
+  background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+  color:#fff;
+}
+.about-box{
+  background:rgba(0,0,0,.6);
+  padding:35px;
+  border-radius:22px;
+  max-width:900px;
+  margin:auto;
+}
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+/* =====================================================
+   ACTIVITIES
+===================================================== */
+.activity-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.badge{
+  display:inline-block;
+  font-size:.7rem;
+  background:var(--light-green);
+  color:#fff;
+  padding:4px 10px;
+  border-radius:20px;
+  margin-top:8px;
+}
 
-        nav ul li a:hover {
-            color: #7CFC98;
-        }
+/* =====================================================
+   PACKAGES
+===================================================== */
+.price{font-size:1.8rem;color:var(--accent);margin:8px 0}
+.details{display:none;font-size:.9rem;margin-top:10px}
 
-        .menu-toggle {
-            display: none;
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-        }
+/* =====================================================
+   GALLERY
+===================================================== */
+.gallery-grid{
+  column-count:2;
+  column-gap:14px;
+}
+.gallery-grid img{
+  width:100%;
+  margin-bottom:14px;
+  border-radius:16px;
+  cursor:pointer;
+}
 
-        /* ---------- HERO ---------- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-            url("https://lh3.googleusercontent.com/p/AF1QipPyy7O6FaxZGh5FWeZSaoGXueAtDPvcgOxawP3U=s1360-w1360-h1020-rw");
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 20px;
-            position: relative; /* Added for parallax layering */
-        }
+/* =====================================================
+   MODAL
+===================================================== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.modal img{max-width:90%;max-height:90%;border-radius:14px}
 
-        .hero h2 {
-            font-size: 48px;
-            margin-bottom: 15px;
-            animation: fadeInUp 1s ease-out;
-        }
+/* =====================================================
+   FOOTER & WHATSAPP
+===================================================== */
+footer{background:#0b3d1b;color:#fff;text-align:center;padding:40px 16px}
+.whatsapp{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  background:#25d366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
 
-        .hero p {
-            max-width: 700px;
-            font-size: 18px;
-            line-height: 1.7;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media(min-width:768px){
+  .menu{display:flex;flex-direction:row}
+  .menu a{border:none}
+  .hamburger{display:none}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .gallery-grid{column-count:3}
+}
 
-        .hero .cta-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: #7CFC98;
-            color: #333;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .hero .cta-button:hover {
-            background: #5cb85c;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Parallax background layer (added for depth effect) */
-        .parallax-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("https://lh3.googleusercontent.com/p/AF1QipPyy7O6FaxZGh5FWeZSaoGXueAtDPvcgOxawP3U=s1360-w1360-h1020-rw") no-repeat center/cover;
-            z-index: -1;
-        }
-
-        /* ---------- SECTION ---------- */
-        section {
-            padding: 80px 10%;
-        }
-
-        section h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        section p.subtitle {
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
-            margin-bottom: 50px;
-            color: #555;
-        }
-
-        /* ---------- ROOMS ---------- */
-        .rooms {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .room-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .room-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .room-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .room-content {
-            padding: 25px;
-        }
-
-        .room-content h3 {
-            margin-bottom: 10px;
-            color: #2f6b4f;
-        }
-
-        .room-content p {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .best-for {
-            font-weight: 600;
-            color: #1b5e20;
-        }
-
-        /* ---------- GALLERY ---------- */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            border-radius: 15px;
-            transition: transform 0.4s, filter 0.3s;
-            cursor: pointer;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
-
-        .lightbox .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-        }
-
-        /* ---------- CONTACT FORM ---------- */
-        .contact-form {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .contact-form h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .contact-form form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select,
-        .contact-form button {
-            margin-bottom: 15px;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .contact-form button {
-            background: #2f6b4f;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .contact-form button:hover {
-            background: #1b5e20;
-        }
-
-        /* ---------- AMENITIES ---------- */
-        .amenities {
-            background: #2f6b4f;
-            color: white;
-            border-radius: 20px;
-            padding: 50px;
-        }
-
-        .amenities ul {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .amenities li {
-            background: rgba(255,255,255,0.15);
-            padding: 15px;
-            border-radius: 10px;
-            transition: background 0.3s;
-        }
-
-        .amenities li:hover {
-            background: rgba(255,255,255,0.25);
-        }
-
-        /* ---------- FOOTER ---------- */
-        footer {
-            background: #111;
-            color: #ccc;
-            text-align: center;
-            padding: 25px;
-        }
-
-        /* ---------- RESPONSIVE ---------- */
-        @media(max-width:768px) {
-            .hero h2 {
-                font-size: 34px;
-            }
-            header nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(0,0,0,0.9);
-                padding: 20px;
-            }
-            header nav ul.active {
-                display: flex;
-            }
-            .menu-toggle {
-                display: block;
-            }
-        }
-    </style>
+/* =====================================================
+   ANIMATION LIBRARY (DISTRICT GRAVITY STYLE)
+===================================================== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:.9s cubic-bezier(.25,.8,.25,1);
+}
+.reveal.active{opacity:1;transform:none}
+.slide-left{transform:translateX(40px)}
+.slide-right{transform:translateX(-40px)}
+.scale-in{transform:scale(.9)}
+.rotate-in{transform:rotate(-5deg) scale(.95)}
+.delay-1{transition-delay:.1s}
+.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}
+.hover-lift:hover{
+  transform:translateY(-8px);
+  box-shadow:0 16px 35px rgba(0,0,0,.15);
+}
+</style>
 </head>
+
 <body>
 
-<!-- 3D Background Canvas (added for immersive floating particles; disabled on mobile) -->
-<canvas id="threejs-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none;"></canvas>
-
-<header id="header">
-    <nav>
-        <h1>Jungle Spring Resort</h1>
-        <div class="menu-toggle" id="menu-toggle">☰</div>
-        <ul id="nav-menu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#rooms">Rooms</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#amenities">Amenities</a></li>
-        </ul>
-    </nav>
+<header>
+  <div class="nav">
+    <div class="logo">Jungle Spring Resort</div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#activities">Activities</a>
+    <a href="#packages">Packages</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
 </header>
 
-<!-- HERO -->
-<div class="hero">
-    <!-- Parallax Background Layer (added for depth) -->
-    <div class="parallax-bg"></div>
-    <div>
-        <h2>Jungle Spring Resort</h2>
-        <p>Experience peace, privacy and nature at Ajara, Kolhapur – surrounded by mountains, lake views and calm natural beauty.</p>
-        <a href="#contact" class="cta-button">Book Now</a>
-    </div>
-</div>
+<section class="hero reveal" id="home">
+  <div class="hero-content">
+    <h1>Nature Meets Adventure</h1>
+    <p>One Day Outing | Adventure | Nature | Stay</p>
+    <a href="#contact" class="btn btn-primary">Book Now</a>
+    <a href="tel:+919999999999" class="btn btn-outline">Call Now</a>
+  </div>
+</section>
 
-<!-- ABOUT -->
-<section id="about">
+<section class="about reveal slide-left" id="about">
+  <div class="about-box">
     <h2>About Jungle Spring Resort</h2>
-    <p class="subtitle">
-        At Jungle Spring Resort, we’ve created a place where you can slow down and truly relax. Surrounded by mountains and peaceful lake views, our rooms and cottages let you wake up to fresh air and nature all around you. The calm surroundings help you disconnect from city noise and daily stress. It’s a perfect getaway for families, couples, and anyone who loves being close to nature.
+    <p>
+      Jungle Spring Resort & Adventure Park offers thrilling adventure activities
+      combined with serene dam-side nature. Ideal for families, corporates, schools
+      and group outings.
     </p>
+  </div>
 </section>
 
-<!-- ROOMS -->
-<section id="rooms">
-    <h2>Rooms & Cottages</h2>
-    <p class="subtitle">Choose the perfect stay that brings you closer to nature with comfort and privacy.</p>
-
-    <div class="rooms">
-        <div class="room-card">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipOQSJV_Se6v0GTQ5Xcivw8ay_z_rDoU3mZbr_Rc=s1360-w1360-h1020-rw" alt="Deluxe Room">
-            <div class="room-content">
-                <h3>Deluxe Rooms (Non-AC)</h3>
-                <p>Beautiful views of mountains, lake and swimming pool. Well-ventilated rooms with fresh natural air.</p>
-                <p class="best-for">Best for: Nature lovers & budget travelers</p>
-            </div>
-        </div>
-
-        <div class="room-card">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPjtUCR-lZ7-OaO7hhQ6v5RrlUT_RcAfU9ifWge=s1360-w1360-h1020-rw" alt="Premium Cottage">
-            <div class="room-content">
-                <h3>Premium Cottages (AC)</h3>
-                <p>Spacious AC cottages with glass windows offering uninterrupted mountain and lake views.</p>
-                <p class="best-for">Best for: Couples & comfort seekers</p>
-            </div>
-        </div>
-
-        <div class="room-card">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPLEzxP1i4jYFzSpGAG_7vdCQLdypv3TA-GgdwO=s1360-w1360-h1020-rw" alt="Luxury Cottage">
-            <div class="room-content">
-                <h3>Luxury Premium Cottages (Lake View)</h3>
-                <p>Exclusive cottages inside the lake with water on three sides and stunning dam views.</p>
-                <p class="best-for">Best for: Honeymooners & luxury stays</p>
-            </div>
-        </div>
+<section id="activities">
+  <h2 class="reveal">Adventure Activities</h2>
+  <div class="grid">
+    <!-- ACTIVITY CARD -->
+    <div class="card reveal delay-1 hover-lift">
+      <img class="activity-img" src="https://images.unsplash.com/photo-1529817433561-5ecf28a74de5">
+      <div style="padding:16px">
+        <h4>Zip Line</h4>
+        <p>High-speed aerial adventure over nature.</p>
+        <span class="badge">Certified & Safe</span>
+      </div>
     </div>
+
+    <div class="card reveal delay-2 hover-lift">
+      <img class="activity-img" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+      <div style="padding:16px">
+        <h4>Sky Cycle</h4>
+        <p>Pedal in the sky with stunning views.</p>
+        <span class="badge">Harness Secured</span>
+      </div>
+    </div>
+
+    <div class="card reveal delay-3 hover-lift">
+      <img class="activity-img" src="https://images.unsplash.com/photo-1501769214405-5e92dcc7c2de">
+      <div style="padding:16px">
+        <h4>Rope Course</h4>
+        <p>24 obstacles across Level 1 & 2.</p>
+        <span class="badge">Instructor Guided</span>
+      </div>
+    </div>
+
+    <div class="card reveal hover-lift">
+      <img class="activity-img" src="https://images.unsplash.com/photo-1504595403659-9088ce801e29">
+      <div style="padding:16px">
+        <h4>Rock Climbing</h4>
+        <p>Challenge your strength & balance.</p>
+        <span class="badge">Safety Gear</span>
+      </div>
+    </div>
+
+    <div class="card reveal hover-lift">
+      <img class="activity-img" src="https://images.unsplash.com/photo-1519817650390-64a93db511ee">
+      <div style="padding:16px">
+        <h4>Bull Ride</h4>
+        <p>Fun & thrilling mechanical ride.</p>
+        <span class="badge">Soft Landing</span>
+      </div>
+    </div>
+
+    <div class="card reveal hover-lift">
+      <img class="activity-img" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+      <div style="padding:16px">
+        <h4>Rain Dance</h4>
+        <p>Music, water & unlimited fun.</p>
+        <span class="badge">Family Friendly</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- GALLERY -->
+<section id="packages">
+  <h2 class="reveal">Packages</h2>
+  <div class="grid">
+    <div class="card reveal hover-lift">
+      <div style="padding:20px">
+        <h4>One Day Adventure</h4>
+        <div class="price">₹1499</div>
+        <button onclick="toggleDetails(this)">View Details</button>
+        <div class="details">All activities + Lunch | 10 AM – 6 PM</div>
+      </div>
+    </div>
+
+    <div class="card reveal hover-lift">
+      <div style="padding:20px">
+        <h4>Leisure + Food</h4>
+        <div class="price">₹1150</div>
+        <button onclick="toggleDetails(this)">View Details</button>
+        <div class="details">Pool + Rain Dance + Lunch</div>
+      </div>
+    </div>
+
+    <div class="card reveal hover-lift">
+      <div style="padding:20px">
+        <h4>Adult Adventure</h4>
+        <div class="price">₹999</div>
+        <button onclick="toggleDetails(this)">View Details</button>
+        <div class="details">Selected thrill activities</div>
+      </div>
+    </div>
+
+    <div class="card reveal hover-lift">
+      <div style="padding:20px">
+        <h4>Kids Adventure</h4>
+        <div class="price">₹599</div>
+        <button onclick="toggleDetails(this)">View Details</button>
+        <div class="details">Kids zone + pool</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="gallery">
-    <h2>Resort Gallery</h2>
-    <p class="subtitle">A glimpse of nature, comfort and serenity.</p>
-
-    <div class="gallery">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzSvR8CeVMQwZOGSjtTO4to__wUfthwr--dblxVhBrR55jUdzg_Qe6m5pY1ke8S5HCzNBR31udp8O0ERcmDygUv1Ajoa4c4rRwvW0oArxVChZ8cAyyI2oKUtfFCmgRNkHv8jut3cfFGpMtI=s1360-w1360-h1020-rw" alt="Gallery Image 1">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSy7OS4jdLEjgZzfWrvEq_F53ypakMXNnLkQguuLEu79NqWMd7yAk2RlIXk0Y-lWx1NLfkBCmQlRyrxpBLK4qfev6ZYqneJWgxracCNNHWsfvjzWaMhpbi1mEocKEGsHpogTmKI9=s1360-w1360-h1020-rw" alt="Gallery Image 2">
-        <img src="https://lh3.googleusercontent.com/p/AF1QipPyy7O6FaxZGh5FWeZSaoGXueAtDPvcgOxawP3U=s1360-w1360-h1020-rw" alt="Gallery Image 3">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw0VRyJJfjGm4iOHfw4TsxOxt-GuL0E0WtHznhLDLGgRdJxyjs1T7KrrDUotDezJsEbMXFyOamKoF7Gl_kPDmJkKicwu_13Ytmvh-ijnIUBzyI0TyYVZtoqHbcGwu5dXbG-na75DQ=s1360-w1360-h1020-rw" alt="Gallery Image 4">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxKXXjIy8ScKpsK2hadF6sq20NyljSlV5_tEClrPFQereQTg3KSfihSTEI-0uyvZ8KrJ4r7unN9o6FPJz8ctnhldYn7IHmFPZJPd_R5LWmpxG2x5Mx_QMEwCEKT32WLWyp_osM=s1360-w1360-h1020-rw" alt="Gallery Image 5">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw7Gh7UUQCUiBOAr7tveo93imMHqItxKzoukF0gtUI5jvy6wyCMpbNWNmn9WQ2o4O3IwaGyxr_aRUznpkmIiq3o26AdfAyn7BEKh4cCe15PL2PA7OnpXXgkjFWO1ih83Nf7rwFhCA=s1360-w1360-h1020-rw" alt="Gallery Image 6">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSypES-B6GEr4iaRnBjvyXTv5YeFoXTl6LDBO8uRNxNMSHsdGkXhaiYwb7gJi52sgJFNWy3PERsAs4MBGEZaabmKFWPmsySZBH_1rKUYVtNDdMZJQmF4T6YsEwv5rS6G2HgBxHUw=s1360-w1360-h1020-rw" alt="Gallery Image 7">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw1YGAsNM5ctmKM0rtACJ0RUpa6Ew1pQ93MCSFZxNLai-nFktzNvas8r95LkSHZ5ILFgOLBaGFJ8MEZSKWJzYH9s8N0JrsMUDZC8ua1Gy7zat7DQdh1XMP1l7zhxv_iRYlUWNpw=s1360-w1360-h1020-rw" alt="Gallery Image 8">
-        <img src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxXTfkH9tPibAKjMUE6Y_N7Yo8BXOwY9XKxeiKltrwuS1qIvdUC4qvVA3S9wlG0pQZx9zMMMMdWrrqfCMhDo_2T9Br78QEiXNDxRr62UkfOJrwakV24JD8PbkhlSIptnyZnWgua=s1360-w1360-h1020-rw" alt="Gallery Image 9">
-    </div>
-
-    <div class="lightbox" id="lightbox">
-        <span class="close" id="close-lightbox">&times;</span>
-        <img id="lightbox-img" src="" alt="">
-    </div>
+  <h2 class="reveal">Gallery</h2>
+  <div class="gallery-grid">
+    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df" onclick="openModal(this.src)">
+    <img src="https://images.unsplash.com/photo-1498792812781-1a7f0cfa5789" onclick="openModal(this.src)">
+    <img src="https://images.unsplash.com/photo-1529817433561-5ecf28a74de5" onclick="openModal(this.src)">
+  </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <div class="contact-form">
-        <h2>Book Your Stay</h2>
-        <form id="bookingForm">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="tel" name="phone" placeholder="Your Phone" required>
-            <input type="date" name="checkin" placeholder="Check-in Date" required>
-            <input type="date" name="checkout" placeholder="Check-out Date" required>
-            <select name="roomType" required>
-                <option value="">Select Room Type</option>
-                <option value="Deluxe Rooms (Non-AC)">Deluxe Rooms (Non-AC)</option>
-                <option value="Premium Cottages (AC)">Premium Cottages (AC)</option>
-                <option value="Luxury Premium Cottages (Lake View)">Luxury Premium Cottages (Lake View)</option>
-            </select>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Book Now</button>
-        </form>
-    </div>
-</section>
-
-<!-- AMENITIES -->
-<section id="amenities">
-    <div class="amenities">
-        <h2>Common Room Amenities</h2>
-        <ul>
-            <li>Comfortable beds with clean linens</li>
-            <li>Attached private bathrooms</li>
-            <li>Hot water facility</li>
-            <li>Power backup</li>
-            <li>Peaceful & secure environment</li>
-        </ul>
-    </div>
+<section id="contact" class="reveal">
+  <h2>Contact & Booking</h2>
+  <a href="tel:+919999999999" class="btn btn-primary">Call Now</a>
 </section>
 
 <footer>
-    <p>© 2026 Jungle Spring Resort, Ajara, Kolhapur. All Rights Reserved.</p>
+  <p>📍 Ajara, Kolhapur | ☎ +91 99999 99999</p>
+  <p>© Jungle Spring Resort</p>
 </footer>
 
+<a href="https://wa.me/919999999999" class="whatsapp">WhatsApp</a>
+
+<div class="modal" id="modal" onclick="this.style.display='none'">
+  <img id="modalImg">
+</div>
+
 <script>
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+function toggleMenu(){
+  const m=document.getElementById('menu');
+  m.style.display=m.style.display==='flex'?'none':'flex';
+}
+function toggleDetails(btn){
+  const d=btn.nextElementSibling;
+  d.style.display=d.style.display==='block'?'none':'block';
+}
+function openModal(src){
+  document.getElementById('modal').style.display='flex';
+  document.getElementById('modalImg').src=src;
+}
 
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-    });
-
-    // Gallery lightbox
-    const galleryImages = document.querySelectorAll('.gallery img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeLightbox = document.getElementById('close-lightbox');
-
-    galleryImages.forEach(img => {
-        img.addEventListener('click', function() {
-            lightbox.style.display = 'flex';
-            lightboxImg.src = this.src;
-        });
-    });
-
-    closeLightbox.addEventListener('click', function() {
-        lightbox.style.display = 'none';
-    });
-
-    lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox) {
-            lightbox.style.display = 'none';
-        }
-    });
-
-    // Booking form submission to WhatsApp
-    const bookingForm = document.getElementById('bookingForm');
-    bookingForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = this.name.value;
-        const email = this.email.value;
-        const phone = this.phone.value;
-        const checkin = this.checkin.value;
-        const checkout = this.checkout.value;
-        const roomType = this.roomType.value;
-        const message = this.message.value;
-        const whatsappMessage = `Booking Request from website:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCheck-in: ${checkin}\nCheck-out: ${checkout}\nRoom Type: ${roomType}\nMessage: ${message}`;
-        const whatsappURL = `https://wa.me/9975947060?text=${encodeURIComponent(whatsappMessage)}`;
-        window.open(whatsappURL, '_blank');
-        this.reset();
-    });
-
-    // Advanced Animations (added for full interactivity)
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if GSAP is loaded
-        if (typeof gsap === 'undefined') {
-            console.error('GSAP not loaded. Check your internet or CDN.');
-            return;
-        }
-
-        // Register GSAP plugins
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Hero animations (fade in on load)
-        gsap.from('.hero h2', { duration: 1.5, y: -50, opacity: 0, ease: 'power2.out' });
-        gsap.from('.hero p', { duration: 1.5, y: 30, opacity: 0, ease: 'power2.out', delay: 0.3 });
-        gsap.from('.hero .cta-button', { duration: 1.5, scale: 0.8, opacity: 0, ease: 'back.out(1.7)', delay: 0.6 });
-
-        // Scroll-triggered animations for sections
-        gsap.from('#about h2, #about .subtitle', {
-          scrollTrigger: { trigger: '#about', start: 'top 80%', end: 'bottom 20%', scrub: true },
-          y: 50, opacity: 0, stagger: 0.2,
-        });
-
-        gsap.from('.room-card', {
-          scrollTrigger: { trigger: '#rooms', start: 'top 80%', scrub: true },
-          y: 50, opacity: 0, stagger: 0.2,
-        });
-
-        gsap.from('.gallery img', {
-          scrollTrigger: { trigger: '#gallery', start: 'top 80%', scrub: true },
-          scale: 0.8, opacity: 0, stagger: 0.1,
-        });
-
-        gsap.from('.contact-form', {
-          scrollTrigger: { trigger: '#contact', start: 'top 80%', scrub: true },
-          y: 50, opacity: 0,
-        });
-
-        gsap.from('.amenities li', {
-          scrollTrigger: { trigger: '#amenities', start: 'top 80%', scrub: true },
-          x: -50, opacity: 0, stagger: 0.1,
-        });
-
-        // Hover effects for room cards (zoom on hover)
-        gsap.utils.toArray('.room-card').forEach(card => {
-          card.addEventListener('mouseenter', () => {
-            gsap.to(card, { scale: 1.05, duration: 0.3, ease: 'power1.out' });
-          });
-          card.addEventListener('mouseleave', () => {
-            gsap.to(card, { scale: 1, duration: 0.3, ease: 'power1.out' });
-          });
-        });
-
-        // Hover effects for gallery images (subtle lift)
-        gsap.utils.toArray('.gallery img').forEach(img => {
-          img.addEventListener('mouseenter', () => {
-            gsap.to(img, { y: -10, duration: 0.3, ease: 'power1.out' });
-          });
-          img.addEventListener('mouseleave', () => {
-            gsap.to(img, { y: 0, duration: 0.3, ease: 'power1.out' });
-          });
-        });
-
-        // Parallax effect on hero background
-        gsap.to('.parallax-bg', {
-          scrollTrigger: { trigger: '.hero', start: 'top bottom', end: 'bottom top', scrub: true },
-          y: -100, // Moves up as you scroll
-        });
-
-        // Optional: 3D Interactive Background (floating particles; disabled on mobile for performance)
-        if (window.innerWidth > 768 && typeof THREE !== 'undefined') { // Only on desktop and if Three.js loaded
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('threejs-bg'), alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-
-            // Create particles (e.g., green spheres for jungle theme)
-            const geometry = new THREE.SphereGeometry(0.05, 16, 16);
-            const material = new THREE.MeshBasicMaterial({ color: 0x7CFC98 }); // Matches your green accent
-            const particles = [];
-            for (let i = 0; i < 20; i++) { // Reduced for performance
-              const particle = new THREE.Mesh(geometry, material);
-              particle.position.set(Math.random() * 20 - 10, Math.random() * 20 - 10, Math.random() * 20 - 10);
-              scene.add(particle);
-              particles.push(particle);
-            }
-            camera.position.z = 5;
-
-            // Animate particles and respond to mouse
-            const animate = () => {
-              requestAnimationFrame(animate);
-              particles.forEach(p => {
-                p.rotation.x += 0.005;
-                p.position.y += Math.sin(Date.now() * 0.001 + p.position.x) * 0.01; // Subtle floating
-              });
-              renderer.render(scene, camera);
-            };
-            animate();
-
-            document.addEventListener('mousemove', (event) => {
-              camera.position.x = (event.clientX / window.innerWidth) * 0.5 - 0.25;
-              camera.position.y = -(event.clientY / window.innerHeight) * 0.5 + 0.25;
-            });
-
-            // Resize handler for Three.js
-            window.addEventListener('resize', () => {
-              camera.aspect = window.innerWidth / window.innerHeight;
-              camera.updateProjectionMatrix();
-              renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        } else {
-            console.log('3D background disabled on mobile or Three.js not loaded.');
-        }
-    });
+/* INTERSECTION OBSERVER */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.25});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 
 </body>
