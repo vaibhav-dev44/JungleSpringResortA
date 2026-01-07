@@ -110,13 +110,12 @@
         #about h2 { color: var(--white); }
         #about p { color: var(--white); }
 
-        /* Activities Section - Updated with Jungle Brushed Background */
+        /* Activities Section */
         #activities {
             position: relative;
-            background-color: #0f3d2e; /* Base deep forest green */
-            overflow: hidden; /* Ensures no overflow from pseudo-elements */
+            background-color: #0f3d2e;
+            overflow: hidden;
         }
-        /* Layered radial gradients to simulate irregular brush strokes flowing diagonally */
         #activities::before {
             content: '';
             position: absolute;
@@ -125,29 +124,23 @@
             width: 100%;
             height: 100%;
             background: 
-                /* Primary strokes: Darker green ellipses for depth */
                 radial-gradient(ellipse 40% 20% at 10% 20%, rgba(10, 46, 34, 0.4) 0%, transparent 70%),
                 radial-gradient(ellipse 30% 50% at 30% 40%, rgba(10, 46, 34, 0.3) 0%, transparent 60%),
                 radial-gradient(ellipse 50% 25% at 50% 60%, rgba(10, 46, 34, 0.35) 0%, transparent 75%),
                 radial-gradient(ellipse 35% 40% at 70% 30%, rgba(10, 46, 34, 0.25) 0%, transparent 65%),
                 radial-gradient(ellipse 45% 30% at 80% 70%, rgba(10, 46, 34, 0.4) 0%, transparent 70%),
-                /* Highlight strokes: Lighter green for subtle accents */
                 radial-gradient(ellipse 25% 35% at 20% 80%, rgba(31, 107, 74, 0.2) 0%, transparent 50%),
                 radial-gradient(ellipse 40% 20% at 60% 10%, rgba(31, 107, 74, 0.15) 0%, transparent 55%),
                 radial-gradient(ellipse 30% 45% at 90% 50%, rgba(31, 107, 74, 0.25) 0%, transparent 60%),
-                /* Additional layered strokes for uneven texture */
                 radial-gradient(ellipse 50% 25% at 40% 90%, rgba(10, 46, 34, 0.3) 0%, transparent 70%),
                 radial-gradient(ellipse 35% 40% at 15% 50%, rgba(31, 107, 74, 0.2) 0%, transparent 65%);
-            /* Slight grain texture using a subtle noise pattern (5-8% opacity) */
             background-image: 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E"),
-                /* Fallback to the gradients above */;
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
             background-size: cover, cover;
             background-repeat: no-repeat, no-repeat;
-            background-blend-mode: multiply; /* Blends noise with gradients for a matte, rough feel */
-            pointer-events: none; /* Allows interaction with content below */
+            background-blend-mode: multiply;
+            pointer-events: none;
         }
-        /* Subtle dark vignette on edges for depth */
         #activities::after {
             content: '';
             position: absolute;
@@ -158,17 +151,15 @@
             background: radial-gradient(circle at center, transparent 50%, rgba(10, 46, 34, 0.3) 100%);
             pointer-events: none;
         }
-        /* Ensure text readability: White text and light green elements contrast strongly on the dark base */
         #activities h2,
         #activities p,
         #activities .brush-title {
-            color: #ffffff; /* White for strong contrast */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle shadow for readability */
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         #activities .brush-subtitle,
-        #activities .activity-card p strong,
-        #activities .package-details p {
-            color: #1f6b4a; /* Light green for highlights, ensuring readability */
+        #activities .activity-card p strong {
+            color: #1f6b4a;
         }
         .activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
         .activity-card { background: var(--white); border-radius: 20px; box-shadow: 0 12px 28px var(--shadow-soft); border: 1px solid var(--border-light); overflow: hidden; transition: all 0.3s; cursor: pointer; }
@@ -179,13 +170,12 @@
         .activity-card h3 { color: var(--brand-blue); font-weight: 700; }
         .activity-card p { color: var(--text-muted); }
 
-        /* Packages Section - Updated with Jungle Brushed Background */
+        /* Packages Section */
         #packages {
             position: relative;
-            background-color: #0f3d2e; /* Base deep forest green */
-            overflow: hidden; /* Ensures no overflow from pseudo-elements */
+            background-color: #0f3d2e;
+            overflow: hidden;
         }
-        /* Same layered gradients as #activities */
         #packages::before {
             content: '';
             position: absolute;
@@ -228,15 +218,14 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         #packages .brush-subtitle,
-               #packages .activity-card p strong,
         #packages .package-details p {
-            color: #1f6b4a; /* Light green for highlights, ensuring readability */
+            color: #1f6b4a;
         }
         .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
         .package-card { background: var(--white); border-radius: 20px; box-shadow: 0 12px 28px var(--shadow-soft); border: 1px solid var(--border-light); padding: 2.5rem; text-align: center; transition: all 0.3s; cursor: pointer; }
         .package-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px var(--shadow-strong); }
         .package-card h3 { font-size: 1.5rem; color: var(--brand-blue); font-weight: 700; margin-bottom: 1rem; }
-        .package-card p { font-size: 1.8rem; font-weight: 700; color: var(--brand-blue); margin-bottom: 1.5rem; }
+                .package-card p { font-size: 1.8rem; font-weight: 700; color: var(--brand-blue); margin-bottom: 1.5rem; }
         .package-card button { background: var(--brand-yellow); color: var(--brand-blue); border: none; padding: 0.75rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s; font-weight: 600; }
         .package-card button:hover { background: var(--yellow-hover); transform: scale(1.05); box-shadow: 0 10px 30px var(--shadow-soft); }
         .package-details { display: none; margin-top: 1.5rem; animation: slideDown 0.5s ease-out; }
@@ -284,7 +273,7 @@
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-                /* Keyframe Animations */
+        /* Keyframe Animations */
         @keyframes fadeInUp { 
             from { 
                 opacity: 0; 
@@ -318,90 +307,91 @@
         }
 
         /* ===== Yellow Brush Section Title ===== */
-.brush-section {
-  text-align: center;
-  margin-bottom: 3rem;
-}
+        .brush-section {
+          text-align: center;
+          margin-bottom: 3rem;
+        }
 
-.brush-title-wrapper {
-  position: relative;
-  display: inline-block;
-}
+        .brush-title-wrapper {
+          position: relative;
+          display: inline-block;
+        }
 
-.brush-title-wrapper svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
+        .brush-title-wrapper svg {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+        }
 
-.brush-title-wrapper path {
-  fill: var(--brand-yellow);
-}
+        .brush-title-wrapper path {
+          fill: var(--brand-yellow);
+        }
 
-.brush-title {
-  position: relative;
-  z-index: 2;
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--brand-blue);
-  padding: 22px 70px;
-  letter-spacing: 3px;
-}
+        .brush-title {
+          position: relative;
+          z-index: 2;
+          font-size: 2.8rem;
+          font-weight: 800;
+          color: var(--brand-blue);
+          padding: 22px 70px;
+          letter-spacing: 3px;
+        }
 
-.brush-subtitle {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: var(--brand-blue);
-}
+        .brush-subtitle {
+          margin-top: 1rem;
+          font-size: 1.1rem;
+          color: var(--brand-blue);
+        }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .brush-title {
-    font-size: 2rem;
-    padding: 16px 40px;
-  }
-}
-/* Full-Width Website Background: Hand-Painted Brush Strokes */
-/* This uses an SVG background image to simulate real paint brushed by a wide flat brush. */
-/* The SVG contains large, continuous paths with soft feathered edges, visible stroke direction, and uneven thickness. */
-/* Base: Deep forest green (#0f3d2e) */
-/* Strokes: Darker green (#0a2e22) with subtle tonal variation from layered paths. */
-/* No gradients, grain, noise, speckles, or digital patterns—pure hand-painted look. */
-/* Matte finish achieved through SVG rendering. */
+        /* Mobile */
+        @media (max-width: 768px) {
+          .brush-title {
+            font-size: 2rem;
+            padding: 16px 40px;
+          }
+        }
 
-.jungle-paint-bg {
-  position: relative;
-  background-color: #0f3d2e; /* Fallback base color */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3Cstyle%3Epath%7Bfill:none%3Bstroke-linecap:round%3Bstroke-linejoin:round%3B%7D%3C/style%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='%230f3d2e'/%3E%3Cpath d='M-100 200 Q400 150 1000 250 T2000 300' stroke='%230a2e22' stroke-width='80' opacity='0.6'/%3E%3Cpath d='M-200 400 Q500 350 1100 450 T2100 500' stroke='%230a2e22' stroke-width='60' opacity='0.5'/%3E%3Cpath d='M0 600 Q600 550 1200 650 T2200 700' stroke='%230a2e22' stroke-width='70' opacity='0.55'/%3E%3Cpath d='M-150 800 Q450 750 1300 850 T2300 900' stroke='%230a2e22' stroke-width='50' opacity='0.45'/%3E%3Cpath d='M100 100 Q700 50 1400 150 T2400 200' stroke='%230a2e22' stroke-width='90' opacity='0.65'/%3E%3Cpath d='M-50 300 Q550 250 1150 350 T2150 400' stroke='%230a2e22' stroke-width='75' opacity='0.6'/%3E%3Cpath d='M200 500 Q800 450 1250 550 T2250 600' stroke='%230a2e22' stroke-width='65' opacity='0.5'/%3E%3Cpath d='M-100 700 Q500 650 1350 750 T2350 800' stroke='%230a2e22' stroke-width='85' opacity='0.55'/%3E%3Cpath d='M50 900 Q650 850 1450 950 T2450 1000' stroke='%230a2e22' stroke-width='55' opacity='0.45'/%3E%3C/svg%3E");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh; /* Ensure full height */
-  overflow-x: hidden; /* Prevent horizontal scroll */
-}
+        /* Full-Width Website Background: Hand-Painted Brush Strokes */
+        /* This uses an SVG background image to simulate real paint brushed by a wide flat brush. */
+        /* The SVG contains large, continuous paths with soft feathered edges, visible stroke direction, and uneven thickness. */
+        /* Base: Deep forest green (#0f3d2e) */
+        /* Strokes: Darker green (#0a2e22) with subtle tonal variation from layered paths. */
+        /* No gradients, grain, noise, speckles, or digital patterns—pure hand-painted look. */
+        /* Matte finish achieved through SVG rendering. */
 
-/* Ensure text readability: White and light yellow text contrast well on the dark base */
-/* Adjust selectors based on your content. */
-.jungle-paint-bg,
-.jungle-paint-bg h1,
-.jungle-paint-bg h2,
-.jungle-paint-bg p {
-  color: #ffffff; /* White for strong contrast */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Subtle shadow for readability */
-}
+        .jungle-paint-bg {
+          position: relative;
+          background-color: #0f3d2e; /* Fallback base color */
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3Cstyle%3Epath%7Bfill:none%3Bstroke-linecap:round%3Bstroke-linejoin:round%3B%7D%3C/style%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='%230f3d2e'/%3E%3Cpath d='M-100 200 Q400 150 1000 250 T2000 300' stroke='%230a2e22' stroke-width='80' opacity='0.6'/%3E%3Cpath d='M-200 400 Q500 350 1100 450 T2100 500' stroke='%230a2e22' stroke-width='60' opacity='0.5'/%3E%3Cpath d='M0 600 Q600 550 1200 650 T2200 700' stroke='%230a2e22' stroke-width='70' opacity='0.55'/%3E%3Cpath d='M-150 800 Q450 750 1300 850 T2300 900' stroke='%230a2e22' stroke-width='50' opacity='0.45'/%3E%3Cpath d='M100 100 Q700 50 1400 150 T2400 200' stroke='%230a2e22' stroke-width='90' opacity='0.65'/%3E%3Cpath d='M-50 300 Q550 250 1150 350 T2150 400' stroke='%230a2e22' stroke-width='75' opacity='0.6'/%3E%3Cpath d='M200 500 Q800 450 1250 550 T2250 600' stroke='%230a2e22' stroke-width='65' opacity='0.5'/%3E%3Cpath d='M-100 700 Q500 650 1350 750 T2350 800' stroke='%230a2e22' stroke-width='85' opacity='0.55'/%3E%3Cpath d='M50 900 Q650 850 1450 950 T2450 1000' stroke='%230a2e22' stroke-width='55' opacity='0.45'/%3E%3C/svg%3E");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          min-height: 100vh; /* Ensure full height */
+          overflow-x: hidden; /* Prevent horizontal scroll */
+        }
 
-.jungle-paint-bg .btn,
-.jungle-paint-bg .highlight {
-  color: #ffeb3b; /* Light yellow for CTAs and highlights */
-}
+        /* Ensure text readability: White and light yellow text contrast well on the dark base */
+        /* Adjust selectors based on your content. */
+        .jungle-paint-bg,
+        .jungle-paint-bg h1,
+        .jungle-paint-bg h2,
+        .jungle-paint-bg p {
+          color: #ffffff; /* White for strong contrast */
+          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Subtle shadow for readability */
+        }
 
-/* Usage: Add the class 'jungle-paint-bg' to the <body> tag or a main wrapper (e.g., <body class="jungle-paint-bg">). */
-/* This creates a clean, premium, hand-painted jungle wall effect—natural and calm—without gradients, grain, or noise. */
-/* The SVG is scalable and optimized for full-width use. If you need adjustments (e.g., more strokes or color tweaks), let me know! */
+        .jungle-paint-bg .btn,
+        .jungle-paint-bg .highlight {
+          color: #ffeb3b; /* Light yellow for CTAs and highlights */
+        }
 
-            </style>
+        /* Usage: Add the class 'jungle-paint-bg' to the <body> tag or a main wrapper (e.g., <body class="jungle-paint-bg">). */
+        /* This creates a clean, premium, hand-painted jungle wall effect—natural and calm—without gradients, grain, or noise. */
+        /* The SVG is scalable and optimized for full-width use. If you need adjustments (e.g., more strokes or color tweaks), let me know! */
+
+    </style>
 </head>
 <body class="jungle-paint-bg">
 
@@ -424,8 +414,7 @@
             </nav>
         </header>
 
-               <!-- Hero Section -->
-                
+        <!-- Hero Section -->
         <section id="hero">
             <div class="slider">
                 <div class="slide active" style="background-image: url('https://source.unsplash.com/featured/?adventure,jungle');"></div>
@@ -479,19 +468,17 @@
             </div>
         </section>
 
-               <!-- Activities Section -->
+        <!-- Activities Section -->
         <section id="activities">
-           <div class="brush-section">
-  <div class="brush-title-wrapper">
-    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
-      <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70
-               Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
-    </svg>
-    <h2 class="brush-title">ACTIVITIES</h2>
-  </div>
-  <p class="brush-subtitle">This is where the adventure begins</p>
-</div>
-
+            <div class="brush-section">
+                <div class="brush-title-wrapper">
+                    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
+                        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
+                    </svg>
+                    <h2 class="brush-title">ACTIVITIES</h2>
+                </div>
+                <p class="brush-subtitle">This is where the adventure begins</p>
+            </div>
             <div class="activities-grid">
                 <div class="activity-card fade-in">
                     <img src="https://images.unsplash.com/photo-1664735094820-c6c40d862d5b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Zip Line">
@@ -501,13 +488,11 @@
                         <p><strong>Safety:</strong> Harness and trained guides.</p>
                     </div>
                 </div>
-                <div class="activity-card fade-in">
+                               <div class="activity-card fade-in">
                     <img src="https://www.shutterstock.com/image-photo/bataan-philippines-april-8-2016-couple-1009533448?trackingId=5ed29cb3-bdb4-405b-93dc-f53df869e544" alt="Sky Cycle">
                     <div class="content">
                         <h3>SKY CYCLE</h3>
-                        <p>Balance on air bike which keeps you up at 25ft from bottom in sky.
-No wonder why we call it sky cycle.
-It offers an adventurous feel, combined twists to cycling, combining speed & courage for an unforgettable ride above the ground.</p>
+                        <p>Balance on air bike which keeps you up at 25ft from bottom in sky. No wonder why we call it sky cycle. It offers an adventurous feel, combined twists to cycling, combining speed & courage for an unforgettable ride above the ground.</p>
                         <p><strong>Safety:</strong> Secure tracks and supervision.</p>
                     </div>
                 </div>
@@ -515,9 +500,7 @@ It offers an adventurous feel, combined twists to cycling, combining speed & cou
                     <img src="https://lh3.googleusercontent.com/p/AF1QipP7Bcawa2avuljI46icm8k2GC2zbsiVqIU-UoJU=w114-h86-k-no" alt="Rocket Ejector">
                     <div class="content">
                         <h3>ROCKET EJECTOR</h3>
-                        <p>It’s time you meet, rocket Ejector at jungle spring resort.
-It can give you wings, but it can catapult you 80 feet off the ground!
-Rocket ejector is perfect activity for adrenaline junkies.</p>
+                        <p>It’s time you meet, rocket Ejector at jungle spring resort. It can give you wings, but it can catapult you 80 feet off the ground! Rocket ejector is perfect activity for adrenaline junkies.</p>
                         <p><strong>Safety:</strong> Controlled ejection and safety nets.</p>
                     </div>
                 </div>
@@ -525,8 +508,7 @@ Rocket ejector is perfect activity for adrenaline junkies.</p>
                     <img src="https://lh3.googleusercontent.com/p/AF1QipP7Bcawa2avuljI46icm8k2GC2zbsiVqIU-UoJU=w114-h86-k-no" alt="Human Gyro">
                     <div class="content">
                         <h3>HUMAN GYRO</h3>
-                        <p>Get ready to challenge gravity and enjoy this amazing game !!!
-Where you can enjoy with your best buddies.</p>
+                        <p>Get ready to challenge gravity and enjoy this amazing game !!! Where you can enjoy with your best buddies.</p>
                         <p><strong>Safety:</strong> Stabilized platform and harnesses.</p>
                     </div>
                 </div>
@@ -534,15 +516,7 @@ Where you can enjoy with your best buddies.</p>
                     <img src="https://lh3.googleusercontent.com/p/AF1QipP7Bcawa2avuljI46icm8k2GC2zbsiVqIU-UoJU=w114-h86-k-no" alt="Rope Course">
                     <div class="content">
                         <h3>ROPE COURSE – LEVEL 1</h3>
-                        <p>Zigzag suspension plank
-Burma bridge
-block walk
-swinging plank
-Balancing Rope
-tyre bridge
-high V
-swinging ladder
-net tunnel</p>
+                        <p>Zigzag suspension plank Burma bridge block walk swinging plank Balancing Rope tyre bridge high V swinging ladder net tunnel</p>
                         <p><strong>Safety:</strong> Full harness and instructor guidance.</p>
                     </div>
                 </div>
@@ -550,17 +524,7 @@ net tunnel</p>
                     <img src="https://lh3.googleusercontent.com/p/AF1QipP7Bcawa2avuljI46icm8k2GC2zbsiVqIU-UoJU=w114-h86-k-no" alt="Rope Course Level 2">
                     <div class="content">
                         <h3>ROPE COURSE – LEVEL 2</h3>
-                        <p>Up & down swinging pipe
-sideways tyre crossing
-sky walk
-log to log
-wally crossing
-sideways plank
-swinging tyre
-crossing zigzag
-swinging plank
-commando net
-vertical rope crossing</p>
+                        <p>Up & down swinging pipe sideways tyre crossing sky walk log to log wally crossing sideways plank swinging tyre crossing zigzag swinging plank commando net vertical rope crossing</p>
                         <p><strong>Safety:</strong> Full harness and instructor guidance.</p>
                     </div>
                 </div>
@@ -568,8 +532,7 @@ vertical rope crossing</p>
                     <img src="https://lh3.googleusercontent.com/p/AF1QipP7Bcawa2avuljI46icm8k2GC2zbsiVqIU-UoJU=w114-h86-k-no" alt="Bull Ride">
                     <div class="content">
                         <h3>BULL RIDE</h3>
-                        <p>Get your inner cowboy out and show your balancing skills on bull ride.                        <p>Get your inner cowboy out and show your balancing skills on bull ride.
-Hold the rope tightly & dare to ride.</p>
+                        <p>Get your inner cowboy out and show your balancing skills on bull ride. Hold the rope tightly & dare to ride.</p>
                         <p><strong>Safety:</strong> Padded area and spotters.</p>
                     </div>
                 </div>
@@ -577,8 +540,7 @@ Hold the rope tightly & dare to ride.</p>
                     <img src="https://images.unsplash.com/photo-1631394255828-6a1e12f0e626?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2xpZGV8ZW58MHx8MHx8fDA%3D" alt="Meltdown">
                     <div class="content">
                         <h3>MELTDOWN</h3>
-                        <p>Melt down game is an immersive gaming experience that transcend boundaries.
-Continuously push the boundaries and delivering engaging narratives and unforgettable gaming moments.</p>
+                        <p>Melt down game is an immersive gaming experience that transcend boundaries. Continuously push the boundaries and delivering engaging narratives and unforgettable gaming moments.</p>
                         <p><strong>Safety:</strong> Lifeguards and safe entry.</p>
                     </div>
                 </div>
@@ -586,9 +548,7 @@ Continuously push the boundaries and delivering engaging narratives and unforget
                     <img src="https://lh3.googleusercontent.com/p/AF1QipP7Bcawa2avuljI46icm8k2GC2zbsiVqIU-UoJU=w114-h86-k-no" alt="Rock Climbing">
                     <div class="content">
                         <h3>ADVENTURE CLIMBING WALL</h3>
-                        <p>Dare to ascend! Our adventure park’s climbing wall invites thrill-seekers to conquer new heights.
-With its diverse routes and challenging inclines, this towering structure offers adrenaline-pumping experiences for climbers of all skill levels.
-Safely equipped with certified harnesses and crash pads, it’s an exhilarating opportunity to test courage, agility, and determination in a controlled, heart-pounding adventure.</p>
+                        <p>Dare to ascend! Our adventure park’s climbing wall invites thrill-seekers to conquer new heights. With its diverse routes and challenging inclines, this towering structure offers adrenaline-pumping experiences for climbers of all skill levels. Safely equipped with certified harnesses and crash pads, it’s an exhilarating opportunity to test courage, agility, and determination in a controlled, heart-pounding adventure.</p>
                         <p><strong>Safety:</strong> Belay systems and instructors.</p>
                     </div>
                 </div>
@@ -628,8 +588,7 @@ Safely equipped with certified harnesses and crash pads, it’s an exhilarating 
                     <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhbXBvbGluZXxlbnwwfHwwfHx8MA%3D%3D" alt="Fun Trampoline">
                     <div class="content">
                         <h3>FUN TRAMPOLINE</h3>
-                        <p>What’s the tile and thrilling bouncing experience with safety features.
-This dynamic trampoline provides an ideal outlet for energetic play promoting fun with safe environment.</p>
+                        <p>What’s the tile and thrilling bouncing experience with safety features. This dynamic trampoline provides an ideal outlet for energetic play promoting fun with safe environment.</p>
                         <p><strong>Safety:</strong> Padded area and supervision.</p>
                     </div>
                 </div>
@@ -670,16 +629,14 @@ This dynamic trampoline provides an ideal outlet for energetic play promoting fu
 
         <!-- Packages Section -->
         <section id="packages">
-           <div class="brush-section">
-  <div class="brush-title-wrapper">
-    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
-      <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70
-               Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
-    </svg>
-    <h2 class="brush-title">ADVENTURE PACKAGES</h2>
-  </div>
-</div>
-
+            <div class="brush-section">
+                <div class="brush-title-wrapper">
+                    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
+                        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
+                    </svg>
+                    <h2 class="brush-title">ADVENTURE PACKAGES</h2>
+                </div>
+            </div>
             <div class="packages-grid">
                 <div class="package-card fade-in">
                     <h3>One Day Adventure Package</h3>
@@ -719,15 +676,13 @@ This dynamic trampoline provides an ideal outlet for energetic play promoting fu
         <!-- Stay Section -->
         <section id="stay">
             <div class="brush-section">
-  <div class="brush-title-wrapper">
-    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
-      <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70
-               Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
-    </svg>
-    <h2 class="brush-title">STAY & COTTAGE TARIFF</h2>
-  </div>
-</div>
-
+                <div class="brush-title-wrapper">
+                    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
+                        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
+                    </svg>
+                    <h2 class="brush-title">STAY & COTTAGE TARIFF</h2>
+                </div>
+            </div>
             <div class="stay-grid">
                 <div class="stay-card fade-in">
                     <h3>Deluxe Cottage</h3>
@@ -750,15 +705,13 @@ This dynamic trampoline provides an ideal outlet for energetic play promoting fu
         <!-- Amenities Section -->
         <section id="amenities">
             <div class="brush-section">
-  <div class="brush-title-wrapper">
-    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
-      <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70
-               Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
-    </svg>
-    <h2 class="brush-title">RESORT AMENITIES</h2>
-  </div>
-</div>
-
+                <div class="brush-title-wrapper">
+                    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
+                        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
+                    </svg>
+                    <h2 class="brush-title">RESORT AMENITIES</h2>
+                </div>
+            </div>
             <div class="amenities-grid">
                 <div class="amenity-item fade-in"><i class="fas fa-swimming-pool"></i><p>Infinity Pool</p></div>
                 <div class="amenity-item fade-in"><i class="fas fa-fire"></i><p>Bonfire</p></div>
@@ -778,8 +731,8 @@ This dynamic trampoline provides an ideal outlet for energetic play promoting fu
                 <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/p/AF1QipPyy7O6FaxZGh5FWeZSaoGXueAtDPvcgOxawP3U=s1360-w1360-h1020-rw" alt="Gallery Image 3" onclick="openModal(this.src)">
                 <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw0VRyJJfjGm4iOHfw4TsxOxt-GuL0E0WtHznhLDLGgRdJxyjs1T7KrrDUotDezJsEbMXFyOamKoF7Gl_kPDmJkKicwu_13Ytmvh-ijnIUBzyI0TyYVZtoqHbcGwu5dXbG-na75DQ=s1360-w1360-h1020-rw" alt="Gallery Image 4" onclick="openModal(this.src)">
                 <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxKXXjIy8ScKpsK2hadF6sq20NyljSlV5_tEClrPFQereQTg3KSfihSTEI-0uyvZ8KrJ4r7unN9o6FPJz8ctnhldYn7IHmFPZJPd_R5LWmpxG2x5Mx_QMEwCEKT32WLWyp_osM=s1360-w1360-h1020-rw" alt="Gallery Image 5" onclick="openModal(this.src)">
-                                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw1YGAsNM5ctmKM0rtACJ0RUpa6Ew1pQ93MCSFZxNLai-nFktzNvas8r95LkSHZ5ILFgOLBaGFJ8MEZSKWJzYH9s8N0JrsMUDZC8ua1Gy7zat7DQdh1XMP1l7zhxv_iRYlUWNpw=s1360-w1360-h1020-rw" alt="Gallery Image 8" onclick="openModal(this.src)">
-                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxXTfkH9tPibAKjMUE6Y_N7Yo8BXOwY9XKxeiKltrwuS1qIvdUC4qvVA3S9wlG0pQZx9zMMMMdWrrqfCMhDo_2T9Br78QEiXNDxRr62UkfOJrwakV24JD8PbkhlSIptnyZnWgua=s1360-w1360-h1020-rw" alt="Gallery Image 9" onclick="openModal(this.src)">
+                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw1YGAsNM5ctmKM0rtACJ0RUpa6Ew1pQ93MCSFZxNLai-nFktzNvas8r95LkSHZ5ILFgOLBaGFJ8MEZSKWJzYH9s8N0JrsMUDZC8ua1Gy7zat7DQdh1XMP1l7zhxv_iRYlUWNpw=s1360-w1360-h1020-rw" alt="Gallery Image 6" onclick="openModal(this.src)">
+                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxXTfkH9tPibAKjMUE6Y_N7Yo8BXOwY9XKxeiKltrwuS1qIvdUC4qvVA3S9wlG0pQZx9zMMMMdWrrqfCMhDo_2T9Br78QEiXNDxRr62UkfOJrwakV24JD8PbkhlSIptnyZnWgua=s1360-w1360-h1020-rw" alt="Gallery Image 7" onclick="openModal(this.src)">
             </div>
         </section>
 
@@ -791,8 +744,8 @@ This dynamic trampoline provides an ideal outlet for energetic play promoting fu
 
         <!-- Contact Section -->
         <section id="contact">
-            <h2 class="section-title">Contact & Booking</h> 
-                            <div class="contact-grid">
+            <h2 class="section-title">Contact & Booking</h2>
+            <div class="contact-grid">
                 <div class="form">
                     <input type="text" placeholder="Name">
                     <input type="email" placeholder="Email">
@@ -809,7 +762,7 @@ This dynamic trampoline provides an ideal outlet for energetic play promoting fu
 
         <!-- Footer -->
         <footer>
-            <p>Jungle Spring Resort & Adventure Park, Ajara,Kolhapur, India</p>
+            <p>Jungle Spring Resort & Adventure Park, Ajara, Kolhapur, India</p>
             <p>Phone: +91 12345 67890 | WhatsApp: +91 12345 67890 | Email: info@junglespring.com</p>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-facebook"></i></a>
