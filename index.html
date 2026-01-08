@@ -170,28 +170,6 @@
         .dot.active {
             background: var(--accent-yellow);
         }
-        .slider-controls {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            z-index: 10;
-        }
-        .slider-controls button {
-            background: rgba(212, 175, 55, 0.3);
-            color: var(--accent-yellow);
-            border: none;
-            padding: 1rem;
-            margin: 0 0.5rem;
-            cursor: pointer;
-            border-radius: 50%;
-            transition: all 0.3s;
-        }
-        .slider-controls button:hover {
-            background: var(--accent-yellow);
-            color: var(--secondary-dark);
-            transform: scale(1.1);
-        }
 
         /* Keyframe Animations */
         @keyframes fadeInUp {
@@ -212,10 +190,6 @@
             }
             .hero-content p {
                 font-size: 1.2rem;
-            }
-            .slider-controls {
-                bottom: 20px;
-                right: 20px;
             }
             .slider-dots {
                 bottom: 40px;
@@ -466,19 +440,17 @@
         <!-- Hero Section -->
         <section id="hero">
             <div class="slider">
-                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&auto=format');"></div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=1920&h=1080&fit=crop&auto=format');"></div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&auto=format');"></div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop&auto=format');"></div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&auto=format');"></div>
-                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=1920&h=1080&fit=crop&auto=format');"></div>
+                <div class="slide active" style="background-image: url('https://lh3.googleusercontent.com/p/AF1QipP2VwR1x4Ewq_9ZBPhIV6tul6Yw-K9DfavUI0jl=w203-h304-k-no');"></div>
+                <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/p/AF1QipPvuU5o909zil7nazt2qAe7VM6GqQSKsJv5H1H8=w203-h304-k-no');"></div>
+                <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwwwo58y-jj1nO7IwJ9bjR1G23qBgl4dQ68tJKLmsQKQzLS1UlGqnzppXvMfbEdwH1Vj3X_hTnLxMyrHCDeghLcl_4bgEgQPX6wHeUmmnbWgwVOQJ1fF8UWk41ggqKv5D25kc8QGA=w203-h270-k-no');"></div>
+                <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzDepwZR1Wxa4CZcXJBNG30-WY9YiLqI2Oh2xzqmSPZ31b7rdKdiY44sotGqLETTwFjMSfRMLSZgXZDgzbLQho2ATSIJKoLzZoea1YujwNqzM2O88ZOWAxoGbo5jqPvNMuUQeP7lQ=w203-h270-k-no');"></div>
+                <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxsgYf7zYTci1DX1LGyIrNE-MkJVo5tuaOclK-AisQd0jZYMiAfpe-7d68CEL4NDNCfzmMsSoHQo9wVGPxHxxZHe96zR8Qa7PhzR4Di-5H10rnjslrR5RKej8bZiAHERVfRzaFEIQ=w203-h270-k-no');"></div>
+                <div class="slide" style="background-image: url('https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxsgYf7zYTci1DX1LGyIrNE-MkJVo5tuaOclK-AisQd0jZYMiAfpe-7d68CEL4NDNCfzmMsSoHQo9wVGPxHxxZHe96zR8Qa7PhzR4Di-5H10rnjslrR5RKej8bZiAHERVfRzaFEIQ=w203-h270-k-no');"></div>
             </div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1>Nature Meets Adventure at Jungle Spring Resort</h1>
                 <p>One Day Outing · Adventure · Nature · Stay</p>
-                <a href="#contact" class="btn">Book Now</a>
-                <a href="tel:+911234567890" class="btn btn-outline">Call Now</a>
             </div>
             <div class="slider-dots">
                 <span class="dot active" onclick="goToSlide(0)"></span>
@@ -487,10 +459,6 @@
                 <span class="dot" onclick="goToSlide(3)"></span>
                 <span class="dot" onclick="goToSlide(4)"></span>
                 <span class="dot" onclick="goToSlide(5)"></span>
-            </div>
-            <div class="slider-controls">
-                <button onclick="prevSlide()">❮</button>
-                <button onclick="nextSlide()">❯</button>
             </div>
         </section>
 
@@ -535,7 +503,7 @@
                     <div class="content">
                         <h3>ROCKET EJECTOR</h3>
                         <p>It’s time you meet, rocket Ejector at jungle spring resort. It can give you wings, but it can catapult you 80 feet off the ground! Rocket ejector is perfect activity for adrenaline junkies.</p>
-                        <p><strong>Safety:</strong> Controlled ejection<p><strong>Safety:</strong> Controlled ejection and safety nets.</p>
+                        <p><strong>Safety:</strong> Controlled ejection and safety nets.</p>
                     </div>
                 </div>
                 <div class="activity-card fade-in">
@@ -760,13 +728,12 @@
         <section id="gallery">
             <h2 class="section-title">Gallery</h2>
             <div class="gallery-grid">
-                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzSvR8CeVMQwZOGSjtTO4to__wUfthwr--dblxVhBrR55jUdzg_Qe6m5pY1ke8S5HCzNBR31udp8O0ERcmDygUv1Ajoa4c4rRwvW0oArxVChZ8cAyyI2oKUtfFCmgRNkHv8jut3cfFGpMtI=s1360-w1360-h1020-rw" alt="Gallery Image 1" onclick="openModal(this.src)">
-                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSy7OS4jdLEjgZzfWrvEq_F53ypakMXNnLkQguuLEu79NqWMd7yAk2RlIXk0Y-lWx1NLfkBCmQlRyrxpBLK4qfev6ZYqneJWgxracCNNHWsfvjzWaMhpbi1mEocKEGsHpogTmKI9=s1360-w1360-h1020-rw" alt="Gallery Image 2" onclick="openModal(this.src)">
-                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/p/AF1QipPyy7O6FaxZGh5FWeZSaoGXueAtDPvc<img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/p/AF1QipPyy7O6FaxZGh5FWeZSaoGXueAtDPvcgOxawP3U=s1360-w1360-h1020-rw" alt="Gallery Image 3" onclick="openModal(this.src)">
-                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw0VRyJJfjGm4iOHfw4TsxOxt-GuL0E0WtHznhLDLGgRdJxyjs1T7KrrDUotDezJsEbMXFyOamKoF7Gl_kPDmJkKicwu_13Ytmvh-ijnIUBzyI0TyYVZtoqHbcGwu5dXbG-na75DQ=s1360-w1360-h1020-rw" alt="Gallery Image 4" onclick="openModal(this.src)">
-                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxKXXjIy8ScKpsK2hadF6sq20NyljSlV5_tEClrPFQereQTg3KSfihSTEI-0uyvZ8KrJ4r7unN9o6FPJz8ctnhldYn7IHmFPZJPd_R5LWmpxG2x5Mx_QMEwCEKT32WLWyp_osM=s1360-w1360-h1020-rw" alt="Gallery Image 5" onclick="openModal(this.src)">
-                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw1YGAsNM5ctmKM0rtACJ0RUpa6Ew1pQ93MCSFZxNLai-nFktzNvas8r95LkSHZ5ILFgOLBaGFJ8MEZSKWJzYH9s8N0JrsMUDZC8ua1Gy7zat7DQdh1MP1l7zhxv_iRYlUWNpw=s1360-w1360-h1020-rw" alt="Gallery Image 6" onclick="openModal(this.src)">
-                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxXTfkH9tPibAKjMUE6Y_N7Yo8BXOwY9XKxeiKltrwuS1qIvdUC4qvVA3S9wlG0pQZx9zMMMMdWrrqfCMhDo_2T9Br78QEiXNDxRr62UkfOJrwakV24JD8PbkhlSIptnyZnWgua=s1360-w1360-h1020-rw" alt="Gallery Image 7" onclick="openModal(this.src)">
+                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxZQanN2zUkoBNajrpx3oN0c1Zljb4XNkkWbx2O64RdS9WixXGmbq3L3Sv4HMVHkp0frGggR0vRWV0gqj8s2rqJMYgLA8kwi9AbqzdBDYZOoua3bFHBsm2fPVhS0CrCwVOWLQwq6Q=w203-h152-k-no" alt="Gallery Image 1" onclick="openModal(this.src)">
+                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw29buOJDq9eygVmqg3zldZXpepId1CjDuBxsZ_lmRfs2qEGhfXy3TcFpMDO1ZAeZQ9N8IsR-jPzbXHYp3zlCo55muxtSuB-hpVSdNHFSRMqVNzOaqKQJI7oXHoT4MivPrY_yXHDQ=w203-h152-k-no" alt="Gallery Image 2" onclick="openModal(this.src)">
+                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzD0Uf7Sv5G2hpQXZobpqN-wSyy9D4xzyCg3a_7d1Hu-tWgJJu7J2Cd0wFxkGX2cMhkYSvndJemkmVy6fzLhVE2V0hWOuIu8Z4PYYm1FEh8U8RTrMKDqOxQPFIF4a4jTBOa-14=w203-h152-k-no" alt="Gallery Image 3" onclick="openModal(this.src)">
+                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwgvX2zASvcKf3vNK8K-SOkllATUNwmVaEMJL5sFdu9ELzKANfvzEleDxSOqxm44tKfQs9l5OYiBSKU2VpaVo0iJNRGnEKOGycKI0fC7iUK_li_ztnMQ7qiz7jBmTX5844fPD_7=w203-h152-k-no" alt="Gallery Image 4" onclick="openModal(this.src)">
+                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSz9z7svTfNms13XDzK2CMBqR2q_ZUp4G5sfjeOdZy4XrtmenOWjiKFM3Aqa-OBjaKExkkyjRuyVbNKMYYI-yyxp-fQ_RbbFkco-msEOFSKhlrhMJWonpY2tV5EZtqoqoEZ24ioH=w203-h152-k-no" alt="Gallery Image 5" onclick="openModal(this.src)">
+                <img class="gallery-item fade-in" src="https://lh3.googleusercontent.com/gps-cs-s/AG0ilSygoE7YkLARgJgw7oXZlpCJ-XYz61CDkTwjMge1hHNlrxxCCkUokygYySAfFrI6TauTE1CDlW1ILd7ZdfpQHmylbywhEXSv0Skwii-5cPeN1kTkztrBdHT7G24CcaDoyRogb-yw0oPPSVg=w203-h270-k-no" alt="Gallery Image 6" onclick="openModal(this.src)">
             </div>
         </section>
 
