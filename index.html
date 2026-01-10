@@ -60,33 +60,29 @@
             transition: all 0.3s;
         }
         .logo-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 58px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  padding: 6px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-  transition: all 0.35s ease;
-}
-
-.logo-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
-}
-
-/* Hover micro-interaction */
-.logo-wrap:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.55);
-}
-
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            padding: 0; /* Removed padding for perfect fit */
+            backdrop-filter: blur(6px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+            transition: all 0.35s ease;
+        }
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Changed to cover for natural fill */
+            border-radius: 50%; /* Ensures circular edges */
+        }
+        /* Hover micro-interaction */
+        .logo-wrap:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.55);
+        }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .nav-links { display: none; list-style: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-bg); padding: 1rem; box-shadow: 0 4px 12px var(--shadow-subtle); border-radius: 0 0 16px 16px; }
         .nav-links.active { display: flex; }
@@ -426,6 +422,33 @@
         .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-yellow); color: var(--secondary-dark); border-radius: 50%; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px 12px var(--shadow-subtle); z-index: 1000; transition: all 0.3s; animation: pulse 2s infinite; }
         .whatsapp-btn:hover { background: #c4a030; transform: scale(1.1); }
 
+        /* Vertical Download Button */
+        .download-btn {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 25px 25px 0 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            background: #333333;
+            transform: translateY(-50%) translateX(-4px) rotate(90deg);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+
         /* Scroll Animations */
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -451,10 +474,8 @@
         <header>
             <nav>
                 <div class="logo-wrap">
-  <img src="assets/images/logo/jungle_spring_logo.png" alt="Jungle Spring Resort Logo">
-</div>
-
-
+                    <img src="assets/images/logo/jungle_spring_logo.png" alt="Jungle Spring Resort Logo">
+                </div>
                 <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -473,10 +494,10 @@
         <section id="hero">
             <div class="slider">
                 <div class="slide active" style="background-image: url('assets/images/hero/hero1.jpg');"></div>
-<div class="slide" style="background-image: url('assets/images/hero/hero2.jpg');"></div>
-<div class="slide" style="background-image: url('assets/images/hero/hero3.jpg');"></div>
-<div class="slide" style="background-image: url('assets/images/hero/hero4.jpg');"></div>
-<div class="slide" style="background-image: url('assets/images/hero/hero5.jpg');"></div>
+                <div class="slide" style="background-image: url('assets/images/hero/hero2.jpg');"></div>
+                <div class="slide" style="background-image: url('assets/images/hero/hero3.jpg');"></div>
+                <div class="slide" style="background-image: url('assets/images/hero/hero4.jpg');"></div>
+                <div class="slide" style="background-image: url('assets/images/hero/hero5.jpg');"></div>
             </div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -489,7 +510,6 @@
                 <span class="dot" onclick="goToSlide(2)"></span>
                 <span class="dot" onclick="goToSlide(3)"></span>
                 <span class="dot" onclick="goToSlide(4)"></span>
-                <span class="dot" onclick="goToSlide(5)"></span>
             </div>
         </section>
 
@@ -514,7 +534,7 @@
             </div>
             <div class="activities-grid">
                 <div class="activity-card fade-in">
-                     <img src="assets/images/activities/zipline.jpg" alt="Zip Line">
+                    <img src="assets/images/activities/zipline.jpg" alt="Zip Line">
                     <div class="content">
                         <h3>ZIPLINE</h3>
                         <p>350+ ft long zipline has it’s own adventurous feel which you cannot experience anywhere else, because it’s just beside dam, giving you full view of dam backwater and surrounded by lush green mountains.</p>
@@ -522,7 +542,7 @@
                     </div>
                 </div>
                 <div class="activity-card fade-in">
-                     <img src="assets/images/activities/sky cycling.jpg" alt="Sky Cycle">
+                    <img src="assets/images/activities/sky cycling.jpg" alt="Sky Cycle">
                     <div class="content">
                         <h3>SKY CYCLE</h3>
                         <p>Balance on air bike which keeps you up at 25ft from bottom in sky. No wonder why we call it sky cycle. It offers an adventurous feel, combined twists to cycling, combining speed & courage for an unforgettable ride above the ground.</p>
@@ -546,7 +566,7 @@
                     </div>
                 </div>
                 <div class="activity-card fade-in">
-                    <img src="assets/images/activities/rope course level-1.jpg"Rope Course">
+                    <img src="assets/images/activities/rope course level-1.jpg" alt="Rope Course Level 1">
                     <div class="content">
                         <h3>ROPE COURSE – LEVEL 1</h3>
                         <p>Zigzag suspension plank Burma bridge block walk swinging plank Balancing Rope tyre bridge high V swinging ladder net tunnel</p>
@@ -554,7 +574,7 @@
                     </div>
                 </div>
                 <div class="activity-card fade-in">
-                    <img src="assets/images/activities/rope course level-2.jpg"Rope Course"> alt="Rope Course Level 2">
+                    <img src="assets/images/activities/rope course level-2.jpg" alt="Rope Course Level 2">
                     <div class="content">
                         <h3>ROPE COURSE – LEVEL 2</h3>
                         <p>Up & down swinging pipe sideways tyre crossing sky walk log to log wally crossing sideways plank swinging tyre crossing zigzag swinging plank commando net vertical rope crossing</p>
@@ -562,7 +582,7 @@
                     </div>
                 </div>
                 <div class="activity-card fade-in">
-                    <img src="assets/images/activities/bull ride.jpg"Bull Ride"> alt="Bull Ride">
+                    <img src="assets/images/activities/bull ride.jpg" alt="Bull Ride">
                     <div class="content">
                         <h3>BULL RIDE</h3>
                         <p>Get your inner cowboy out and show your balancing skills on bull ride. Hold the rope tightly & dare to ride.</p>
@@ -578,8 +598,7 @@
                     </div>
                 </div>
                 <div class="activity-card fade-in">
-                    <img src="assets/images/activities/adventure climbing wall.jpg"Rope Course"> alt="Rock Climbing">
-                    <div class="content">
+                    <img src="assets/images/activities/adventure climbing wall.jpg" alt="Rock Climbing">                    <div class="content">
                         <h3>ADVENTURE CLIMBING WALL</h3>
                         <p>Dare to ascend! Our adventure park’s climbing wall invites thrill-seekers to conquer new heights. With its diverse routes and challenging inclines, this towering structure offers adrenaline-pumping experiences for climbers of all skill levels. Safely equipped with certified harnesses and crash pads, it’s an exhilarating opportunity to test courage, agility, and determination in a controlled, heart-pounding adventure.</p>
                         <p><strong>Safety:</strong> Belay systems and instructors.</p>
@@ -731,7 +750,7 @@
                     <h3>Last Premium Cottage</h3>
                     <p>₹4999</p>
                     <p>Capacity: 6 adults. Extra mattress: ₹400. View: Infinity pool. Experience: Luxury stay.</p>
-                </div>                </div>
+                </div>
             </div>
         </section>
 
@@ -812,6 +831,9 @@
 
         <!-- Sticky WhatsApp Button -->
         <a href="https://wa.me/911234567890" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+
+        <!-- Vertical Download Button -->
+        <button class="download-btn" onclick="downloadFile()">DOWNLOAD</button>
     </div>
 
     <script>
@@ -852,52 +874,58 @@
         }
 
         // Pause on hover
-        document.querySelector('.slider').addEventListener('mouseenter', stopSlideshow);
-        document.querySelector('.slider').addEventListener('mouseleave', startSlideshow);
+document.querySelector('.slider').addEventListener('mouseenter', stopSlideshow);
+document.querySelector('.slider').addEventListener('mouseleave', startSlideshow);
 
-        // Initialize
-        startSlideshow();
-        showSlide(currentSlide);
+// Initialize
+startSlideshow();
+showSlide(currentSlide);
 
-        // Menu Toggle
-        function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('active');
+// Menu Toggle
+function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+}
+
+// Package Details Toggle
+function toggleDetails(button) {
+    const details = button.nextElementSibling;
+    details.classList.toggle('active');
+}
+
+// Modal Gallery
+function openModal(src) {
+    document.getElementById('modal-img').src = src;
+    document.getElementById('modal').classList.add('active');
+}
+function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+}
+
+// Scroll Animations
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
         }
+    });
+});
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Package Details Toggle
-        function toggleDetails(button) {
-            const details = button.nextElementSibling;
-            details.classList.toggle('active');
-        }
-
-        // Modal Gallery
-        function openModal(src) {
-            document.getElementById('modal-img').src = src;
-            document.getElementById('modal').classList.add('active');
-        }
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-        }
-
-        // Scroll Animations
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+// Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+});
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+// Download Function (for the vertical button)
+function downloadFile() {
+    // Placeholder: Replace with actual download logic, e.g., window.location.href = 'path/to/file.pdf';
+    alert('Download functionality not implemented yet. Replace with actual file URL.');
+}
     </script>
 </body>
 </html>
