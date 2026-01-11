@@ -263,23 +263,15 @@
         }
         @media (max-width: 768px) {
   .vertical-download {
-    position: fixed;
-    top: 55%;
-    right: 0;                     /* 🔥 DO NOT use negative */
-    transform: translateY(-50%) rotate(-90deg);
-    transform-origin: right center;
-
-    padding: 10px 18px;
-    font-size: 11px;
-    letter-spacing: 2px;
-
-    background: #1f1f1f;
-    color: #fff;
-    border-radius: 0 0 4px 4px;
-
-    z-index: 999999;
+    transform: none;
+    top: auto;
+    bottom: 90px;
+    right: 15px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
   }
 }
+
 
 
 
