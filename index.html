@@ -262,18 +262,11 @@
             font-weight: 600; /* Semi-bold for labels */
         }
         @media (max-width: 768px) {
-  .vertical-download {
-    transform: none;
-    top: auto;
-    bottom: 90px;
-    right: 15px;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-  }
-}
-
-
-
+            .brush-title {
+                font-size: 2rem;
+                padding: 16px 40px;
+            }
+        }
 
         /* About */
         #about { background: url('https://source.unsplash.com/featured/?nature,jungle') center/cover; position: relative; }
@@ -450,42 +443,6 @@
             .section-title { font-size: 2rem; }
             .highlights-grid, .activities-grid, .packages-grid, .stay-grid, .amenities-grid { grid-template-columns: 1fr; gap: 2rem; }
         }
-        /* Vertical Download Button – Desktop Only */
-.vertical-download {
-  position: fixed;
-  right: -52px;
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  background: #111;
-  color: #ffffff;
-  padding: 14px 32px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  border-radius: 0 0 10px 10px;
-  z-index: 9999;
-  transition: background 0.3s ease, right 0.3s ease;
-}
-
-/* Hover effect */
-.vertical-download:hover {
-  background: #222;
-  right: -46px;
-}
-
-/* Hide on mobile */
-@media (max-width: 768px) {
-  .vertical-download {
-    display: none;
-  }
-}
-.vertical-download {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  z-index: 999999 !important;
-}
-
-
     </style>
 </head>
 <body>
@@ -942,9 +899,5 @@
             });
         });
     </script>
-    <a href="brochure.pdf" class="vertical-download">DOWNLOAD</a>
-</body>
-
-
 </body>
 </html>
