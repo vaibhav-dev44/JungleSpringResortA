@@ -59,26 +59,27 @@
             box-shadow: 0 4px 12px var(--shadow-subtle);
             transition: all 0.3s;
         }
-        .logo-wrap {
+        /* Logo container — NO background, NO shadow */
+.logo-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 58px;
-  height: 58px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 50%;
-  padding: 6px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-  transition: all 0.35s ease;
 }
 
 .logo-wrap img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 50%;
+  transform: scale(1.25);   /* 👈 more zoom */
+  transform-origin: center;
 }
+
+
+
 
 /* Hover micro-interaction */
 .logo-wrap:hover {
@@ -482,7 +483,7 @@
         <header>
             <nav>
                 <div class="logo-wrap">
-  <img src="assets/images/logo/jungle_spring_logo.png" alt="Jungle Spring Resort Logo">
+  <img src="assets/images/logo/jungle-spring-circle.jpeg" alt="Jungle Spring Resort Logo">
 </div>
 
 
