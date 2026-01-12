@@ -206,19 +206,20 @@
         }
 
         @media (max-width: 768px) {
-            .download-btn {
-                top: auto;
-                bottom: 90px;        /* above WhatsApp button */
-                right: 20px;
-                transform: none;     /* REMOVE rotation */
-                writing-mode: unset;
-                padding: 14px 20px;
-                font-size: 0.9rem;
-                border-radius: 50px;
-                background: #d4af37;
-                color: #1b5e20;
-            }
-        }
+    .download-btn {
+        top: auto;
+        bottom: 160px;      /* safely above WhatsApp */
+        right: 18px;
+        transform: none;
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        border-radius: 30px;
+        letter-spacing: 1px;
+        background: var(--accent-yellow);
+        color: var(--secondary-dark);
+    }
+}
+
 
         /* General Sections */
         section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; position: relative; }
@@ -926,3 +927,4 @@
     </a>
 </body>
 </html>
+
