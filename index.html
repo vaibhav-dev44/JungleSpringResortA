@@ -474,6 +474,98 @@
         padding: 10px 18px;
     }
 }
+/* Rooms Slider */
+#rooms {
+  background: var(--primary-bg);
+  overflow: hidden;
+}
+
+.room-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.room-slider {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem;
+  scrollbar-width: none;
+}
+
+.room-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.room-card {
+  min-width: 320px;
+  background: var(--secondary-dark);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.room-card:hover {
+  transform: translateY(-8px);
+}
+
+.room-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.room-info {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.room-info h3 {
+  color: var(--accent-yellow);
+  font-weight: 600;
+}
+
+.room-info p {
+  color: var(--text-light-gray);
+  font-size: 0.95rem;
+}
+
+/* Navigation Buttons */
+.room-nav {
+  background: rgba(212, 175, 55, 0.9);
+  border: none;
+  color: #000;
+  font-size: 1.5rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s;
+}
+
+.room-nav:hover {
+  transform: scale(1.1);
+}
+
+.room-nav.left {
+  margin-right: 10px;
+}
+
+.room-nav.right {
+  margin-left: 10px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .room-card {
+    min-width: 85%;
+  }
+}
+
 
     </style>
 </head>
@@ -534,6 +626,52 @@
                 <p>Jungle Spring Resort blends adventure and nature in a dam backwater setting. Ideal for families, corporates, and schools, offering thrilling activities amidst lush greenery.</p>
             </div>
         </section>
+
+        <!-- Rooms Slider Section -->
+<section id="rooms">
+  <div class="brush-section">
+    <div class="brush-title-wrapper">
+      <svg viewBox="0 0 500 140" preserveAspectRatio="none">
+        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
+      </svg>
+      <h2 class="brush-title">OUR ROOMS</h2>
+    </div>
+    <p class="brush-subtitle">Comfort surrounded by nature</p>
+  </div>
+
+  <div class="room-slider-wrapper">
+    <button class="room-nav left" onclick="slideRooms(-1)">❮</button>
+
+    <div class="room-slider" id="roomSlider">
+      <div class="room-card">
+        <img src="assets/images/rooms/deluxe.jpg" alt="Deluxe Cottage">
+        <div class="room-info">
+          <h3>Deluxe Cottage</h3>
+          <p>Cozy stay with dam backwater view</p>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img src="assets/images/rooms/premium.jpg" alt="Premium Cottage">
+        <div class="room-info">
+          <h3>Premium Cottage</h3>
+          <p>Spacious cottage amidst jungle greenery</p>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img src="assets/images/rooms/luxury.jpg" alt="Luxury Cottage">
+        <div class="room-info">
+          <h3>Luxury Cottage</h3>
+          <p>Infinity pool facing premium stay</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="room-nav right" onclick="slideRooms(1)">❯</button>
+  </div>
+</section>
+
 
         <!-- Activities Section -->
         <section id="activities">
