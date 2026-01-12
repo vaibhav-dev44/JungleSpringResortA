@@ -205,7 +205,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+       @media (max-width: 768px) {
     .download-btn {
         top: auto;
         bottom: 160px;      /* safely above WhatsApp */
@@ -440,24 +440,35 @@
             .section-title { font-size: 2rem; }
             .highlights-grid, .activities-grid, .packages-grid, .stay-grid, .amenities-grid { grid-template-columns: 1fr; gap: 2rem; }
         }
-        /* Floating Download Button */
-        .download-btn {
-            position: fixed;
-            right: 0;
-            top: 48%;
-            transform: translateY(-50%) rotate(-90deg);
-            transform-origin: right center;
-            background: #111;
-            color: #fff;
-            padding: 12px 22px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 8px 8px 0 0;
-            z-index: 2000;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-        }
+        /* District Gravity–style Download Tab (Desktop only) */
+.download-btn {
+    position: fixed;
+    right: -44px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center;
+    background: #111;
+    color: #fff;
+    padding: 8px 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 6px 6px 0 0;
+    z-index: 2000;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+    transition: right 0.3s ease;
+}
+
+.download-btn:hover {
+    right: -38px; /* subtle slide on hover */
+}
+@media (max-width: 768px) {
+    .download-btn {
+        display: none;
+    }
+}
+
         /* Ensure visibility on mobile */
         @media (max-width: 768px) {
             .download-btn {
@@ -467,6 +478,16 @@
                 padding: 10px 18px;
             }
         }
+        .mobile-only {
+    display: block;
+}
+
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -486,6 +507,12 @@
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#safety">Safety</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li class="mobile-only">
+    <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf" download>
+        Download Brochure
+    </a>
+</li>
+
                 </ul>
                 <div class="hamburger" onclick="toggleMenu()">☰</div>
             </nav>
@@ -927,4 +954,3 @@
     </a>
 </body>
 </html>
-
