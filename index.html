@@ -42,23 +42,78 @@
         @media (min-width: 768px) { .hamburger { display: none; } .nav-links { display: flex; flex-direction: row; position: static; background: none; box-shadow: none; padding: 0; } .nav-links li { margin: 0 1rem; } }
 
         /* Hero Section - Professional Slideshow with Improved Animation */
-#hero { position: relative; height: 100vh; overflow: hidden; background-color: var(--primary-bg); width: 100vw; margin-left: calc(-50vw + 50%); padding-top: 80px; }
-.hero-slideshow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0; transition: opacity 2s ease-in-out, transform 2s ease-in-out; transform: scale(1); }
-.slide.active { opacity: 1; transform: scale(1.02); }  /* Subtle zoom for attractiveness without distortion */
-.slide:nth-child(1) { background-image: url("assets/images/activities/zipline.JPG"); animation-delay: 0s; }
-.slide:nth-child(2) { background-image: url("assets/images/activities/sky cycling.JPG"); animation-delay: 5s; }
-.slide:nth-child(3) { background-image: url("assets/images/activities/rope course level-1.JPG"); animation-delay: 10s; }
-.slide:nth-child(4) { background-image: url("assets/images/activities/rope course level-2.JPG"); animation-delay: 15s; }
-.slide:nth-child(5) { background-image: url("assets/images/activities/bull ride.JPG"); animation-delay: 20s; }
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(15, 61, 46, 0.4), rgba(15, 61, 46, 0.6)); z-index: 5; }
-.hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--text-white); z-index: 10; animation: fadeInUp 1.5s ease-out; }
-.hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 700; }
-.hero-content p { font-size: 1.4rem; margin-bottom: 2rem; font-weight: 400; }
+        #hero { position: relative; height: 100vh; overflow: hidden; background-color: var(--primary-bg); width: 100vw; margin-left: calc(-50vw + 50%); padding-top: 80px; }
+        .hero-slideshow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0; transition: opacity 2s ease-in-out, transform 2s ease-in-out; transform: scale(1); }
+        .slide.active { opacity: 1; transform: scale(1.02); }  /* Subtle zoom for attractiveness without distortion */
+        .slide:nth-child(1) { background-image: url("assets/images/activities/zipline.JPG"); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url("assets/images/activities/sky cycling.JPG"); animation-delay: 5s; }
+        .slide:nth-child(3) { background-image: url("assets/images/activities/rope course level-1.JPG"); animation-delay: 10s; }
+        .slide:nth-child(4) { background-image: url("assets/images/activities/rope course level-2.JPG"); animation-delay: 15s; }
+        .slide:nth-child(5) { background-image: url("assets/images/activities/bull ride.JPG"); animation-delay: 20s; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(15, 61, 46, 0.4), rgba(15, 61, 46, 0.6)); z-index: 5; }
+        .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--text-white); z-index: 10; animation: fadeInUp 1.5s ease-out; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 700; }
+        .hero-content p { font-size: 1.4rem; margin-bottom: 2rem; font-weight: 400; }
 
-@keyframes fadeInUp { from { opacity: 0; transform: translate(-50%, calc(-50% + 50px)); } to { opacity: 1; transform: translate(-50%, -50%); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translate(-50%, calc(-50% + 50px)); } to { opacity: 1; transform: translate(-50%, -50%); } }
 
-@media (max-width: 768px) { .hero-content h1 { font-size: 2.2rem; } }
+        @media (max-width: 768px) { .hero-content h1 { font-size: 2.2rem; } }
+
+        /* Shape Slideshow */
+        .shape-slideshow {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+            transition: all 1.2s ease-in-out;
+        }
+
+        /* Initial Layout */
+        .shape-1 {
+            width: 45%;
+            height: 60%;
+            top: 10%;
+            left: 5%;
+            clip-path: polygon(0 0, 100% 10%, 90% 100%, 10% 90%);
+        }
+
+        .shape-2 {
+            width: 35%;
+            height: 40%;
+            top: 15%;
+            right: 5%;
+            clip-path: circle(50% at 50% 50%);
+        }
+
+        .shape-3 {
+            width: 40%;
+            height: 35%;
+            bottom: 10%;
+            left: 10%;
+            clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        }
+
+        .shape-4 {
+            width: 30%;
+            height: 45%;
+            bottom: 8%;
+            right: 12%;
+            clip-path: polygon(10% 0, 100% 20%, 90% 100%, 0 80%);
+        }
+
+        /* Optional subtle zoom */
+        .shape::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.15);
+        }
 
         /* General Sections */
         section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; position: relative; }
@@ -137,7 +192,8 @@
         #safety { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); text-align: center; }
         #safety p { color: var(--text-light-gray); font-weight:400; }
 
-                #contact { background: var(--secondary-dark); }
+        /* Contact Section */
+        #contact { background: var(--secondary-dark); }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
         .form { display: flex; flex-direction: column; gap: 1.5rem; }
         .form input, .form textarea { padding: 1rem; border: 2px solid var(--text-light-gray); border-radius: 12px; transition: border-color 0.3s; background: var(--secondary-dark); color: var(--text-white); font-weight: 400; }
@@ -254,20 +310,19 @@
         </header>
 
         <!-- Hero Section -->
-<section id="hero">
-    <div class="hero-slideshow">
-        <div class="slide active"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1>Nature Meets Adventure at Jungle Spring Resort</h1>
-        <p>One Day Outing · Adventure · Nature · Stay</p>
-    </div>
-</section>
+        <section id="hero">
+            <div class="shape-slideshow">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Nature Meets Adventure at Jungle Spring Resort</h1>
+                <p>One Day Outing · Adventure · Nature · Stay</p>
+            </div>
+        </section>
 
         <!-- About Section -->
         <section id="about">
@@ -277,166 +332,168 @@
             </div>
         </section>
 
-       <!-- Activities Section -->
-<section id="activities">
-    <div class="brush-section">
-        <div class="brush-title-wrapper">
-            <svg viewBox="0 0 500 140" preserveAspectRatio="none">
-                <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
-            </svg>
-            <h2 class="brush-title">ACTIVITIES</h2>
-        </div>
-        <p class="brush-subtitle">This is where the adventure begins</p>
-    </div>
-    <div class="activities-grid">
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/zipline.JPG" alt="Zip Line" loading="lazy">
-            <div class="content">
-                <h3>ZIPLINE</h3>
-                <p>350+ ft long zipline has it’s own adventurous feel which you cannot experience anywhere else, because it’s just beside dam, giving you full view of dam backwater and surrounded by lush green mountains.</p>
-                <p><strong>Safety:</strong> Harness and trained guides.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/sky cycling.JPG" alt="Sky Cycle" loading="lazy">
-            <div class="content">
-                <h3>SKY CYCLE</h3>
-                <p>Balance on air bike which keeps you up at 25ft from bottom in sky. No wonder why we call it sky cycle. It offers an adventurous feel, combined twists to cycling, combining speed & courage for an unforgettable ride above the ground.</p>
-                <p><strong>Safety:</strong> Secure tracks and supervision.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/rocket ejector.JPG" alt="Rocket Ejector" loading="lazy">
-            <div class="content">
-                <h3>ROCKET EJECTOR</h3>
-                <p>It’s time you meet, rocket Ejector at jungle spring resort. It can give you wings, but it can catapult you 80 feet off the ground! Rocket ejector is perfect activity for adrenaline junkies.</p>
-                <p><strong>Safety:</strong> Controlled ejection and safety nets.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/human gyro.PNG" alt="Human Gyro" loading="lazy">
-            <div class="content">
-                <h3>HUMAN GYRO</h3>
-                <p>Get ready to challenge gravity and enjoy this amazing game !!! Where you can enjoy with your best buddies.</p>
-                <p><strong>Safety:</strong> Stabilized platform and harnesses.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/rope course level-1.JPG" alt="Rope Course Level 1" loading="lazy">
-            <div class="content">
-                <h3>ROPE COURSE – LEVEL 1</h3>
-                <p>Zigzag suspension plank Burma bridge block walk swinging plank Balancing Rope tyre bridge high V swinging ladder net tunnel</p>
-                <p><strong>Safety:</strong> Full harness and instructor guidance.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/rope course level-2.JPG" alt="Rope Course Level 2" loading="lazy">
-            <div class="content">
-                <h3>ROPE COURSE – LEVEL 2</h3>
-                <p>Up & down swinging pipe sideways tyre crossing sky walk log to log wally crossing sideways plank swinging tyre crossing zigzag swinging plank commando net vertical rope crossing</p>
-                <p><strong>Safety:</strong> Full harness and instructor guidance.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/bull ride.JPG" alt="Bull Ride" loading="lazy">
-            <div class="content">
-                <h3>BULL RIDE</h3>
-                <p>Get your inner cowboy out and show your balancing skills on bull ride. Hold the rope tightly & dare to ride.</p>
-                <p><strong>Safety:</strong> Padded area and spotters.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/meltdown.JPG" alt="Meltdown" loading="lazy">
-            <div class="content">
-                <h3>MELTDOWN</h3>
-                <p>Melt down game is an immersive gaming experience that transcend boundaries. Continuously push the boundaries and delivering engaging narratives and unforgettable gaming moments.</p>
-                <p><strong>Safety:</strong> Lifeguards and safe entry.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/adventure climbing wall.JPG" alt="Adventure Climbing Wall" loading="lazy">
-            <div class="content">
-                <h3>ADVENTURE CLIMBING WALL</h3>
-                <p>Dare to ascend! Our adventure park’s climbing wall invites thrill-seekers to conquer new heights. With its diverse routes and challenging inclines, this towering structure offers adrenaline-pumping experiences for climbers of all skill levels. Safely equipped with certified harnesses and crash pads, it’s an exhilarating opportunity to test courage, agility, and determination in a controlled, heart-pounding adventure.</p>
-                <p><strong>Safety:</strong> Belay systems and instructors.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/tyre climbing.JPG" alt="Tyre Climbing" loading="lazy">
-            <div class="content">
-                <h3>Tyre Climbing</h3>
-                <p>Climb stacked tires for fun and fitness.</p>
-                <p><strong>Safety:</strong> Stable setup and supervision.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/swimming pool.JPG" alt="Swimming Pool" loading="lazy">
-            <div class="content">
-                <h3>Swimming Pool</h3>
-                <p>Relax in our refreshing pool after adventures.</p>
-                <p><strong>Safety:</strong> Lifeguards on duty.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/rain dance.JPG" alt="Rain Dance" loading="lazy">
-            <div class="content">
-                <h3>Rain Dance</h3>
-                <p>Dance in simulated rain for a fun, refreshing experience.</p>
-                <p><strong>Safety:</strong> Controlled environment and supervision.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/kids adventure zone.JPG" alt="Kids Adventure Zone" loading="lazy">
-            <div class="content">
-                <h3>Kids Adventure Zone</h3>
-                <p>Safe, age-appropriate activities for children.</p>
-                <p><strong>Safety:</strong> Child-friendly equipment and guides.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/fun trampoline.JPG" alt="Fun Trampoline" loading="lazy">
-            <div class="content">
-                <h3>FUN TRAMPOLINE</h3>
-                <p>What’s the tile and thrilling bouncing experience with safety features. This dynamic trampoline provides an ideal outlet for energetic play promoting fun with safe environment.</p>
-                <p><strong>Safety:</strong> Padded area and supervision.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/body zorb.JPG" alt="Body Zorb" loading="lazy">
-            <div class="content">
-                <h3>BODY ZORB</h3>
-                <p>Wrestle with having huge air balloons covering up to your head, show your skills !</p>
-                <p><strong>Safety:</strong> Inflated cushions and supervision.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/360 cycle.JPG" alt="360 Cycle" loading="lazy">
-            <div class="content">
-                <h3>360 CYCLE</h3>
-                <p>See world upside down on 360° cycle, the single 360° cycle is thriller ride designed to provide riders with a spine-tingling 360-degree spinning adventure.</p>
-                <p><strong>Safety:</strong> Secure harness and controlled spin.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/slack line.JPG" alt="Slack Line" loading="lazy">
-            <div class="content">
-                <h3>SLACK LINE</h3>
-                <p>Balancing on a tape sling to cross the entire obstacle.</p>
-                <p><strong>Safety:</strong> Spotters and safety mats.</p>
-            </div>
-        </div>
-        <div class="activity-card fade-in" onclick="downloadBrochure()">
-            <img src="assets/images/activities/superman zipline.JPG" alt="Superman Zipline" loading="lazy">
-            <div class="content">
-                <h3>SUPERMAN ZIPLINE</h3>
-                <p>Superman Zip line takes Zip lining to the next thrilling level and allows you to experience its flight in superman form – forward facing and prone.</p>
-                <p><strong>Safety:</strong> Harness and trained guides.</p>
-            </div>
-        </div>
-    </div>
-</section>        <!-- Packages Section -->
-        <section id="packages">
+        <!-- Activities Section -->
+        <section id="activities">
             <div class="brush-section">
+                <div class="brush-title-wrapper">
+                    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
+                        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
+                    </svg>
+                    <h2 class="brush-title">ACTIVITIES</h2>
+                </div>
+                <p class="brush-subtitle">This is where the adventure begins</p>
+            </div>
+            <div class="activities-grid">
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/zipline.JPG" alt="Zip Line" loading="lazy">
+                    <div class="content">
+                        <h3>ZIPLINE</h3>
+                        <p>350+ ft long zipline has it’s own adventurous feel which you cannot experience anywhere else, because it’s just beside dam, giving you full view of dam backwater and surrounded by lush green mountains.</p>
+                        <p><strong>Safety:</strong> Harness and trained guides.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/sky cycling.JPG" alt="Sky Cycle" loading="lazy">
+                    <div class="content">
+                        <h3>SKY CYCLE</h3>
+                        <p>Balance on air bike which keeps you up at 25ft from bottom in sky. No wonder why we call it sky cycle. It offers an adventurous feel, combined twists to cycling, combining speed & courage for an unforgettable ride above the ground.</p>
+                        <p><strong>Safety:</strong> Secure tracks and supervision.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/rocket ejector.JPG" alt="Rocket Ejector" loading="lazy">
+                    <div class="content">
+                        <h3>ROCKET EJECTOR</h3>
+                        <p>It’s time you meet, rocket Ejector at jungle spring resort. It can give you wings, but it can catapult you 80 feet off the ground! Rocket ejector is perfect activity for adrenaline junkies.</p>
+                        <p><strong>Safety:</strong> Controlled ejection and safety nets.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/human gyro.PNG" alt="Human Gyro" loading="lazy">
+                    <div class="content">
+                        <h3>HUMAN GYRO</h3>
+                        <p>Get ready to challenge gravity and enjoy this amazing game !!! Where you can enjoy with your best buddies.</p>
+                        <p><strong>Safety:</strong> Stabilized platform and harnesses.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/rope course level-1.JPG" alt="Rope Course Level 1" loading="lazy">
+                    <div class="content">
+                        <h3>ROPE COURSE – LEVEL 1</h3>
+                        <p>Zigzag suspension plank Burma bridge block walk swinging plank Balancing Rope tyre bridge high V swinging ladder net tunnel</p>
+                        <p><strong>Safety:</strong> Full harness and instructor guidance.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/rope course level-2.JPG" alt="Rope Course Level 2" loading="lazy">
+                    <div class="content">
+                        <h3>ROPE COURSE – LEVEL 2</h3>
+                        <p>Up & down swinging pipe sideways tyre crossing sky walk log to log wally crossing sideways plank swinging tyre crossing zigzag swinging plank commando net vertical rope crossing</p>
+                        <p><strong>Safety:</strong> Full harness and instructor guidance.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/bull ride.JPG" alt="Bull Ride" loading="lazy">
+                    <div class="content">
+                        <h3>BULL RIDE</h3>
+                        <p>Get your inner cowboy out and show your balancing skills on bull ride. Hold the rope tightly & dare to ride.</p>
+                        <p><strong>Safety:</strong> Padded area and spotters.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/meltdown.JPG" alt="Meltdown" loading="lazy">
+                    <div class="content">
+                        <h3>MELTDOWN</h3>
+                        <p>Melt down game is an immersive gaming experience that transcend boundaries. Continuously push the boundaries and delivering engaging narratives and unforgettable gaming moments.</p>
+                        <p><strong>Safety:</strong> Lifeguards and safe entry.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/adventure climbing wall.JPG" alt="Adventure Climbing Wall" loading="lazy">
+                    <div class="content">
+                        <h3>ADVENTURE CLIMBING WALL</h3>
+                        <p>Dare to ascend! Our adventure park’s climbing wall invites thrill-seekers to conquer new heights. With its diverse routes and challenging inclines, this towering structure offers adrenaline-pumping experiences for climbers of all skill levels. Safely equipped with certified harnesses and crash pads, it’s an exhilarating opportunity to test courage, agility, and determination in a controlled, heart-pounding adventure.</p>
+                        <p><strong>Safety:</strong> Belay systems and instructors.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/tyre climbing.JPG" alt="Tyre Climbing" loading="lazy">
+                    <div class="content">
+                        <h3>Tyre Climbing</h3>
+                        <p>Climb stacked tires for fun and fitness.</p>
+                        <p><strong>Safety:</strong> Stable setup and supervision.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/swimming pool.JPG" alt="Swimming Pool" loading="lazy">
+                    <div class="content">
+                        <h3>Swimming Pool</h3>
+                        <p>Relax in our refreshing pool after adventures.</p>
+                        <p><strong>Safety:</strong> Lifeguards on duty.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/rain dance.JPG" alt="Rain Dance" loading="lazy">
+                    <div class="content">
+                        <h3>Rain Dance</h3>
+                        <p>Dance in simulated rain for a fun, refreshing experience.</p>
+                        <p><strong>Safety:</strong> Controlled environment and supervision.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/kids adventure zone.JPG" alt="Kids Adventure Zone" loading="lazy">
+                    <div class="content">
+                        <h3>Kids Adventure Zone</h3>
+                        <p>Safe, age-appropriate activities for children.</p>
+                        <p><strong>Safety:</strong> Child-friendly equipment and guides.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/fun trampoline.JPG" alt="Fun Trampoline" loading="lazy">
+                    <div class="content">
+                        <h3>FUN TRAMPOLINE</h3>
+                        <p>What’s the tile and thrilling bouncing experience with safety features. This dynamic trampoline provides an ideal outlet for energetic play promoting fun with safe environment.</p>
+                        <p><strong>Safety:</strong> Padded area and supervision.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/body zorb.JPG" alt="Body Zorb" loading="lazy">
+                    <div class="content">
+                        <h3>BODY ZORB</h3>
+                        <p>Wrestle with having huge air balloons covering up to your head, show your skills !</p>
+                        <p><strong>Safety:</strong> Inflated cushions and supervision.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/360 cycle.JPG" alt="360 Cycle" loading="lazy">
+                    <div class="content">
+                        <h3>360 CYCLE</h3>
+                        <p>See world upside down on 360° cycle, the single 360° cycle is thriller ride designed to provide riders with a spine-tingling 360-degree spinning adventure.</p>
+                        <p><strong>Safety:</strong> Secure harness and controlled spin.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/slack line.JPG" alt="Slack Line" loading="lazy">
+                    <div class="content">
+                        <h3>SLACK LINE</h3>
+                        <p>Balancing on a tape sling to cross the entire obstacle.</p>
+                        <p><strong>Safety:</strong> Spotters and safety mats.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in" onclick="downloadBrochure()">
+                    <img src="assets/images/activities/superman zipline.JPG" alt="Superman Zipline" loading="lazy">
+                    <div class="content">
+                        <h3>SUPERMAN ZIPLINE</h3>
+                        <p>Superman Zip line takes Zip lining to the next thrilling level and allows you to experience its flight in superman form – forward facing and prone.</p>
+                        <p><strong>Safety:</strong> Harness and trained guides.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Section -->
+        <section id="packages">
+                        <div class="brush-section">
                 <div class="brush-title-wrapper">
                     <svg viewBox="0 0 500 140" preserveAspectRatio="none">
                         <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
@@ -572,7 +629,7 @@
             <p>Phone: +91 12345 67890 | WhatsApp: +91 12345 67890 | Email: info@junglespring.com</p>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/junglespringresort/"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
             <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
@@ -637,20 +694,67 @@
             });
         });
 
-       // Hero Slideshow with Improved Animation
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-    });
-    slides[index].classList.add('active');
-}
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}
-setInterval(nextSlide, 6000); // Increased to 6 seconds for smoother viewing
+        // Hero Slideshow with Improved Animation
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+            });
+            slides[index].classList.add('active');
+        }
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        setInterval(nextSlide, 6000); // Increased to 6 seconds for smoother viewing
+
+        const imageSets = [
+            [
+                "assets/images/activities/zipline.JPG",
+                "assets/images/activities/sky cycling.JPG",
+                "assets/images/activities/rope course level-1.JPG",
+                "assets/images/activities/bull ride.JPG"
+            ],
+            [
+                "assets/images/activities/superman zipline.JPG",
+                "assets/images/activities/rocket ejector.JPG",
+                "assets/images/activities/human gyro.PNG",
+                "assets/images/activities/meltdown.JPG"
+            ]
+        ];
+
+        const shapeLayouts = [
+            [
+                "polygon(0 0, 100% 10%, 90% 100%, 10% 90%)",
+                "circle(50% at 50% 50%)",
+                "polygon(50% 0, 100% 50%, 50% 100%, 0 50%)",
+                "polygon(10% 0, 100% 20%, 90% 100%, 0 80%)"
+            ],
+            [
+                "polygon(0 10%, 100% 0, 80% 100%, 20% 90%)",
+                "polygon(50% 0, 100% 100%, 0 100%)",
+                "circle(45% at 50% 50%)",
+                "polygon(0 0, 100% 30%, 70% 100%, 0 70%)"
+            ]
+        ];
+
+        let index = 0;
+        const shapes = document.querySelectorAll('.shape');
+
+        function updateShapes() {
+            shapes.forEach((shape, i) => {
+                shape.style.backgroundImage = `url(${imageSets[index][i]})`;
+                shape.style.clipPath = shapeLayouts[index][i];
+            });
+            index = (index + 1) % imageSets.length;
+        }
+
+        // Initial load
+        updateShapes();
+
+        // Change every 6 seconds
+        setInterval(updateShapes, 6000);
     </script>
     <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf"
        class="download-btn"
