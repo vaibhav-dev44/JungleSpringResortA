@@ -260,6 +260,17 @@ display: block;
     .mobile-only {
         display: none;
     }
+}/* Add this media query to the existing CSS for mobile responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        overflow: hidden; /* Prevent horizontal overflow from 3D carousel */
+    }
+    .slide:nth-child(1) { transform: rotateY(0deg) translateZ(200px); } /* Reduce depth to make slideshow smaller and fit mobile */
+    .slide:nth-child(2) { transform: rotateY(120deg) translateZ(200px); }
+    .slide:nth-child(3) { transform: rotateY(240deg) translateZ(200px); }
+    .overlay {
+        z-index: 10; /* Ensure hero text is always above images */
+    }
 }
     </style>
 </head>
