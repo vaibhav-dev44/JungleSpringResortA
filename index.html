@@ -239,9 +239,20 @@
 .download-btn:hover {
     right: -38px; /* subtle slide on hover */
 }
+/* Updated mobile media query for better queue visibility after loop */
 @media (max-width: 768px) {
-    .download-btn {
-        display: none;
+    .hero {
+        overflow: hidden; /* Prevent horizontal overflow */
+        perspective: 5000px; /* Increase perspective to flatten the 3D effect and keep queue visible */
+    }
+    .slide:nth-child(1) { transform: rotateY(0deg) translateZ(200px); } /* Adjust depth for better visibility */
+    .slide:nth-child(2) { transform: rotateY(120deg) translateZ(200px); }
+    .slide:nth-child(3) { transform: rotateY(240deg) translateZ(200px); }
+    .slide:not(.active) {
+        opacity: 0.7; /* Slightly increase opacity for better queue visibility */
+    }
+    .overlay {
+        z-index: 10; /* Ensure hero text is always above images */
     }
 }
 /* Ensure visibility on mobile */
@@ -694,18 +705,20 @@ display: block;
             });
         });
 
-        // Updated 3D Slideshow Script for Hero
-        const slides = document.querySelectorAll(".slide");
-        let index = 0;
+       // Updated 3D Slideshow Script for Hero
+const slides = document.querySelectorAll(".slide");
+let index = 0;
+let rotation = 0; // New variable to accumulate rotation
 
-        setInterval(() => {
-            slides[index].classList.remove("active");
-            index = (index + 1) % slides.length;
-            slides[index].classList.add("active");
-            // Apply 3D rotation to carousel
-            const carousel = document.querySelector('.carousel');
-            carousel.style.transform = `rotateY(${index * 120}deg)`;
-        }, 4000);
+setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+    // Accumulate rotation to loop continuously in the same direction
+    rotation += 120;
+    const carousel = document.querySelector('.carousel');
+    carousel.style.transform = `rotateY(${rotation}deg)`;
+}, 4000);
     </script>
     <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf"
        class="download-btn"
