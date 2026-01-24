@@ -41,40 +41,56 @@
         .hamburger:hover { transform: scale(1.1); }
         @media (min-width: 768px) { .hamburger { display: none; } .nav-links { display: flex; flex-direction: row; position: static; background: none; box-shadow: none; padding: 0; } .nav-links li { margin: 0 1rem; } }
 
-        /* Hero Section with New Carousel */
-       #hero {
-    position: relative;
-    min-height: calc(100vh - 80px); /* header height */
-    overflow: hidden;
-    background-color: var(--primary-bg);
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-}
-
-        .carousel-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-        .carousel { display: flex; width: 100%; height: 100%; transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */ }
-        .slide { min-width: 100%; height: 100%; background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; animation: slideZoom 8s infinite ease-in-out; /* Subtle zoom animation */ }
-        .slide::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); transition: background 1.2s ease; } /* Dynamic overlay for depth */
-        .slide.active::after { background: rgba(0, 0, 0, 0.1); } /* Lighter on active slide */
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(15, 61, 46, 0.4), rgba(15, 61, 46, 0.6)); z-index: 5; }
-        .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--text-white); z-index: 10; animation: fadeInUp 1.5s ease-out; }
-        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 700; }
-        .hero-content p { font-size: 1.4rem; margin-bottom: 2rem; font-weight: 400; }
-        .carousel-indicators { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; z-index: 10; }
-        .indicator { width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); margin: 0 5px; cursor: pointer; transition: background 0.3s, transform 0.3s; }
-        .indicator.active { background: var(--accent-yellow); transform: scale(1.2); }
-        .arrow { background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%; transition: background 0.3s, transform 0.3s; }
-        .arrow:hover { background: var(--accent-yellow); transform: scale(1.1); }
-        .hero-content {
-    max-width: 900px;
-    padding: 0 20px;
-}
-
-
-        @keyframes fadeInUp { from { opacity: 0; transform: translate(-50%, calc(-50% + 50px)); } to { opacity: 1; transform: translate(-50%, -50%); } }
-        @keyframes slideZoom { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } } /* Subtle zoom for grandeur */
-
-        @media (max-width: 768px) { .hero-content h1 { font-size: 2.2rem; } }
+        /* Updated Hero Section with New Slideshow */
+        .hero {
+            height: 100vh;
+            overflow: hidden;
+        }
+        .carousel {
+            height: 100%;
+            position: relative;
+        }
+        .slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: opacity 1s ease, transform 1.2s ease;
+        }
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 1;
+        }
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.4),
+                rgba(0,0,0,0.65)
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 8%;
+            color: #fff;
+        }
+        .overlay h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .overlay p {
+            font-size: 1.2rem;
+            max-width: 500px;
+        }
+        @media (max-width: 768px) {
+            .overlay h1 {
+                font-size: 2rem;
+            }
+        }
 
         /* General Sections */
         section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; position: relative; }
@@ -183,64 +199,61 @@
         /* Keyframe Animations */
         @keyframes slideDown { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 500px; } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+       @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) { 
-            .hero-content h1 { font-size: 2.2rem; } 
-            .contact-grid { grid-template-columns: 1fr; } 
-            section { padding: 4rem 1rem; }
-            .section-title { font-size: 2rem; }
-            .highlights-grid, .activities-grid, .packages-grid, .stay-grid, .amenities-grid { grid-template-columns: 1fr; gap: 2rem; }
-        }
-        /* District Gravity–style Download Tab (Desktop only) */
-        .download-btn {
-            position: fixed;
-            right: -44px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-90deg);
-            transform-origin: center;
-            background: #111;
-            color: #fff;
-            padding: 8px 14px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 6px 6px 0 0;
-            z-index: 2000;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-            transition: right 0.3s ease;
-        }
-
-        .download-btn:hover {
-            right: -38px; /* subtle slide on hover */
-        }
-        @media (max-width: 768px) {
-            .download-btn {
-                display: none;
-            }
-        }
-        /* Ensure visibility on mobile */
-        @media (max-width: 768px) {
-            .download-btn {
-                right: 0;
-                top: 45%;
-                font-size: 0.85rem;
-                padding: 10px 18px;
-            }
-        }
-        /*.mobile-only {
-        display: block;
-        }*/
-
-        @media (min-width: 769px) {
-            .mobile-only {
-                display: none;
-            }
-        }
-
-    </style>
+/* Responsive Adjustments */
+@media (max-width: 768px) { 
+    .hero-content h1 { font-size: 2.2rem; } 
+    .contact-grid { grid-template-columns: 1fr; } 
+    section { padding: 4rem 1rem; }
+    .section-title { font-size: 2rem; }
+    .highlights-grid, .activities-grid, .packages-grid, .stay-grid, .amenities-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+/* District Gravity–style Download Tab (Desktop only) */
+.download-btn {
+    position: fixed;
+    right: -44px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center;
+    background: #111;
+    color: #fff;
+    padding: 8px 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 6px 6px 0 0;
+    z-index: 2000;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+    transition: right 0.3s ease;
+}
+.download-btn:hover {
+    right: -38px; /* subtle slide on hover */
+}
+@media (max-width: 768px) {
+    .download-btn {
+        display: none;
+    }
+}
+/* Ensure visibility on mobile */
+@media (max-width: 768px) {
+    .download-btn {
+        right: 0;
+        top: 45%;
+        font-size: 0.85rem;
+        padding: 10px 18px;
+    }
+}
+/*.mobile-only {
+display: block;
+}*/
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none;
+    }
+}
+</style>
 </head>
 <body>
     <div id="app">
@@ -269,34 +282,27 @@
             </nav>
         </header>
 
-        <!-- Hero Section with New Carousel -->
-        <section id="hero">
-            <div class="carousel-container">
-                <div class="carousel" id="carousel">
-                    <div class="slide" style="background-image: url('assets/images/activities/zipline.JPG');"></div>
-                    <div class="slide" style="background-image: url('assets/images/activities/sky cycling.JPG');"></div>
-                    <div class="slide" style="background-image: url('assets/images/activities/rope course level-1.JPG');"></div>
-                    <div class="slide" style="background-image: url('assets/images/activities/bull ride.JPG');"></div>
-                    <div class="slide" style="background-image: url('assets/images/gallery/lake side.JPG');"></div>
-                    <div class="slide" style="background-image: url('assets/images/gallery/nature.JPG');"></div>
+        <!-- Updated Hero Section with New Slideshow -->
+        <section class="hero">
+            <div class="carousel">
+                <div class="slide active" style="background-image:url('assets/images/activities/zipline.JPG')">
+                    <div class="overlay">
+                        <h1>Nature Meets Adventure</h1>
+                        <p>Experience peace, greenery & thrill at Jungle Spring Resort</p>
+                    </div>
                 </div>
-                <div class="carousel-arrows">
-                    <button class="arrow" id="prev">&lt;</button>
-                    <button class="arrow" id="next">&gt;</button>
+                <div class="slide" style="background-image:url('assets/images/activities/sky cycling.JPG')">
+                    <div class="overlay">
+                        <h1>Luxury Amidst Nature</h1>
+                        <p>Stay surrounded by mountains & lake views</p>
+                    </div>
                 </div>
-                <div class="carousel-indicators">
-                    <div class="indicator active" data-slide="0"></div>
-                    <div class="indicator" data-slide="1"></div>
-                    <div class="indicator" data-slide="2"></div>
-                    <div class="indicator" data-slide="3"></div>
-                    <div class="indicator" data-slide="4"></div>
-                    <div class="indicator" data-slide="5"></div>
+                <div class="slide" style="background-image:url('assets/images/activities/rope course level-1.JPG')">
+                    <div class="overlay">
+                        <h1>Perfect Weekend Escape</h1>
+                        <p>Relax, explore & reconnect with nature</p>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1>Nature Meets Adventure at Jungle Spring Resort</h1>
-                <p>One Day Outing · Adventure · Nature · Stay</p>
             </div>
         </section>
 
@@ -453,7 +459,7 @@
                     <div class="content">
                         <h3>SLACK LINE</h3>
                         <p>Balancing on a tape sling to cross the entire obstacle.</p>
-                                                <p><strong>Safety:</strong> Spotters and safety mats.</p>
+                        <p><strong>Safety:</strong> Spotters and safety mats.</p>
                     </div>
                 </div>
                 <div class="activity-card fade-in" onclick="downloadBrochure()">
@@ -524,7 +530,7 @@
                 </div>
             </div>
             <div class="stay-grid">
-                <div class="stay-card fade-in">
+                                <div class="stay-card fade-in">
                     <h3>Deluxe Cottage</h3>
                     <p>₹2899</p>
                     <p>Capacity: 2 adults. Extra mattress: ₹200. View: Dam backwaters. Experience: Cozy and private.</p>
@@ -670,46 +676,15 @@
             });
         });
 
-        // Carousel Functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const indicators = document.querySelectorAll('.indicator');
-        const carousel = document.getElementById('carousel');
-        const totalSlides = slides.length;
+        // Updated Slideshow Script for Hero
+        const slides = document.querySelectorAll(".slide");
+        let index = 0;
 
-        function updateCarousel() {
-            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-            indicators.forEach((ind, index) => {
-                ind.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        }
-
-        function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
-            updateCarousel();
-        }
-
-        // Auto-play carousel
-        setInterval(nextSlide, 5000); // Change slide every 5 seconds
-
-
-        // Event listeners for indicators
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => goToSlide(index));
-        });
-
-        // Initialize
-        updateCarousel();
+        setInterval(() => {
+            slides[index].classList.remove("active");
+            index = (index + 1) % slides.length;
+            slides[index].classList.add("active");
+        }, 4000);
     </script>
     <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf"
        class="download-btn"
