@@ -41,65 +41,96 @@
         .hamburger:hover { transform: scale(1.1); }
         @media (min-width: 768px) { .hamburger { display: none; } .nav-links { display: flex; flex-direction: row; position: static; background: none; box-shadow: none; padding: 0; } .nav-links li { margin: 0 1rem; } }
 
-       /* Updated CSS for Hero Section */
-.hero {
+       .hero {
     height: 100vh;
-    perspective: 1000px;
+    perspective: 1200px; /* Subtle depth for desktop */
+    overflow: hidden; /* Prevent any overflow */
+    position: relative;
 }
+
 .carousel {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s ease; /* Smooth continuous rotation */
+    will-change: transform; /* Optimize for smooth animation */
+    transition: transform 1s ease-out; /* Smooth transitions */
 }
+
 .slide {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
     transform-style: preserve-3d;
-    opacity: 0.35; /* Default for inactive */
-    transform: scale(0.85); /* Default for inactive */
-    z-index: 5; /* Default z-index */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions for active/inactive changes */
+    opacity: 0.4; /* Dimmed for inactive */
+    filter: blur(2px); /* Soft blur for inactive */
+    transform: scale(0.9); /* Scaled down for inactive */
+    z-index: 1;
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease; /* Smooth changes */
 }
+
 .slide.active {
-    opacity: 1; /* Full opacity for active */
+    opacity: 1; /* Full focus for active */
+    filter: blur(0); /* No blur for active */
     transform: scale(1); /* Full scale for active */
-    z-index: 10; /* Higher z-index for active */
+    z-index: 2; /* Above inactive */
 }
+
 .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.65));
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)); /* Subtle gradient for readability */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 8%;
+    align-items: flex-start; /* Left-align for premium feel */
+    padding: 0 8%;
     color: #fff;
-    z-index: 20;
-}
-.overlay h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-}
-.overlay p {
-    font-size: 1.2rem;
-    max-width: 500px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-}
-@media (max-width: 768px) {
-    .overlay h1 {
-        font-size: 2rem;
-    }
-    .hero {
-        overflow: hidden;
-        perspective: 5000px;
-    }
-    /* Mobile adjustments handled in JS for translateZ */
+    z-index: 3; /* Always above slides */
 }
 
+.overlay h1 {
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive font */
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-weight: 700;
+}
+
+.overlay p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    max-width: 500px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    font-weight: 400;
+}
+
+/* Desktop: Subtle 3D carousel */
+@media (min-width: 769px) {
+    .slide:nth-child(1) { transform: rotateY(0deg) translateZ(400px) scale(0.9); }
+    .slide:nth-child(2) { transform: rotateY(120deg) translateZ(400px) scale(0.9); }
+    .slide:nth-child(3) { transform: rotateY(240deg) translateZ(400px) scale(0.9); }
+}
+
+/* Mobile: Flat carousel to avoid overflow */
+@media (max-width: 768px) {
+    .hero {
+        perspective: none; /* No 3D perspective */
+    }
+    .carousel {
+        display: flex; /* Flat layout */
+        transform: none; /* No rotation */
+    }
+    .slide {
+        flex: 0 0 100%; /* Full width slides */
+        transform: none; /* No 3D transforms */
+        opacity: 0; /* Hidden by default */
+        filter: none;
+    }
+    .slide.active {
+        opacity: 1; /* Show active */
+        filter: none;
+        transform: none;
+    }
+}
         /* General Sections */
         section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; position: relative; }
 
@@ -308,16 +339,26 @@ display: block;
             </nav>
         </header>
 
-        <!-- Updated Hero Section with Continuous Anti-Clockwise Rotation -->
-<section class="hero">
+      <section class="hero">
     <div class="carousel">
-        <div class="slide" style="background-image:url('assets/images/activities/zipline.JPG')"></div>
-        <div class="slide" style="background-image:url('assets/images/activities/sky cycling.JPG')"></div>
-        <div class="slide" style="background-image:url('assets/images/activities/rope course level-1.JPG')"></div>
-    </div>
-    <div class="overlay">
-        <h1>Nature Meets Adventure</h1>
-        <p>Experience peace, greenery & thrill at Jungle Spring Resort</p>
+        <div class="slide active" style="background-image:url('assets/images/activities/zipline.JPG')">
+            <div class="overlay">
+                <h1>Nature Meets Adventure</h1>
+                <p>Experience peace, greenery & thrill at Jungle Spring Resort</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('assets/images/activities/sky cycling.JPG')">
+            <div class="overlay">
+                <h1>Luxury Amidst Nature</h1>
+                <p>Stay surrounded by mountains & lake views</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image:url('assets/images/activities/rope course level-1.JPG')">
+            <div class="overlay">
+                <h1>Perfect Weekend Escape</h1>
+                <p>Relax, explore & reconnect with nature</p>
+            </div>
+        </div>
     </div>
 </section>
         <!-- About Section -->
@@ -669,64 +710,92 @@ display: block;
             link.click();
         }
 
-    
-
-      // Clean JavaScript for Continuous Anti-Clockwise Hero Slideshow
-const slides = document.querySelectorAll(".slide");
+    // Hero Slideshow: Single, clean system for premium 3D carousel
 const carousel = document.querySelector('.carousel');
-let rotation = 0; // Accumulating rotation angle
-const totalSlides = slides.length;
-const translateZ = window.innerWidth > 768 ? 500 : 200; // Responsive depth
+const slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+let autoplayInterval;
+const autoplayDelay = 4500; // 4.5 seconds for smooth pace
+let isDesktop = window.innerWidth > 768;
 
-// Set initial slide positions
-slides.forEach((slide, i) => {
-    slide.style.transform = `rotateY(${i * 120}deg) translateZ(${translateZ}px)`;
+// Initialize slides
+function initSlides() {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentIndex);
+    });
+    if (isDesktop) {
+        update3DPosition();
+    } else {
+        updateFlatPosition();
+    }
+}
+
+// Update 3D positions for desktop
+function update3DPosition() {
+    const angle = 360 / slides.length;
+    carousel.style.transform = `rotateY(${-currentIndex * angle}deg)`;
+}
+
+// Update flat positions for mobile
+function updateFlatPosition() {
+    carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+}
+
+// Go to next slide
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    initSlides();
+}
+
+// Go to previous slide
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    initSlides();
+}
+
+// Start autoplay
+function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, autoplayDelay);
+}
+
+// Stop autoplay
+function stopAutoplay() {
+    clearInterval(autoplayInterval);
+}
+
+// Pause on tab inactive for performance
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        stopAutoplay();
+    } else {
+        startAutoplay();
+    }
 });
 
-// Function to update active slide based on current rotation
-function updateActive() {
-    const normalizedRotation = ((rotation % 360) + 360) % 360; // Ensure positive angle
-    const activeAngle = normalizedRotation % 120; // Find closest to 0deg
-    const activeIndex = Math.round(normalizedRotation / 120) % totalSlides;
-    
-    slides.forEach((slide, i) => {
-        if (i === activeIndex) {
-            slide.classList.add('active');
-        } else {
-            slide.classList.remove('active');
-        }
-    });
-}
+// Touch swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+carousel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const deltaX = touchStartX - touchEndX;
+    if (Math.abs(deltaX) > 50) { // Swipe threshold
+        if (deltaX > 0) nextSlide(); // Swipe left
+        else prevSlide(); // Swipe right
+    }
+});
 
-// Initial active update
-updateActive();
+// Responsive handling
+window.addEventListener('resize', () => {
+    isDesktop = window.innerWidth > 768;
+    initSlides();
+});
 
-// Single setInterval for continuous rotation
-setInterval(() => {
-    rotation -= 120; // Anti-clockwise increment
-    carousel.style.transform = `rotateY(${rotation}deg)`;
-    updateActive(); // Update which slide is active
-}, 4000);
-
-function nextSlide() {
-    activeIndex = (activeIndex + 1) % totalSlides;
-    updateSlides();
-}
-
-// Initial setup
-updateSlides();
-
-// Start the step-based cycle
-setInterval(nextSlide, pauseDuration);
-
-setInterval(() => {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    updateSlides();
-}, 4000);
-
-// Initial setup
-updateSlides();
+// Initialize
+initSlides();
+startAutoplay();
     </script>
     <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf"
        class="download-btn"
