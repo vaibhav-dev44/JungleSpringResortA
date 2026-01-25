@@ -41,87 +41,82 @@
         .hamburger:hover { transform: scale(1.1); }
         @media (min-width: 768px) { .hamburger { display: none; } .nav-links { display: flex; flex-direction: row; position: static; background: none; box-shadow: none; padding: 0; } .nav-links li { margin: 0 1rem; } }
 
-       /* Updated Hero Section with 3D Animated Slideshow */
-.hero {
+       .hero {
     height: 100vh;
-    /* Removed overflow: hidden to allow other slides to be visible in queue */
-    perspective: 1000px;
+    position: relative;
+    perspective: 1200px;
+    overflow: hidden;
 }
+
 .carousel {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 1.2s ease;
+    will-change: transform;
+    transition: transform 1.2s ease-out;
 }
+
 .slide {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
+    backface-visibility: hidden;
     transform-style: preserve-3d;
-    opacity: 0; /* Default to hidden */
-    transition: opacity 0.3s; /* Smooth fade during transition */
 }
-.slide.active {
-    opacity: 1; /* Fully visible when active */
-}
-/* Show faded queue only when carousel is spinning */
-.carousel.spinning .slide:not(.active) {
-    opacity: 0.5; /* Faded for queue during spinning */
-}
-/* Position slides in 3D space for rotation effect */
-.slide:nth-child(1) { transform: rotateY(0deg) translateZ(500px); }
-.slide:nth-child(2) { transform: rotateY(120deg) translateZ(500px); }
-.slide:nth-child(3) { transform: rotateY(240deg) translateZ(500px); }
+
+.slide:nth-child(1) { transform: rotateY(0deg) translateZ(400px); }
+.slide:nth-child(2) { transform: rotateY(120deg) translateZ(400px); }
+.slide:nth-child(3) { transform: rotateY(240deg) translateZ(400px); }
+
 .overlay {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.4),
-        rgba(0,0,0,0.65)
-    );
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 8%;
+    align-items: flex-start;
+    padding: 0 8%;
     color: #fff;
-    z-index: 1; /* Ensure text is on top */
+    z-index: 10;
+    pointer-events: none;
 }
-.overlay h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Added shadow for better visibility */
-}
-.overlay p {
-    font-size: 1.2rem;
-    max-width: 500px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* Added shadow for better visibility */
-}
-@media (max-width: 768px) {
-    .overlay h1 {
-        font-size: 2rem;
-    }
-    .hero {
-        overflow: hidden; /* Prevent horizontal overflow */
-        perspective: 5000px; /* Increase perspective to flatten the 3D effect and keep queue visible */
-    }
-    .slide:nth-child(1) { transform: rotateY(0deg) translateZ(200px); } /* Adjust depth for better visibility */
-    .slide:nth-child(2) { transform: rotateY(120deg) translateZ(200px); }
-    .slide:nth-child(3) { transform: rotateY(240deg) translateZ(200px); }
-    .slide:not(.active) {
-        opacity: 0; /* Ensure queue is hidden when not spinning */
-    }
-    .overlay {
-        z-index: 10; /* Ensure hero text is always above images */
-    }
-}
-        @media (max-width: 768px) {
-            .overlay h1 {
-                font-size: 2rem;
-            }
-        }
 
+.overlay h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-weight: 700;
+    max-width: 600px;
+}
+
+.overlay p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    font-weight: 400;
+    max-width: 500px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        perspective: none;
+    }
+    .carousel {
+        display: flex;
+    }
+    .slide {
+        flex: 0 0 100%;
+        transform: none;
+        opacity: 0;
+    }
+    .slide.active {
+        opacity: 1;
+    }
+}
         /* General Sections */
         section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; position: relative; }
 
@@ -331,28 +326,17 @@ display: block;
             </nav>
         </header>
 
-        <!-- Updated Hero Section with 3D Animated Slideshow -->
-        <section class="hero">
-            <div class="carousel">
-                <div class="slide active" style="background-image:url('assets/images/activities/zipline.JPG')">
-                    <div class="overlay">
-                        <h1>Nature Meets Adventure</h1>
-                        <p>Experience peace, greenery & thrill at Jungle Spring Resort</p>
-                    </div>
-                </div>
-                <div class="slide" style="background-image:url('assets/images/activities/sky cycling.JPG')">
-                    <div class="overlay">
-                        <h1>Luxury Amidst Nature</h1>
-                        <p>Stay surrounded by mountains & lake views</p>
-                    </div>
-                </div>
-                <div class="slide" style="background-image:url('assets/images/activities/rope course level-1.JPG')">
-                    <div class="overlay">
-                        <h1>Perfect Weekend Escape</h1>
-                        <p>Relax, explore & reconnect with nature</p>
-                    </div>
-                </div>
-            </div>
+       <section class="hero">
+    <div class="carousel">
+        <div class="slide" style="background-image:url('assets/images/activities/zipline.JPG')"></div>
+        <div class="slide" style="background-image:url('assets/images/activities/sky cycling.JPG')"></div>
+        <div class="slide" style="background-image:url('assets/images/activities/rope course level-1.JPG')"></div>
+    </div>
+    <div class="overlay">
+        <h1>Nature Meets Adventure</h1>
+        <p>Experience peace, greenery & thrill at Jungle Spring Resort</p>
+    </div>
+</section>
         </section>
 
         <!-- About Section -->
@@ -724,30 +708,33 @@ display: block;
             });
         });
 
-       // Updated 3D Slideshow Script for Hero
-const slides = document.querySelectorAll(".slide");
-const carousel = document.querySelector('.carousel');
-let index = 0;
+     const carousel = document.querySelector('.carousel');
+const slides = document.querySelectorAll('.slide');
 let rotation = 0;
+let isDesktop = window.innerWidth > 768;
+
+function updateCarousel() {
+    if (isDesktop) {
+        carousel.style.transform = `rotateY(${rotation}deg)`;
+    } else {
+        const activeIndex = Math.round((rotation % 360) / 120) % slides.length;
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === activeIndex);
+        });
+    }
+}
 
 setInterval(() => {
-    // Remove active from current
-    slides[index].classList.remove("active");
-    // Move to next
-    index = (index + 1) % slides.length;
-    // Add active to new
-    slides[index].classList.add("active");
-    // Add spinning class to show queue
-    carousel.classList.add('spinning');
-    // Accumulate rotation
-    rotation += 120;
-    carousel.style.transform = `rotateY(${rotation}deg)`;
-    
-    // Remove spinning class after transition
-    setTimeout(() => {
-        carousel.classList.remove('spinning');
-    }, 1200); // Match the 1.2s transition duration
+    rotation -= 120;
+    updateCarousel();
 }, 4000);
+
+window.addEventListener('resize', () => {
+    isDesktop = window.innerWidth > 768;
+    updateCarousel();
+});
+
+updateCarousel();
     </script>
     <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf"
        class="download-btn"
