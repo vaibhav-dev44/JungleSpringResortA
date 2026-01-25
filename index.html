@@ -45,17 +45,12 @@
 .hero {
     height: 100vh;
     perspective: 1000px;
-    position: relative; /* Ensure overlay is positioned relative to hero */
 }
 .carousel {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    animation: rotateCarousel 25s linear infinite; /* Continuous anti-clockwise rotation */
-}
-@keyframes rotateCarousel {
-    from { transform: rotateY(0deg); }
-    to { transform: rotateY(-360deg); } /* Anti-clockwise */
+    transition: transform 1s ease; /* Smooth continuous rotation */
 }
 .slide {
     position: absolute;
@@ -63,18 +58,15 @@
     background-size: cover;
     background-position: center;
     transform-style: preserve-3d;
-    opacity: 0.4; /* Default for inactive */
-    transform: scale(0.8); /* Default for inactive */
-    z-index: 5;
+    opacity: 0.35; /* Default for inactive */
+    transform: scale(0.85); /* Default for inactive */
+    z-index: 5; /* Default z-index */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions for active/inactive changes */
 }
-.slide:nth-child(1) {
-    transform: rotateY(0deg) translateZ(500px);
-}
-.slide:nth-child(2) {
-    transform: rotateY(120deg) translateZ(500px);
-}
-.slide:nth-child(3) {
-    transform: rotateY(240deg) translateZ(500px);
+.slide.active {
+    opacity: 1; /* Full opacity for active */
+    transform: scale(1); /* Full scale for active */
+    z-index: 10; /* Higher z-index for active */
 }
 .overlay {
     position: absolute;
@@ -85,8 +77,7 @@
     justify-content: center;
     padding-left: 8%;
     color: #fff;
-    z-index: 20; /* Above carousel */
-    pointer-events: none; /* Prevent interaction issues */
+    z-index: 20;
 }
 .overlay h1 {
     font-size: 3rem;
@@ -106,12 +97,7 @@
         overflow: hidden;
         perspective: 5000px;
     }
-    .slide:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
-    .slide:nth-child(2) { transform: rotateY(120deg) translateZ(200px); }
-    .slide:nth-child(3) { transform: rotateY(240deg) translateZ(200px); }
-    .overlay {
-        z-index: 20;
-    }
+    /* Mobile adjustments handled in JS for translateZ */
 }
 
         /* General Sections */
@@ -685,28 +671,53 @@ display: block;
 
     
 
-       // Updated 3D Slideshow Script for Hero
+      // Clean JavaScript for Continuous Anti-Clockwise Hero Slideshow
 const slides = document.querySelectorAll(".slide");
 const carousel = document.querySelector('.carousel');
-let index = 0;
+let rotation = 0; // Accumulating rotation angle
+const totalSlides = slides.length;
+const translateZ = window.innerWidth > 768 ? 500 : 200; // Responsive depth
 
-function updateSlides() {
+// Set initial slide positions
+slides.forEach((slide, i) => {
+    slide.style.transform = `rotateY(${i * 120}deg) translateZ(${translateZ}px)`;
+});
+
+// Function to update active slide based on current rotation
+function updateActive() {
+    const normalizedRotation = ((rotation % 360) + 360) % 360; // Ensure positive angle
+    const activeAngle = normalizedRotation % 120; // Find closest to 0deg
+    const activeIndex = Math.round(normalizedRotation / 120) % totalSlides;
+    
     slides.forEach((slide, i) => {
-        const angle = (i - index) * 120;
-        slide.style.transform = `rotateY(${angle}deg) translateZ(500px)`;
-        if (i === index) {
+        if (i === activeIndex) {
             slide.classList.add('active');
-            slide.style.opacity = '1';
-            slide.style.transform += ' scale(1)';
-            slide.style.zIndex = '10';
         } else {
             slide.classList.remove('active');
-            slide.style.opacity = '0.4';
-            slide.style.transform += ' scale(0.8)';
-            slide.style.zIndex = '5';
         }
     });
 }
+
+// Initial active update
+updateActive();
+
+// Single setInterval for continuous rotation
+setInterval(() => {
+    rotation -= 120; // Anti-clockwise increment
+    carousel.style.transform = `rotateY(${rotation}deg)`;
+    updateActive(); // Update which slide is active
+}, 4000);
+
+function nextSlide() {
+    activeIndex = (activeIndex + 1) % totalSlides;
+    updateSlides();
+}
+
+// Initial setup
+updateSlides();
+
+// Start the step-based cycle
+setInterval(nextSlide, pauseDuration);
 
 setInterval(() => {
     slides[index].classList.remove("active");
