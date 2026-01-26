@@ -58,9 +58,8 @@
         .overlay p { font-size: clamp(1rem, 2.5vw, 1.2rem); text-shadow: 0 1px 2px rgba(0,0,0,0.5); font-weight: 400; max-width: 500px; }
         @media (max-width: 768px) { 
             .hero { perspective: none; }
-            .carousel { display: flex; }
-            .slide { flex: 0 0 100%; transform: none; opacity: 0; }
-            .slide.active { opacity: 1; }
+            .carousel { display: flex; width: 300%; transition: transform 0.8s ease-in-out; } /* Smooth slide transition */
+            .slide { flex: 0 0 33.333%; width: 100%; transform: none; }
         }
 
         /* General Sections */
@@ -155,9 +154,8 @@
         .social-icons { margin-top: 2rem; }
         .social-icons a { margin: 0 1rem; font-size: 2rem; transition: transform var(--transition-fast); color: var(--accent-yellow); }
         .social-icons a:hover { transform: scale(1.2); }
-
         /* Sticky WhatsApp Button */
-                .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-yellow); color: var(--secondary-dark); border-radius: 50%; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px 12px var(--shadow-subtle); z-index: 1000; transition: all var(--transition-fast); animation: pulse 2s infinite; }
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-yellow); color: var(--secondary-dark); border-radius: 50%; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px 12px var(--shadow-subtle); z-index: 1000; transition: all var(--transition-fast); animation: pulse 2s infinite; }
         .whatsapp-btn:hover { background: #c4a030; transform: scale(1.1); }
 
         /* Scroll Animations */
@@ -461,8 +459,9 @@
                     <h2 class="brush-title">ADVENTURE PACKAGES</h2>
                 </div>
             </div>
-            <div class="packages-grid">
-                                <div class="package-card fade-in">
+            <div class
+       ="packages-grid">
+                <div class="package-card fade-in">
                     <h3>One Day Adventure Package</h3>
                     <p>₹1499</p>
                     <button onclick="toggleDetails(this)">View Details</button>
