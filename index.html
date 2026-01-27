@@ -60,16 +60,10 @@
 
         /* General Sections */
         section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; position: relative; }
-        .section-title { text-align: center; margin-bottom: 4rem; color: var(--text-white); }
 
-        /* Brush Section Title */
-        .brush-section { text-align: center; margin-bottom: 4rem; }
-        .brush-title-wrapper { position: relative; display: inline-block; }
-        .brush-title-wrapper svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
-        .brush-title-wrapper path { fill: var(--accent-yellow); }
-        .brush-title { position: relative; z-index: 2; font-size: 2.8rem; font-weight: 700; color: var(--text-dark); padding: 22px 70px; letter-spacing: 3px; }
-        .brush-subtitle { margin-top: 1rem; font-size: 1.1rem; color: var(--text-light-gray); font-weight: 600; }
-        @media (max-width: 768px) { .brush-title { font-size: 2rem; padding: 16px 40px; } }
+        /* Premium Section Titles */
+        .section-title { text-align: center; margin-bottom: 2rem; color: var(--accent-yellow); font-size: 2.5rem; letter-spacing: 3px; text-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
+        .section-subtitle { text-align: center; margin-bottom: 4rem; color: var(--text-light-gray); font-size: 1.1rem; font-weight: 400; letter-spacing: 1px; }
 
         /* About */
         #about { background: url('https://source.unsplash.com/featured/?nature,jungle') center/cover; position: relative; }
@@ -150,12 +144,37 @@
         /* Footer */
         footer { background: var(--secondary-dark); color: var(--text-light-gray); text-align: center; padding: 4rem; font-weight: 400; }
         .social-icons { margin-top: 2rem; }
-        .social-icons a { margin: 0 1rem; font-size: 2rem; transition: transform var(--transition-fast); }
-.social-icons a:hover { transform: scale(1.2); }
+        .social-icons a { margin: 0 1rem; font-size: 2rem; transition: transform var(--transition-fast); color: var(--accent-yellow); }
+        .social-icons a:hover { transform: scale(1.2); }
 
         /* Sticky WhatsApp Button */
-        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-yellow); color: var(--secondary-dark); border-radius: 50%; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px 12px var(--shadow-subtle); z-index: 1000; transition: all var(--transition-fast); animation: pulse 2s infinite; }
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-yellow); color: var(--secondary-dark); border-radius: 50%; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px12px var(--shadow-subtle); z-index: 1000; transition: all var(--transition-fast); animation: pulse 2s infinite; }
         .whatsapp-btn:hover { background: #c4a030; transform: scale(1.1); }
+
+        /* Download Brochure Button */
+        .download-btn {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary-dark);
+            color: var(--accent-yellow);
+            padding: 12px 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            border-radius: 8px 0 0 8px;
+            box-shadow: 0 4px 14px var(--shadow-subtle);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            right: 10px;
+        }
 
         /* Scroll Animations */
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
@@ -174,46 +193,7 @@
             section { padding: 4rem 1rem; }
             .section-title { font-size: 2rem; }
             .highlights-grid, .activities-grid, .packages-grid, .stay-grid, .amenities-grid { grid-template-columns: 1fr; gap: 2rem; }
-        }
-
-        /* District Gravity–style Download Tab (Desktop only) */
-        .download-btn {
-            position: fixed;
-            right: -44px;
-            top: 50%;
-            transform: translateY(-50%) rotate(-90deg);
-            transform-origin: center;
-            background: #111;
-            color: #fff;
-            padding: 8px 14px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 6px 6px 0 0;
-            z-index: 2000;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-            transition: right 0.3s ease;
-        }
-        .download-btn:hover {
-            right: -38px; /* subtle slide on hover */
-        }
-        /* Updated mobile media query for better queue visibility */
-        @media (max-width: 768px) {
-            .download-btn {
-                right: 0;
-                top: 45%;
-                font-size: 0.85rem;
-                padding: 10px 18px;
-            }
-        }
-        .mobile-only {
-            display: block;
-        }
-        @media (min-width: 769px) {
-            .mobile-only {
-                display: none;
-            }
+            .download-btn { font-size: 0.7rem; padding: 10px 6px; }
         }
     </style>
 </head>
@@ -271,15 +251,8 @@
 
         <!-- Activities Section -->
         <section id="activities">
-            <div class="brush-section">
-                <div class="brush-title-wrapper">
-                    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
-                        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
-                    </svg>
-                    <h2 class="brush-title">ACTIVITIES</h2>
-                </div>
-                <p class="brush-subtitle">This is where the adventure begins</p>
-            </div>
+            <h2 class="section-title">Activities</h2>
+            <p class="section-subtitle">This is where the adventure begins</p>
             <div class="activities-grid">
                 <div class="activity-card fade-in">
                     <img src="assets/images/activities/zipline.JPG" alt="Zip Line" loading="lazy">
@@ -448,14 +421,7 @@
 
         <!-- Packages Section -->
         <section id="packages">
-            <div class="brush-section">
-                <div class="brush-title-wrapper">
-                    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
-                        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
-                    </svg>
-                    <h2 class="brush-title">ADVENTURE PACKAGES</h2>
-                </div>
-            </div>
+            <h2 class="section-title">Adventure Packages</h2>
             <div class="packages-grid">
                 <div class="package-card fade-in">
                     <h3>One Day Adventure Package</h3>
@@ -494,14 +460,7 @@
 
         <!-- Stay Section -->
         <section id="stay">
-            <div class="brush-section">
-                <div class="brush-title-wrapper">
-                    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
-                        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
-                    </svg>
-                    <h2 class="brush-title">STAY & COTTAGE TARIFF</h2>
-                </div>
-            </div>
+            <h2 class="section-title">Stay & Cottage Tariff</h2>
             <div class="stay-grid">
                 <div class="stay-card fade-in">
                     <h3>Deluxe Cottage</h3>
@@ -523,14 +482,7 @@
 
         <!-- Amenities Section -->
         <section id="amenities">
-            <div class="brush-section">
-                <div class="brush-title-wrapper">
-                    <svg viewBox="0 0 500 140" preserveAspectRatio="none">
-                        <path d="M20 70 Q80 10 160 35 T320 40 Q420 50 480 70 Q420 120 320 100 T160 105 Q80 95 20 70Z"/>
-                    </svg>
-                    <h2 class="brush-title">RESORT AMENITIES</h2>
-                </div>
-            </div>
+            <h2 class="section-title">Resort Amenities</h2>
             <div class="amenities-grid">
                 <div class="amenity-item fade-in"><i class="fas fa-swimming-pool"></i><p>Infinity Pool</p></div>
                 <div class="amenity-item fade-in"><i class="fas fa-fire"></i><p>Bonfire</p></div>
