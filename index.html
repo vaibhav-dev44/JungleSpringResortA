@@ -83,7 +83,7 @@
         .activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; }
         .activity-card { background: var(--secondary-dark); border-radius: 12px; overflow: hidden; transition: all var(--transition-fast); box-shadow: 0 4px 12px var(--shadow-subtle); animation: slideInUp 0.8s ease-out; }
         .activity-card:hover { transform: translateY(-8px) rotate(1deg); box-shadow: 0 8px 24px var(--shadow-elevated); }
-        .activity-card img { width: 100%; height: 240px; object-fit: cover; transition: transform var(--transition-fast); }
+        .activity-card img { width: 100%; height: 240px; object-fit: contain; background: #000; transition: transform var(--transition-fast); }
         .activity-card:hover img { transform: scale(1.05); }
         .activity-card .content { padding: 2rem; color: var(--text-white); }
         .activity-card h3 { font-weight: 600; margin-bottom: 1rem; }
@@ -141,7 +141,7 @@
         .testimonial-card h4 { color: var(--accent-yellow); font-weight: 600; }
 
        /* Safety Section */
-        #safety { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); text-align: center; }
+                #safety { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); text-align: center; }
         #safety p { color: var(--text-light-gray); font-weight: 400; }
 
         /* Contact Section */
@@ -194,145 +194,6 @@
             .highlights-grid, .activities-grid, .packages-grid, .stay-grid, .amenities-grid { grid-template-columns: 1fr; gap: 2rem; }
             .download-btn { font-size: 0.7rem; padding: 10px 6px; }
         }
-        /* Packages Section - Imagicaa Style */
-#packages {
-    background: white; /* Light background to match Imagicaa */
-    color: black; /* Dark text for contrast */
-    padding: 6rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
-#packages .section-title {
-    color: black; /* Override to black for light background */
-    text-shadow: none; /* Remove glow for clean look */
-}
-.packages-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* 1 card per row on mobile */
-    gap: 2rem;
-    margin-top: 2rem;
-}
-@media (min-width: 768px) {
-    .packages-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on desktop */
-    }
-}
-.package-card {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-.package-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-.package-card img {
-    width: 100%;
-    height: 250px; /* Big top image */
-    object-fit: cover;
-}
-.package-card h3 {
-    text-align: center;
-    margin: 1rem 0 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: black;
-}
-.orange-line {
-    width: 50px;
-    height: 3px;
-    background: #f58220; /* Orange line */
-    margin: 0 auto 1rem;
-}
-.package-card button {
-    display: block;
-    margin: 0 auto 1rem;
-    background: #f58220;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-.package-card button:hover {
-    background: #e06b1a; /* Darker orange */
-}
-
-/* Stay Section - Imagicaa Style (same as packages) */
-#stay {
-    background: white; /* Light background to match Imagicaa */
-    color: black; /* Dark text for contrast */
-    padding: 6rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
-#stay .section-title {
-    color: black; /* Override to black for light background */
-    text-shadow: none; /* Remove glow for clean look */
-}
-.stay-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* 1 card per row on mobile */
-    gap: 2rem;
-    margin-top: 2rem;
-}
-@media (min-width: 768px) {
-    .stay-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on desktop */
-    }
-}
-.stay-card {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-.stay-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-.stay-card img {
-    width: 100%;
-    height: 250px; /* Big top image */
-    object-fit: cover;
-}
-.stay-card h3 {
-    text-align: center;
-    margin: 1rem 0 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: black;
-}
-.stay-card .orange-line {
-    width: 50px;
-    height: 3px;
-    background: #f58220; /* Orange line */
-    margin: 0 auto 1rem;
-}
-.stay-card button {
-    display: block;
-    margin: 0 auto 1rem;
-    background: #f58220;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-.stay-card button:hover {
-    background: #e06b1a; /* Darker orange */
-}
     </style>
 </head>
 <body>
@@ -343,7 +204,7 @@
                 <a href="#hero" class="logo-wrap">
                     <img src="assets/images/logo/jungle-spring-circle.jpeg" alt="Jungle Spring Resort Logo">
                 </a>
-                <ul class="nav-links">
+                                <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#activities">Activities</a></li>
@@ -352,11 +213,6 @@
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#safety">Safety</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li class="mobile-only">
-                        <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf" download>
-                            Download Brochure
-                        </a>
-                    </li>
                 </ul>
                 <div class="hamburger" onclick="toggleMenu()">
                     <span></span>
@@ -505,15 +361,6 @@
                     </div>
                 </div>
                 <div class="activity-card fade-in">
-                    <img src="assets/images/activities/kids adventure zone.JPG" alt="Kids Adventure Zone" loading="lazy">
-                    <div class="content">
-                        <h3>Kids Adventure Zone</h3>
-                        <p>Safe, age-appropriate activities for children.</p>
-                        <p><strong>Safety:</strong> Child-friendly equipment and guides.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
                     <img src="assets/images/activities/fun trampoline.JPG" alt="Fun Trampoline" loading="lazy">
                     <div class="content">
                         <h3>FUN TRAMPOLINE</h3>
@@ -522,96 +369,61 @@
                         <button onclick="downloadBrochure()">Download Brochure</button>
                     </div>
                 </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/body zorb.JPG" alt="Body Zorb" loading="lazy">
-                    <div class="content">
-                        <h3>BODY ZORB</h3>
-                        <p>Wrestle with having huge air balloons covering up to your head, show your skills !</p>
-                        <p><strong>Safety:</strong>                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/360 cycle.JPG" alt="360 Cycle" loading="lazy">
-                    <div class="content">
-                        <h3>360 CYCLE</h3>
-                        <p>See world upside down on 360° cycle, the single 360° cycle is thriller ride designed to provide riders with a spine-tingling 360-degree spinning adventure.</p>
-                        <p><strong>Safety:</strong> Secure harness and controlled spin.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/slack line.JPG" alt="Slack Line" loading="lazy">
-                    <div class="content">
-                        <h3>SLACK LINE</h3>
-                        <p>Balancing on a tape sling to cross the entire obstacle.</p>
-                        <p><strong>Safety:</strong> Spotters and safety mats.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/superman zipline.JPG" alt="Superman Zipline" loading="lazy">
-                    <div class="content">
-                        <h3>SUPERMAN ZIPLINE</h3>
-                        <p>Superman Zip line takes Zip lining to the next thrilling level and allows you to experience its flight in superman form – forward facing and prone.</p>
-                        <p><strong>Safety:</strong> Harness and trained guides.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
             </div>
         </section>
 
         <section id="packages">
-    <h2 class="section-title">Adventure Packages</h2>
-    <div class="packages-grid">
-        <div class="package-card">
-            <img src="assets/images/packages/adventure.jpg" alt="One Day Adventure" loading="lazy">
-            <h3>One Day Adventure</h3>
-            <div class="orange-line"></div>
-            <button>Explore More</button>
-        </div>
-        <div class="package-card">
-            <img src="assets/images/packages/food.jpg" alt="Leisure + Food" loading="lazy">
-            <h3>Leisure + Food</h3>
-            <div class="orange-line"></div>
-            <button>Explore More</button>
-        </div>
-        <div class="package-card">
-            <img src="assets/images/packages/adult.jpg" alt="Adult Adventure" loading="lazy">
-            <h3>Adult Adventure</h3>
-            <div class="orange-line"></div>
-            <button>Explore More</button>
-        </div>
-        <div class="package-card">
-            <img src="assets/images/packages/kids.jpg" alt="Kids Adventure" loading="lazy">
-            <h3>Kids Adventure</h3>
-            <div class="orange-line"></div>
-            <button>Explore More</button>
-        </div>
-    </div>
-</section>
-<section id="stay">
-    <h2 class="section-title">Rooms / Stay</h2>
-    <div class="stay-grid">
-        <div class="stay-card">
-            <img src="assets/images/stay/deluxe.jpg" alt="Deluxe Cottage" loading="lazy">
-            <h3>Deluxe Cottage</h3>
-            <div class="orange-line"></div>
-            <button>Explore More</button>
-        </div>
-        <div class="stay-card">
-            <img src="assets/images/stay/premium.jpg" alt="Premium Cottage" loading="lazy">
-            <h3>Premium Cottage</h3>
-            <div class="orange-line"></div>
-            <button>Explore More</button>
-        </div>
-        <div class="stay-card">
-            <img src="assets/images/stay/luxury.jpg" alt="Luxury Cottage" loading="lazy">
-            <h3>Luxury Cottage</h3>
-            <div class="orange-line"></div>
-            <button>Explore More</button>
-        </div>
-    </div>
-</section>
+            <h2 class="section-title">Adventure Packages</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <img src="assets/images/advanture packages/one-day.jpeg" alt="One Day Adventure" loading="lazy">
+                    <h3>One Day Adventure</h3>
+                    <div class="orange-line"></div>
+                    <button>Explore More</button>
+                </div>
+                <div class="package-card">
+                    <img src="assets/images/advanture packages/leisure-food.jpeg" alt="Leisure + Food" loading="lazy">
+                    <h3>Leisure + Food</h3>
+                    <div class="orange-line"></div>
+                    <button>Explore More</button>
+                </div>
+                <div class="package-card">
+                    <img src="assets/images/advanture packages/adult.jpeg" alt="Adult Adventure" loading="lazy">
+                    <h3>Adult Adventure</h3>
+                    <div class="orange-line"></div>
+                    <button>Explore More</button>
+                </div>
+                                <div class="package-card">
+                    <img src="assets/images/advanture packages/kids adventure.jpeg" alt="Kids Adventure" loading="lazy">
+                    <h3>Kids Adventure</h3>
+                    <div class="orange-line"></div>
+                    <button>Explore More</button>
+                </div>
+            </div>
+        </section>
+        <section id="stay">
+            <h2 class="section-title">Rooms / Stay</h2>
+            <div class="stay-grid">
+                <div class="stay-card">
+                    <img src="assets/images/room stay/deluxe cottage .JPG.jpeg" alt="Deluxe Cottage" loading="lazy">
+                    <h3>Deluxe Cottage</h3>
+                    <div class="orange-line"></div>
+                    <button>Explore More</button>
+                </div>
+                <div class="stay-card">
+                    <img src="assets/images/room stay/premium cottage.jpeg" alt="Premium Cottage" loading="lazy">
+                    <h3>Premium Cottage</h3>
+                    <div class="orange-line"></div>
+                    <button>Explore More</button>
+                </div>
+                <div class="stay-card">
+                    <img src="assets/images/room stay/luxury cottage.jpeg" alt="Luxury Cottage" loading="lazy">
+                    <h3>Luxury Cottage</h3>
+                    <div class="orange-line"></div>
+                    <button>Explore More</button>
+                </div>
+            </div>
+        </section>
         <!-- Amenities Section -->
         <section id="amenities">
             <h2 class="section-title">Resort Amenities</h2>
