@@ -134,73 +134,70 @@
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
         .gallery-item { cursor: pointer; transition: all var(--transition-fast); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow-subtle); animation: zoomIn 0.8s ease-out; }
         .gallery-item:hover { transform: scale(1.05) rotate(2deg); box-shadow: 0 8px 24px var(--shadow-elevated); }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 61, 46, 0.9); z-index: 1000; justify-content: center; align-items: center; animation: fadeIn 0.3s; }
-.modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
-.modal.active { display: flex; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 61, 46, 0.9); z-index:1000; justify-content: center; align-items: center; animation: fadeIn 0.3s; } .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; } .modal.active { display: flex; }
+                    /* Testimonials Section */
+    #testimonials { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
+    .testimonial-card { background: var(--secondary-dark); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-subtle); text-align: center; transition: all var(--transition-fast); animation: fadeInScale 0.8s ease-out; }
+    .testimonial-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 12px 24px var(--shadow-elevated); }
+    .testimonial-card p { color: var(--text-light-gray); font-style: italic; margin-bottom: 1rem; }
+    .testimonial-card h4 { color: var(--accent-yellow); font-weight: 600; }
 
-                /* Testimonials Section */
-        #testimonials { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
-        .testimonial-card { background: var(--secondary-dark); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-subtle); text-align: center; transition: all var(--transition-fast); animation: fadeInScale 0.8s ease-out; }
-        .testimonial-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 8px 24px var(--shadow-elevated); }
-        .testimonial-card p { color: var(--text-light-gray); font-style: italic; margin-bottom: 1rem; }
-        .testimonial-card h4 { color: var(--accent-yellow); font-weight: 600; }
+   /* Safety Section */
+            #safety { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); text-align: center; }
+    #safety p { color: var(--text-light-gray); font-weight: 400; }
 
-       /* Safety Section */
-                #safety { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); text-align: center; }
-        #safety p { color: var(--text-light-gray); font-weight: 400; }
+    /* Contact Section */
+    #contact { background: var(--secondary-dark); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .form { display: flex; flex-direction: column; gap: 1.5rem; }
+    .form input, .form textarea, .form select { padding: 1rem; border: 1px solid var(--text-light-gray); border-radius: 8px; background: var(--primary-bg); color: var(--text-white); font-family: inherit; transition: border-color var(--transition-fast); }
+    .form input:focus, .form textarea:focus, .form select:focus { border-color: var(--accent-yellow); outline: none; box-shadow: 0 0 8px rgba(212, 175, 55, 0.5); }
+    .form button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 1rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; animation: shake 2s infinite; }
+    .form button:hover { background: #c4a030; transform: scale(1.05); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
 
-        /* Contact Section */
-        #contact { background: var(--secondary-dark); }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-        .form { display: flex; flex-direction: column; gap: 1.5rem; }
-        .form input, .form textarea, .form select { padding: 1rem; border: 1px solid var(--text-light-gray); border-radius: 8px; background: var(--primary-bg); color: var(--text-white); font-family: inherit; transition: border-color var(--transition-fast); }
-        .form input:focus, .form textarea:focus, .form select:focus { border-color: var(--accent-yellow); outline: none; box-shadow: 0 0 8px rgba(212, 175, 55, 0.5); }
-        .form button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 1rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; animation: shake 2s infinite; }
-        .form button:hover { background: #c4a030; transform: scale(1.05); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
+    /* Footer */
+    footer { background: var(--secondary-dark); color: var(--text-light-gray); text-align: center; padding: 4rem; font-weight: 400; }
+    .social-icons { margin-top: 2rem; }
+    .social-icons a { margin: 0 1rem; font-size: 2rem; transition: transform var(--transition-fast); color: var(--accent-yellow); }
+    .social-icons a:hover { transform: scale(1.2); }
 
-        /* Footer */
-        footer { background: var(--secondary-dark); color: var(--text-light-gray); text-align: center; padding: 4rem; font-weight: 400; }
-        .social-icons { margin-top: 2rem; }
-        .social-icons a { margin: 0 1rem; font-size: 2rem; transition: transform var(--transition-fast); color: var(--accent-yellow); }
-        .social-icons a:hover { transform: scale(1.2); }
+    /* Sticky WhatsApp Button */
+    .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-yellow); color: var(--secondary-dark); border-radius: 50%; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px 12px var(--shadow-subtle); z-index: 1000; transition: all var(--transition-fast); animation: pulse 2s infinite; }
+    .whatsapp-btn:hover { background: #c4a030; transform: scale(1.1); }
 
-        /* Sticky WhatsApp Button */
-        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-yellow); color: var(--secondary-dark); border-radius: 50%; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px 12px var(--shadow-subtle); z-index: 1000; transition: all var(--transition-fast); animation: pulse 2s infinite; }
-        .whatsapp-btn:hover { background: #c4a030; transform: scale(1.1); }
+    /* Download Brochure Button */
+    .download-btn { position: fixed; right: 0; top: 50%; transform: translateY(-50%); background: black; color: white; padding: 12px 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; writing-mode: vertical-rl; text-orientation: mixed; border-radius: 8px 0 0 8px; box-shadow: 0 4px 14px var(--shadow-subtle); transition: right 0.3s ease; z-index: 1000; cursor: pointer; }
+    .download-btn:hover { right: 10px; }
 
-        /* Download Brochure Button */
-        .download-btn { position: fixed; right: 0; top: 50%; transform: translateY(-50%); background: black; color: white; padding: 12px 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; writing-mode: vertical-rl; text-orientation: mixed; border-radius: 8px 0 0 8px; box-shadow: 0 4px 14px var(--shadow-subtle); transition: right 0.3s ease; z-index: 1000; cursor: pointer; }
-        .download-btn:hover { right: 10px; }
+    /* Scroll Animations */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Scroll Animations */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    /* Keyframe Animations */
+    @keyframes slideDown { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 500px; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+    @keyframes glow { from { text-shadow: 0 0 15px rgba(212, 175, 55, 0.6); } to { text-shadow: 0 0 25px rgba(212, 175, 55, 1); } }
+    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeInScale { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+    @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+    @keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); } 20%, 40%, 60%, 80% { transform: translateX(5px); } }
 
-        /* Keyframe Animations */
-        @keyframes slideDown { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 500px; } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
-        @keyframes glow { from { text-shadow: 0 0 15px rgba(212, 175, 55, 0.6); } to { text-shadow: 0 0 25px rgba(212, 175, 55, 1); } }
-        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); } 20%, 40%, 60%, 80% { transform: translateX(5px); } }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) { 
-            .hero-content h1 { font-size: 2.2rem; } 
-            .contact-grid { grid-template-columns: 1fr; } 
-            section { padding: 4rem 1rem; }
-            .section-title { font-size: 2rem; }
-            .highlights-grid, .activities-grid, .packages-grid, .stay-grid, .amenities-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .download-btn { font-size: 0.7rem; padding: 10px 6px; }
-        }
-    </style>
+    /* Responsive Adjustments */
+    @media (max-width: 768px) { 
+        .hero-content h1 { font-size: 2.2rem; } 
+        .contact-grid { grid-template-columns: 1fr; } 
+        section { padding: 4rem 1rem; }
+        .section-title { font-size: 2rem; }
+        .highlights-grid, .activities-grid, .packages-grid, .stay-grid, .amenities-grid { grid-template-columns: 1fr; gap: 2rem; }
+        .download-btn { font-size: 0.7rem; padding: 10px 6px; }
+    }
+</style>
 </head>
 <body>
     <div id="app">
@@ -477,183 +474,165 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3810.123456789012!2d74.1428875!3d16.0688869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc07d00211d34bb%3A0x32538ec6766d0538!2sJUNGLE+SPRING+RESORT!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0; margin-top: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="form">
-                    <h3 style="color: var(--accent-yellow); margin-bottom: 1rem;">Send Us a Message</h3>
-                    <input type="text" id="name" placeholder="Your Name" required>
-                    <input type="email" id="email" placeholder="Your Email" required>
-                    <input type="tel" id="phone" placeholder="Your Phone" required>
-                    <input type="date" id="checkin" placeholder="Check-in Date" required>
-                    <input type="date" id="checkout" placeholder="Check-out Date" required>
-                    <select id="guestType" required>
-                        <option value="">Select Guest Type</option>
-                        <option value="couple">Couple</option>
-                        <option value="family">Family</option>
-                        <option value="friends">Friends</option>
-                        <option value="corporate">Corporate</option>
-                    </select>
-                    <textarea id="message" placeholder="Your Message" rows="4"></textarea>
-                    <button type="submit" onclick="submitForm()">Submit Inquiry</button>
-                    <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-light-gray);"><i class="fas fa-clock" style="color: var(--accent-yellow);"></i> We respond within 24 hours.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p><strong>Jungle Spring Resort & Adventure Park</strong><br>34CV+7J, Awandi, Maharashtra 416505</p>
-            <p style="margin-top: 1rem;"><i class="fas fa-clock" style="color: var(--accent-yellow);"></i> <strong>Operating Hours:</strong> Open 24/7 for inquiries.<br>
-                Check-in: 12:00 PM, Check-out: 10:00 AM.</p>
-            <p><i class="fas fa-phone"></i> Phone: +91 9090414343 / 6262393995 | <i class="fab fa-whatsapp"></i> WhatsApp: +91 9090414343 | <i class="fas fa-envelope"></i> Email: Junglespringresortreception@gmail.com</p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/share/1SSBBJPuiq/"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/junglespringresort/"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-        </footer>
-
-        <!-- Modal for Gallery -->
-        <div class="modal" id="modal">
-            <img id="modal-img" src="" alt="">
-            <span onclick="closeModal()" style="position: absolute; top: 10px; right: 20px; color: var(--text-light-gray); font-size: 2rem; cursor: pointer;">&times;</span>
+                    <h3 style="color: var(--accent-yellow); margin-bottom: 1rem;">Send Us a Message</h3> <input type="text" id="name" placeholder="Your Name" required> <input type="email" id="email" placeholder="Your Email" required> <input type="tel" id="phone" placeholder="Your Phone" required> <input type="date" id="checkin" placeholder="Check-in Date" required> <input type="date" id="checkout" placeholder="Check-out Date" required> <select id="guestType" required> <option value="">Select Guest Type</option> <option value="couple">Couple</option> <option value="family">Family</option> <option value="friends">Friends</option> <option value="corporate">Corporate</option> </select> <textarea id="message" placeholder="Your Message" rows="4"></textarea> <button type="submit" onclick="submitForm()">Submit Inquiry</button> <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-light-gray);"><i class="fas fa-clock" style="color: var(--accent-yellow);"></i> We respond within 24 hours.</p> </div> </div> </section>
+                        <!-- Footer -->
+    <footer>
+        <p><strong>Jungle Spring Resort & Adventure Park</strong><br>34CV+7J, Awandi, Maharashtra 416505</p>
+        <p style="margin-top: 1rem;"><i class="fas fa-clock" style="color: var(--accent-yellow);"></i> <strong>Operating Hours:</strong> Open 24/7 for inquiries.<br>
+            Check-in: 12:00 PM, Check-out: 10:00 AM.</p>
+        <p><i class="fas fa-phone"></i> Phone: +91 9090414343 / 6262393995 | <i class="fab fa-whatsapp"></i> WhatsApp: +91 9090414343 | <i class="fas fa-envelope"></i> Email: Junglespringresortreception@gmail.com</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/share/1SSBBJPuiq/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/junglespringresort/"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
 
-        <!-- Sticky WhatsApp Button -->
-        <a href="https://wa.me/919090414343" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
-
-        <!-- Download Brochure Button -->
-        <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf" class="download-btn" download="Jungle-Spring-Resort-Brochure">
-            Download Brochure
-        </a>
+    <!-- Modal for Gallery -->
+    <div class="modal" id="modal">
+        <img id="modal-img" src="" alt="">
+        <span onclick="closeModal()" style="position: absolute; top: 10px; right: 20px; color: var(--text-light-gray); font-size: 2rem; cursor: pointer;">&times;</span>
     </div>
 
-    <script>
-        // Menu Toggle with Animation
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const hamburger = document.querySelector('.hamburger');
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        }
+    <!-- Sticky WhatsApp Button -->
+    <a href="https://wa.me/919090414343" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
 
-        // Package Details Toggle
-        function toggleDetails(button) {
-            const details = button.nextElementSibling;
-            details.classList.toggle('active');
-        }
+    <!-- Download Brochure Button -->
+    <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf" class="download-btn" download="Jungle-Spring-Resort-Brochure">
+        Download Brochure
+    </a>
+</div>
 
-        // Stay Details Toggle
-        function toggleStayDetails(button) {
-            const details = button.nextElementSibling;
-            details.classList.toggle('active');
-        }
+<script>
+    // Menu Toggle with Animation
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    }
 
-        // Modal Gallery
-        function openModal(src) {
-            document.getElementById('modal-img').src = src;
-            document.getElementById('modal').classList.add('active');
-        }
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-        }
+    // Package Details Toggle
+    function toggleDetails(button) {
+        const details = button.nextElementSibling;
+        details.classList.toggle('active');
+    }
 
-        // Download Brochure Function
-        function downloadBrochure() {
-            const link = document.createElement('a');
-            link.href = 'assets/brochure/Jungle-Spring-Resort-Brochure.pdf';
-            link.download = 'Jungle-Spring-Resort-Brochure.pdf';
-            link.click();
+    // Stay Details Toggle
+    function toggleStayDetails(button) {
+        const details = button.nextElementSibling;
+        details.classList.toggle('active');
+    }
+
+    // Modal Gallery
+    function openModal(src) {
+        document.getElementById('modal-img').src = src;
+        document.getElementById('modal').classList.add('active');
+    }
+    function closeModal() {
+        document.getElementById('modal').classList.remove('active');
+    }
+
+    // Download Brochure Function
+    function downloadBrochure() {
+        const link = document.createElement('a');
+        link.href = 'assets/brochure/Jungle-Spring-Resort-Brochure.pdf';
+        link.download = 'Jungle-Spring-Resort-Brochure.pdf';
+        link.click();
+    }
+
+    // Form Submission Handler
+    function submitForm() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;
+        const guestType = document.getElementById('guestType').value;
+        const message = document.getElementById('message').value;
+
+        if (name && email && phone && checkin && checkout && guestType) {
+            // Construct WhatsApp message
+            const whatsappMessage = `Booking Request from Website\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCheck-in Date: ${checkin}\nCheck-out Date: ${checkout}\nGuest Type: ${guestType}\nMessage: ${message}`;
+            const whatsappURL = `https://wa.me/919090414343?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappURL, '_blank');
+            alert(`Thank you, ${name}! Your inquiry has been submitted. We will contact you soon.`);
+        } else {
+            alert('Please fill in all required fields.');
         }
+    }
 
-        // Form Submission Handler
-        function submitForm() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const checkin = document.getElementById('checkin').value;
-            const checkout = document.getElementById('checkout').value;
-            const guestType = document.getElementById('guestType').value;
-            const message = document.getElementById('message').value;
-
-            if (name && email && phone && checkin && checkout && guestType) {
-                alert(`Thank you, ${name}! Your inquiry has been submitted. We will contact you soon.`);
-                // Here you can add code to send data to a server, e.g., via fetch()
-            } else {
-                alert('Please fill in all required fields.');
+    // Scroll Animations
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
-        }
+        });
+    });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Scroll Animations
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+    // Hero Slideshow Logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
         });
-
-        // Hero Slideshow Logic
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const indicators = document.querySelectorAll('.indicator');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            indicators.forEach((indicator, i) => {
-                indicator.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            showSlide(currentSlide);
-        }
-
-        setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
-        showSlide(currentSlide); // Initialize
-
-        // Interactive Hover Effects for Activities (Example: Add tooltips or more animations)
-        document.querySelectorAll('.activity-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) rotate(2deg) scale(1.02)';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
         });
+    }
 
-        // Testimonials Carousel (Simple auto-rotate)
-        let testimonialIndex = 0;
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        function showTestimonial(index) {
-            testimonials.forEach((t, i) => {
-                t.style.display = i === index ? 'block' : 'none';
-            });
-        }
-        function nextTestimonial() {
-            testimonialIndex = (testimonialIndex + 1) % testimonials.length;
-            showTestimonial(testimonialIndex);
-        }
-        setInterval(nextTestimonial, 4000); // Rotate every 4 seconds
-        showTestimonial(testimonialIndex); // Initialize
-    </script>
-</body>
-</html>
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
 
+    function goToSlide(index) {
+        currentSlide = index;
+        showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
+    showSlide(currentSlide); // Initialize
+
+    // Interactive Hover Effects for Activities (Example: Add tooltips or more animations)
+    document.querySelectorAll('.activity-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px) rotate(2deg) scale(1.02)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    // Testimonials Carousel (Simple auto-rotate)
+    let testimonialIndex = 0;
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    function showTestimonial(index) {
+        testimonials.forEach((t, i) => {
+            t.style.display = i === index ? 'block' : 'none';
+        });
+    }
+    function nextTestimonial() {
+        testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+        showTestimonial(testimonialIndex);
+    }
+    setInterval(nextTestimonial, 4000); // Rotate every 4 seconds
+    showTestimonial(testimonialIndex); // Initialize
+</script>
+</body> </html>
