@@ -97,24 +97,28 @@
         #packages::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(27, 94, 32, 0.3) 0%, transparent 70%); pointer-events: none; }
         #packages::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, transparent 50%, rgba(27, 94, 32, 0.3) 100%); pointer-events: none; }
         .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; }
-        .package-card { background: var(--secondary-dark); border-radius: 12px; padding: 3rem; text-align: center; transition: all var(--transition-fast); cursor: pointer; box-shadow: 0 4px 12px var(--shadow-subtle); animation: slideInRight 0.8s ease-out; }
-        .package-card:hover { transform: translateY(-15px) scale(1.05); box-shadow: 0 12px 30px var(--shadow-elevated); }
-        .package-card h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-white); }
-        .package-card p { font-size: 1.8rem; font-weight: 700; color: var(--text-white); margin-bottom: 1.5rem; }
-        .package-card button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 0.75rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; animation: pulse 2s infinite; }
-        .package-card button:hover { background: #c4a030; transform: scale(1.05); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
+        .package-card { background: var(--secondary-dark); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all var(--transition-fast); cursor: pointer; box-shadow: 0 4px 12px var(--shadow-subtle); animation: slideInRight 0.8s ease-out; min-height: 350px; }
+        .package-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 12px 30px var(--shadow-elevated); }
+        .package-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
+        .package-card h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-white); }
+        .package-card p { font-size: 1.5rem; font-weight: 700; color: var(--text-white); margin-bottom: 1rem; }
+        .package-card button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 0.6rem 1.2rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; animation: pulse 2s infinite; }
+        .package-card button:hover { background: #c4a030; transform: scale(1.02); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
         .package-details { display: none; margin-top: 1.5rem; animation: slideDown 0.5s ease-out; color: var(--text-light-gray); font-weight: 400; }
         .package-details.active { display: block; }
 
         /* Stay Section */
         #stay { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); }
-        .stay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
-        .stay-card { background: var(--secondary-dark); padding: 3rem; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-subtle); text-align: center; transition: all var(--transition-fast); cursor: pointer; animation: fadeInScale 0.8s ease-out; }
-        .stay-card:hover { transform: translateY(-15px) rotate(-1deg) scale(1.02); box-shadow: 0 12px 30px var(--shadow-elevated); }
-        .stay-card h3 { color: var(--text-white); font-weight: 600; margin-bottom: 1rem; }
-        .stay-card p { color: var(--text-light-gray); font-weight: 400; }
-        .stay-card button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 0.75rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; animation: pulse 2s infinite; }
-        .stay-card button:hover { background: #c4a030; transform: scale(1.05); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
+        .stay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; }
+        .stay-card { background: var(--secondary-dark); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-subtle); text-align: center; transition: all var(--transition-fast); cursor: pointer; animation: fadeInScale 0.8s ease-out; min-height: 350px; }
+        .stay-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 12px 30px var(--shadow-elevated); }
+        .stay-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
+        .stay-card h3 { color: var(--text-white); font-weight: 600; margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .stay-card p { color: var(--text-light-gray); font-weight: 400; font-size: 1rem; }
+        .stay-card button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 0.6rem 1.2rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; animation: pulse 2s infinite; }
+        .stay-card button:hover { background: #c4a030; transform: scale(1.02); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
+        .stay-details { display: none; margin-top: 1rem; animation: slideDown 0.5s ease-out; color: var(--text-light-gray); font-weight: 400; text-align: left; font-size: 0.9rem; }
+        .stay-details.active { display: block; }
 
         /* Amenities Section */
         #amenities { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); }
@@ -131,10 +135,10 @@
         .gallery-item { cursor: pointer; transition: all var(--transition-fast); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow-subtle); animation: zoomIn 0.8s ease-out; }
         .gallery-item:hover { transform: scale(1.05) rotate(2deg); box-shadow: 0 8px 24px var(--shadow-elevated); }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 61, 46, 0.9); z-index: 1000; justify-content: center; align-items: center; animation: fadeIn 0.3s; }
-        .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
-        .modal.active { display: flex; }
+.modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
+.modal.active { display: flex; }
 
-        /* Testimonials Section */
+                /* Testimonials Section */
         #testimonials { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
         .testimonial-card { background: var(--secondary-dark); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-subtle); text-align: center; transition: all var(--transition-fast); animation: fadeInScale 0.8s ease-out; }
@@ -327,15 +331,6 @@
                     </div>
                 </div>
                 <div class="activity-card fade-in">
-                    <img src="assets/images/activities/adventure-climbing-wall.JPG" alt="Adventure Climbing Wall" loading="lazy">
-                    <div class="content">
-                        <h3>ADVENTURE CLIMBING WALL</h3>
-                        <p>Dare to ascend! Our adventure park’s climbing wall invites thrill-seekers to conquer new heights. With its diverse routes and challenging inclines, this towering structure offers adrenaline-pumping experiences for climbers of all skill levels. Safely equipped with certified harnesses and crash pads, it’s an exhilarating opportunity to test courage, agility, and determination in a controlled, heart-pounding adventure.</p>
-                        <p><strong>Safety:</strong> Belay systems and instructors.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
                     <img src="assets/images/activities/swimming-pool.jpg" alt="Swimming Pool" loading="lazy">
                     <div class="content">
                         <h3>Swimming Pool</h3>
@@ -354,25 +349,25 @@
                     <img src="assets/images/adventure packages/one-day.jpeg" alt="One Day Adventure" loading="lazy">
                     <h3>One Day Adventure</h3>
                     <div class="orange-line"></div>
-                    <button>Explore More</button>
+                    <button onclick="downloadBrochure()">Explore More</button>
                 </div>
                 <div class="package-card">
                     <img src="assets/images/adventure packages/leisure-food.jpeg" alt="Leisure + Food" loading="lazy">
                     <h3>Leisure + Food</h3>
                     <div class="orange-line"></div>
-                    <button>Explore More</button>
+                    <button onclick="downloadBrochure()">Explore More</button>
                 </div>
                 <div class="package-card">
                     <img src="assets/images/adventure packages/adult.jpeg" alt="Adult Adventure" loading="lazy">
                     <h3>Adult Adventure</h3>
                     <div class="orange-line"></div>
-                    <button>Explore More</button>
+                    <button onclick="downloadBrochure()">Explore More</button>
                 </div>
                                 <div class="package-card">
                     <img src="assets/images/adventure packages/kids-adventure.jpeg" alt="Kids Adventure" loading="lazy">
                     <h3>Kids Adventure</h3>
                     <div class="orange-line"></div>
-                    <button>Explore More</button>
+                    <button onclick="downloadBrochure()">Explore More</button>
                 </div>
             </div>
         </section>
@@ -381,21 +376,36 @@
             <div class="stay-grid">
                 <div class="stay-card">
                     <img src="assets/images/room stay/deluxe-cottage.jpeg" alt="Deluxe Cottage" loading="lazy">
-                    <h3>Deluxe Cottage</h3>
+                    <h3>🌿 Deluxe Cottage – ₹2,899 (for 2 Persons)</h3>
                     <div class="orange-line"></div>
-                    <button onclick="downloadBrochure()">Explore More</button>
+                    <button onclick="toggleStayDetails(this)">Explore More</button>
+                    <div class="stay-details">
+                        <p><strong>Description:</strong> Enjoy a beautiful stay with a direct view of our incredible infinity swimming pool, located beside the dam water and surrounded by lush green mountains.</p>
+                        <p><strong>Occupancy:</strong> Maximum 2 persons. Extra mattress: ₹500 per person.</p>
+                        <p><strong>Check-in:</strong> 12:00 PM | <strong>Check-out:</strong> 10:00 AM</p>
+                    </div>
                 </div>
                 <div class="stay-card">
                     <img src="assets/images/room stay/premium-cottage.jpeg" alt="Premium Cottage" loading="lazy">
-                    <h3>Premium Cottage</h3>
+                    <h3>🌊 Premium Cottage – ₹3,999 (for 2 Persons)</h3>
                     <div class="orange-line"></div>
-                    <button onclick="downloadBrochure()">Explore More</button>
+                    <button onclick="toggleStayDetails(this)">Explore More</button>
+                    <div class="stay-details">
+                        <p><strong>Description:</strong> Surrounded by nature, this cottage offers a unique floating-on-water experience, located just beside the dam water.</p>
+                        <p><strong>Occupancy:</strong> Maximum: 1 extra person allowed. Extra mattress: ₹500.</p>
+                        <p><strong>Check-in:</strong> 12:00 PM | <strong>Check-out:</strong> 10:00 AM</p>
+                    </div>
                 </div>
                 <div class="stay-card">
-                    <img src="assets/images/room stay/luxury-cottage.jpeg" alt="Luxury Cottage" loading="lazy">
-                    <h3>Luxury Cottage</h3>
+                    <img src="assets/images/room stay/luxury-cottage.jpeg" alt="Last Premium Cottage" loading="lazy">
+                    <h3>🌟 Last Premium Cottage – ₹4,999 (for 2 Persons)</h3>
                     <div class="orange-line"></div>
-                    <button onclick="downloadBrochure()">Explore More</button>
+                    <button onclick="toggleStayDetails(this)">Explore More</button>
+                    <div class="stay-details">
+                        <p><strong>Description:</strong> Experience nature like never before. These luxurious cottages are located beside the dam backwater and give a complete floating-on-water feel.</p>
+                        <p><strong>Occupancy:</strong> Maximum: 2 extra persons allowed. Extra mattress: ₹500 per person.</p>
+                        <p><strong>Check-in:</strong> 12:00 PM | <strong>Check-out:</strong> 10:00 AM</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -453,11 +463,23 @@
         <!-- Contact Section -->
         <section id="contact">
             <h2 class="section-title">Contact & Booking</h2>
+            <p class="section-subtitle">Secure your spot for an unforgettable experience. Our team is here to assist with all your booking needs.</p>
             <div class="contact-grid">
+                <div>
+                    <h3 style="color: var(--accent-yellow); margin-bottom: 1rem;">Get in Touch</h3>
+                    <p><i class="fas fa-phone" style="color: var(--accent-yellow);"></i> <a href="tel:+919090414343">Call: +91 9090414343</a> / <a href="tel:+916262393995">6262393995</a></p>
+                    <p><i class="fab fa-whatsapp" style="color: var(--accent-yellow);"></i> <a href="https://wa.me/919090414343">WhatsApp: +91 9090414343</a></p>
+                    <p><i class="fas fa-envelope" style="color: var(--accent-yellow);"></i> <a href="mailto:Junglespringresortreception@gmail.com">Email: Junglespringresortreception@gmail.com</a></p>
+                    <p style="margin-top: 1rem;"><i class="fas fa-shield-alt" style="color: var(--accent-yellow);"></i> <strong>Trusted & Secure:</strong> Your information is safe with us. We prioritize your privacy and security.</p>
+                    <p style="margin-top: 1rem;"><i class="fas fa-clock" style="color: var(--accent-yellow);"></i> <strong>Operating Hours:</strong> Open 24/7 for inquiries. Check-in: 12:00 PM, Check-out: 10:00 AM.</p>
+                    <p style="margin-top: 1rem;"><i class="fas fa-map-marker-alt" style="color: var(--accent-yellow);"></i> <strong>Location:</strong> 34CV+7J, Awandi, Maharashtra 416505, India.</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3810.123456789012!2d74.1428875!3d16.0688869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc07d00211d34bb%3A0x32538ec6766d0538!2sJUNGLE+SPRING+RESORT!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0; margin-top: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
                 <div class="form">
-                    <input type="text" id="name" placeholder="Name" required>
-                    <input type="email" id="email" placeholder="Email" required>
-                    <input type="tel" id="phone" placeholder="Phone" required>
+                    <h3 style="color: var(--accent-yellow); margin-bottom: 1rem;">Send Us a Message</h3>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <input type="tel" id="phone" placeholder="Your Phone" required>
                     <input type="date" id="checkin" placeholder="Check-in Date" required>
                     <input type="date" id="checkout" placeholder="Check-out Date" required>
                     <select id="guestType" required>
@@ -467,14 +489,9 @@
                         <option value="friends">Friends</option>
                         <option value="corporate">Corporate</option>
                     </select>
-                    <textarea id="message" placeholder="Message" rows="4"></textarea>
+                    <textarea id="message" placeholder="Your Message" rows="4"></textarea>
                     <button type="submit" onclick="submitForm()">Submit Inquiry</button>
-                </div>
-                <div>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+919090414343">Call: +91 9090414343</a> / <a href="tel:+916262393995">6262393995</a></p>
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919090414343">WhatsApp: +91 9090414343</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:Junglespringresortreception@gmail.com">Email: Junglespringresortreception@gmail.com</a></p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3810.123456789012!2d74.1428875!3d16.0688869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc07d00211d34bb%3A0x32538ec6766d0538!2sJUNGLE+SPRING+RESORT!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-light-gray);"><i class="fas fa-clock" style="color: var(--accent-yellow);"></i> We respond within 24 hours.</p>
                 </div>
             </div>
         </section>
@@ -517,6 +534,12 @@
 
         // Package Details Toggle
         function toggleDetails(button) {
+            const details = button.nextElementSibling;
+            details.classList.toggle('active');
+        }
+
+        // Stay Details Toggle
+        function toggleStayDetails(button) {
             const details = button.nextElementSibling;
             details.classList.toggle('active');
         }
