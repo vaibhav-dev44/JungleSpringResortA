@@ -159,95 +159,113 @@
     .form button:hover { background: #c4a030; transform: scale(1.05); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
 
     /* Footer Styles */
-    footer {
-        background: var(--secondary-dark);
-        color: var(--text-light-gray);
-        padding: 4rem 2rem;
-        font-weight: 400;
-        text-align: center;
-    }
+footer {
+    background: #0f3d2e; /* Deep jungle green background */
+    color: #ffffff; /* White text for contrast */
+    padding: 4rem 2rem;
+    font-weight: 400;
+    text-align: center;
+}
 
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+.footer-section {
+    text-align: left;
+}
+
+.footer-section h4 {
+    color: #e0e0e0; /* Soft muted text for headings */
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    margin: 0.75rem 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #ffffff; /* White text */
+}
+
+.footer-section i {
+    color: #a5d6a7; /* Soft green accent for icons */
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+}
+
+.connect-with-us p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0; /* Soft muted text */
+}
+
+.social-icons {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+}
+
+.social-icons a {
+    font-size: 1.8rem;
+    color: #ffffff; /* White icons */
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #a5d6a7; /* Soft green on hover */
+    transform: scale(1.1);
+}
+
+.footer-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle divider */
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.developed-by {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6); /* Subtle, professional */
+    font-weight: 300;
+}
+
+/* Responsive Adjustments for Footer */
+@media (max-width: 768px) {
     .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        margin-bottom: 2rem;
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
-
     .footer-section {
-        text-align: left;
-    }
-
-    .footer-section h3 {
-        color: var(--accent-yellow);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-    }
-
-    .footer-section h4 {
-        color: var(--accent-yellow);
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    .footer-section p {
-        margin: 0.5rem 0;
-        line-height: 1.6;
-    }
-
-    .footer-section i {
-        color: var(--accent-yellow);
-        margin-right: 0.5rem;
-    }
-
-    .social-section {
         text-align: center;
     }
-
     .social-icons {
-        display: flex;
         justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
     }
-
-    .social-icons a {
-        font-size: 1.5rem;
-        color: var(--accent-yellow);
-        transition: transform var(--transition-fast);
+    footer {
+        padding: 3rem 1rem;
     }
-
-    .social-icons a:hover {
-        transform: scale(1.2);
-    }
-
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 1rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .footer-bottom p {
-        margin: 0;
-        font-size: 0.9rem;
-    }
-
-    .footer-bottom a {
-        color: var(--text-light-gray);
-        text-decoration: none;
-        margin: 0 0.5rem;
-        transition: color var(--transition-fast);
-    }
-
-    .footer-bottom a:hover {
-        color: var(--accent-yellow);
-    }
-
+}
     /* Sticky WhatsApp Button */
     .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-yellow); color: var(--secondary-dark); border-radius: 50%; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px 12px var(--shadow-subtle); z-index: 1000; transition: all var(--transition-fast); animation: pulse 2s infinite; }
     .whatsapp-btn:hover { background: #c4a030; transform: scale(1.1); }
@@ -561,36 +579,31 @@
         <div class="form">
             <h3 style="color: var(--accent-yellow); margin-bottom: 1rem;">Send Us a Message</h3> <input type="text" id="name" placeholder="Your Name" required> <input type="email" id="email" placeholder="Your Email" required> <input type="tel" id="phone" placeholder="Your Phone" required> <input type="date" id="checkin" placeholder="Check-in Date" required> <input type="date" id="checkout" placeholder="Check-out Date" required> <select id="guestType" required> <option value="">Select Guest Type</option> <option value="couple">Couple</option> <option value="family">Family</option> <option value="friends">Friends</option> <option value="corporate">Corporate</option> </select> <textarea id="message" placeholder="Your Message" rows="4"></textarea> <button type="submit" onclick="submitForm()">Submit Inquiry</button> <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-light-gray);"><i class="fas fa-clock" style="color: var(--accent-yellow);"></i> We respond within 24 hours.</p> </div> </div> </section>
                         <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Jungle Spring Resort & Adventure Park</h3>
-                <p>34CV+7J, Awandi, Maharashtra 416505</p>
-            </div>
-            <div class="footer-section">
-                <h4>Operating Hours</h4>
-                <p>Open 24/7 for inquiries</p>
-                <p>Check-in: 12:00 PM | Check-out: 10:00 AM</p>
-            </div>
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p><i class="fas fa-phone"></i> Phone: +91 9090414343 / 6262393995</p>
-                <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 9090414343</p>
-                <p><i class="fas fa-envelope"></i> Email: Junglespringresortreception@gmail.com</p>
-            </div>
-            <div class="footer-section social-section">
-                <h4>Follow Us</h4>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/share/1SSBBJPuiq/"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/junglespringresort/"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
+    <!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section contact-us">
+            <h4>Contact Us</h4>
+            <p><i class="fas fa-phone"></i> +91 9090414343 / 6262393995</p>
+            <p><i class="fas fa-map-marker-alt"></i> 34CV+7J, Awandi, Maharashtra 416505</p>
+        </div>
+        <div class="footer-section connect-with-us">
+            <h4>Connect With Us</h4>
+            <p>Stay connected for the latest adventures and updates.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/1SSBBJPuiq/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/junglespringresort/"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-        </div>
-    </footer>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 Jungle Spring Resort & Adventure Park. All rights reserved.</p>
+        <p class="developed-by">Developed by Jungle Spring Resort</p>
+    </div>
+</footer>
 
     <!-- Modal for Gallery -->
     <div class="modal" id="modal">
