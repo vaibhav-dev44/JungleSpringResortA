@@ -1,848 +1,969 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jungle Spring Resort & Adventure Park | Ajara, Kolhapur</title>  <!-- Fixed: Combined into one unique title tag -->
-    <meta name="description" content="Jungle Spring Resort & Adventure Park in Ajara near Kolhapur offers zipline, sky cycling, rope courses, infinity pool, luxury cottages and dam backwater views. Perfect for family, corporate and school trips.">
-    <!-- SEO Meta -->
-    <meta name="author" content="Jungle Spring Resort">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://junglespringresort.com/">
-    <meta name="keywords" content="
-resort in Ajara,
-resort near Kolhapur,
-resort near Goa,
-resort near Konkan,
-resort near Belgaum,
-adventure park Maharashtra,
-family resort Ajara,
-dam backwater resort,
-luxury cottages Kolhapur
-">
+border-radius: 50px;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        font-weight: 600;
+        animation: pulse 2s infinite;
+      }
+      .brochure-card button:hover {
+        background: #c4a030;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+      }
 
-    <!-- Open Graph (Facebook, WhatsApp) -->
-    <meta property="og:title" content="Jungle Spring Resort & Adventure Park | Ajara, Kolhapur">
-    <meta property="og:description" content="Experience zipline, sky cycling, rope courses, cottages & infinity pool at Jungle Spring Resort, Ajara. Best adventure park near Kolhapur.">
-    <meta property="og:image" content="https://junglespringresort.com/assets/images/logo/jungle-spring-favicon.png">
-    <meta property="og:url" content="https://junglespringresort.com/">
-    <meta property="og:type" content="website">
+      /* Scroll Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.8s ease-out,
+          transform 0.8s ease-out;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jungle Spring Resort & Adventure Park">
-    <meta name="twitter:description" content="Best nature & adventure resort near Kolhapur.">
-    <meta name="twitter:image" content="https://junglespringresort.com/assets/images/logo/jungle-spring-favicon.png">
-
-    <!-- Favicon using your LOGO -->
-    <link rel="icon" type="image/jpeg" sizes="32x32" href="assets/images/logo/jungle-spring-favicon.png">
-    <link rel="icon" type="image/jpeg" sizes="16x16" href="assets/images/logo/jungle-spring-favicon.png">
-    <link rel="apple-touch-icon" href="assets/images/logo/jungle-spring-favicon.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-bg: #0f3d2e;
-            --secondary-dark: #1b5e20;
-            --accent-yellow: #d4af37;
-            --text-white: #ffffff;
-            --text-light-gray: #e0e0e0;
-            --text-dark: #2e3b23;
-            --shadow-subtle: rgba(0, 0, 0, 0.1);
-            --shadow-elevated: rgba(0, 0, 0, 0.2);
-            --transition-fast: 0.3s ease;
-            --transition-slow: 0.6s ease;
-            --header-height: 132px; /* Calculated: logo 100px + padding 16px top + 16px bottom */
+      /* Keyframe Animations */
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          max-height: 0;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--text-light-gray); background-color: var(--primary-bg); overflow-x: hidden; scroll-behavior: smooth; }
-        h1, h2, h3 { font-weight: 700; text-transform: uppercase; }
-        a { text-decoration: none; color: inherit; transition: color var(--transition-fast); }
-        img { max-width: 100%; height: auto; transition: transform var(--transition-fast); }
-        button { cursor: pointer; }
+        to {
+          opacity: 1;
+          max-height: 500px;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+        }
+      }
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+        to {
+          text-shadow: 0 0 25px rgba(212, 175, 55, 1);
+        }
+      }
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes zoomIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-5px);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(5px);
+        }
+      }
 
-        /* Header & Navigation */
-        header { position: fixed; top: 0; width: 100%; background: rgba(15, 61, 46, 0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 2rem; box-shadow: 0 4px 12px var(--shadow-subtle); transition: all var(--transition-fast); }
-        .logo-wrap { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .logo-wrap img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.25); transform-origin: center; }
-        .logo-wrap:hover { transform: scale(1.08); box-shadow: 0 0 18px rgba(212, 175, 55, 0.55); }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .nav-links { display: none; list-style: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--primary-bg); padding: 1rem; box-shadow: 0 4px 12px var(--shadow-subtle); border-radius: 0 0 16px 16px; }
-        .nav-links.active { display: flex; }
-        .nav-links li { margin: 0.5rem 0; }
-        .nav-links a { font-weight: 600; padding: 0.5rem; border-radius: 8px; transition: background var(--transition-fast); color: var(--accent-yellow); }
-        .nav-links a:hover { background: var(--secondary-dark); color: var(--primary-bg); }
-        .hamburger { display: flex; flex-direction: column; justify-content: space-around; width: 30px; height: 24px; cursor: pointer; transition: all 0.4s ease; }
-        .hamburger span { display: block; width: 100%; height: 3px; background-color: var(--accent-yellow); transition: all 0.4s ease; transform-origin: center; }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
-        .hamburger:hover { transform: scale(1.1); }
-        @media (min-width: 768px) { .hamburger { display: none; } .nav-links { display: flex; flex-direction: row; position: static; background: none; box-shadow: none; padding: 0; } .nav-links li { margin: 0 1rem; } }
-
-        /* Hero Section - Professional Responsive Slideshow */
-        .hero { height: 100vh; position: relative; overflow: hidden; scroll-margin-top: var(--header-height); }
-        .hero-slider { position: relative; width: 100%; height: 100%; }
-        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
-        .slide.active { opacity: 1; }
-        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 5%; z-index: 10; }
-        .overlay h1 { font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); font-weight: 700; max-width: 700px; animation: fadeInUp 2s ease-out; }
-        .overlay p { font-size: clamp(1rem, 3vw, 1.5rem); text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-weight: 400; max-width: 600px; animation: fadeInUp 2.5s ease-out; }
-        .hero-indicators { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 20; }
-        .indicator { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background var(--transition-fast); }
-        .indicator.active { background: var(--accent-yellow); }
-
-        /* General Sections */
-        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; position: relative; scroll-margin-top: var(--header-height); }
-
-        /* Premium Section Titles */
-        .section-title { text-align: center; margin-bottom: 2rem; color: var(--accent-yellow); font-size: 2.5rem; letter-spacing: 3px; text-shadow: 0 0 15px rgba(212, 175, 55, 0.6); animation: glow 2s ease-in-out infinite alternate; }
-        .section-subtitle { text-align: center; margin-bottom: 4rem; color: var(--text-light-gray); font-size: 1.1rem; font-weight: 400; letter-spacing: 1px; }
-
-        /* About */
-        #about { background: url('https://source.unsplash.com/featured/?nature,jungle') center/cover; position: relative; }
-        #about::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 61, 46, 0.6); }
-        #about .content { position: relative; z-index: 1; text-align: center; animation: slideInLeft 1s ease-out; }
-        #about h2 { color: var(--text-white); }
-        #about p { color: var(--text-light-gray); }
-
-        /* Activities Section */
-        #activities { position: relative; background-color: var(--primary-bg); overflow: hidden; }
-        #activities::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(27, 94, 32, 0.3) 0%, transparent 70%); pointer-events: none; }
-        #activities::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, transparent 50%, rgba(27, 94, 32, 0.3) 100%); pointer-events: none; }
-        .activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; }
-        .activity-card { background: var(--secondary-dark); border-radius: 12px; overflow: hidden; transition: all var(--transition-fast); box-shadow: 0 4px 12px var(--shadow-subtle); animation: slideInUp 0.8s ease-out; }
-        .activity-card:hover { transform: translateY(-8px) rotate(1deg); box-shadow: 0 8px 24px var(--shadow-elevated); }
-        .activity-card img { width: 100%; height: 240px; object-fit: contain; background: #000; transition: transform var(--transition-fast); }
-        .activity-card:hover img { transform: scale(1.05); }
-        .activity-card .content { padding: 2rem; color: var(--text-white); }
-        .activity-card h3 { font-weight: 600; margin-bottom: 1rem; }
-        .activity-card p { font-weight: 400; margin-bottom: 0.5rem; }
-        .activity-card p strong { font-weight: 600; color: var(--accent-yellow); }
-        .activity-card button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 0.75rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; margin-top: 1rem; animation: bounce 2s infinite; }
-        .activity-card button:hover { background: #c4a030; transform: scale(1.05); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
-
-        /* Packages Section */
-        #packages { position: relative; background-color: var(--primary-bg); overflow: hidden; }
-        #packages::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(27, 94, 32, 0.3) 0%, transparent 70%); pointer-events: none; }
-        #packages::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, transparent 50%, rgba(27, 94, 32, 0.3) 100%); pointer-events: none; }
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; }
-        .package-card { background: var(--secondary-dark); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all var(--transition-fast); cursor: pointer; box-shadow: 0 4px 12px var(--shadow-subtle); animation: slideInRight 0.8s ease-out; min-height: 350px; }
-        .package-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 12px 30px var(--shadow-elevated); }
-        .package-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
-        .package-card h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-white); }
-        .package-card p { font-size: 1.5rem; font-weight: 700; color: var(--text-white); margin-bottom: 1rem; }
-        .package-card button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 0.6rem 1.2rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; animation: pulse 2s infinite; }
-        .package-card button:hover { background: #c4a030; transform: scale(1.02); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
-        .package-details { display: none; margin-top: 1.5rem; animation: slideDown 0.5s ease-out; color: var(--text-light-gray); font-weight: 400; }
-        .package-details.active { display: block; }
-
-        /* Stay Section */
-        #stay { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); }
-        .stay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; }
-        .stay-card { background: var(--secondary-dark); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-subtle); text-align: center; transition: all var(--transition-fast); cursor: pointer; animation: fadeInScale 0.8s ease-out; min-height: 350px; }
-        .stay-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 12px 30px var(--shadow-elevated); }
-        .stay-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; }
-        .stay-card h3 { color: var(--text-white); font-weight: 600; margin-bottom: 0.5rem; font-size: 1.3rem; }
-        .stay-card p { color: var(--text-light-gray); font-weight: 400; font-size: 1rem; }
-        .stay-card button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 0.6rem 1.2rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; animation: pulse 2s infinite; }
-        .stay-card button:hover { background: #c4a030; transform: scale(1.02); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
-        .stay-details { display: none; margin-top: 1rem; animation: slideDown 0.5s ease-out; color: var(--text-light-gray); font-weight: 400; text-align: left; font-size: 0.9rem; }
-        .stay-details.active { display: block; }
-
-        /* Amenities Section */
-        #amenities { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); }
-        .amenities-grid { display: grid;grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
-        .amenity-item { background: var(--secondary-dark); padding: 3rem; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-subtle); text-align: center; transition: all var(--transition-fast); cursor: pointer; animation: slideInUp 0.8s ease-out; }
-        .amenity-item:hover { transform: translateY(-15px) scale(1.05); box-shadow: 0 12px 30px var(--shadow-elevated); }
-        .amenity-item i { font-size: 3rem; color: var(--accent-yellow); margin-bottom: 1rem; transition: transform var(--transition-fast); }
-        .amenity-item:hover i { transform: rotate(10deg) scale(1.1); }
-        .amenity-item p { color: var(--text-white); font-weight: 600; }
-
-        /* Gallery Section */
-        #gallery { background: var(--secondary-dark); }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .gallery-item { cursor: pointer; transition: all var(--transition-fast); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow-subtle); animation: zoomIn 0.8s ease-out; }
-        .gallery-item:hover { transform: scale(1.05) rotate(2deg); box-shadow: 0 8px 24px var(--shadow-elevated); }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 61, 46, 0.9); z-index:1000; justify-content: center; align-items: center; animation: fadeIn 0.3s; } .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; } .modal.active { display: flex; }
-
-   /* Testimonials Section */
-    #testimonials { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
-    .testimonial-card { background: var(--secondary-dark); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow-subtle); text-align: center; transition: all var(--transition-fast); animation: fadeInScale 0.8s ease-out; }
-    .testimonial-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 12px 24px var(--shadow-elevated); }
-    .testimonial-card p { color: var(--text-light-gray); font-style: italic; margin-bottom: 1rem; }
-    .testimonial-card h4 { color: var(--accent-yellow); font-weight: 600; }
-
-   /* Safety Section */
-            #safety { background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-dark)); text-align: center; }
-    #safety p { color: var(--text-light-gray); font-weight: 400; }
-
-    /* Contact Section */
-    #contact { background: var(--secondary-dark); }
-    .contact-grid { display: flex; justify-content: center; }
-    .form { display: flex; flex-direction: column; gap: 1.5rem; max-width: 600px; width: 100%; }
-    .form input, .form textarea, .form select { padding: 1rem; border: 1px solid var(--text-light-gray); border-radius: 8px; background: var(--primary-bg); color: var(--text-white); font-family: inherit; transition: border-color var(--transition-fast); }
-    .form input:focus, .form textarea:focus, .form select:focus { border-color: var(--accent-yellow); outline: none; box-shadow: 0 0 8px rgba(212, 175, 55, 0.5); }
-    .form button { background: var(--accent-yellow); color: var(--secondary-dark); border: none; padding: 1rem; border-radius: 50px; cursor: pointer; transition: all var(--transition-fast); font-weight: 600; animation: shake 2s infinite; }
-    .form button:hover { background: #c4a030; transform: scale(1.05); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3); }
-
-    /* Footer Styles */
-footer {
-    background: #0f3d2e; /* Deep jungle green background */
-    color: #ffffff; /* White text for contrast */
-    padding: 4rem 2rem;
-    font-weight: 400;
-    text-align: center;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 3rem;
-}
-
-.footer-section {
-    text-align: left;
-}
-
-.footer-section h4 {
-    color: #e0e0e0; /* Soft muted text for headings */
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.footer-section p {
-    margin: 0.75rem 0;
-    line-height: 1.6;
-    font-size: 1rem;
-    color: #ffffff; /* White text */
-}
-
-.footer-section i {
-    color: #a5d6a7; /* Soft green accent for icons */
-    margin-right: 0.75rem;
-    width: 20px;
-    text-align: center;
-}
-
-.connect-with-us p {
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    color: #e0e0e0; /* Soft muted text */
-}
-
-.social-icons {
-    display: flex;
-    gap: 2rem;
-    justify-content: flex-start;
-}
-
-.social-icons a {
-    font-size: 1.8rem;
-    color: #ffffff; /* White icons */
-    transition: transform 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #a5d6a7; /* Soft green on hover */
-    transform: scale(1.1);
-}
-
-.footer-divider {
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle divider */
-    max-width: 1200px;
-    margin: 0 auto 2rem;
-}
-
-.footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.footer-bottom p {
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-    color: #ffffff;
-}
-
-.developed-by {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6); /* Subtle, professional */
-    font-weight: 300;
-}
-
-/* Responsive Adjustments for Footer */
-@media (max-width: 768px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    .footer-section {
-        text-align: center;
-    }
-    .social-icons {
-        justify-content: center;
-    }
-    footer {
-        padding: 3rem 1rem;
-    }
-}
-    /* Sticky WhatsApp Button */
-    .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: var(--accent-yellow); color: var(--secondary-dark); border-radius: 50%; width: 70px; height: 70px; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px 12px var(--shadow-subtle); z-index: 1000; transition: all var(--transition-fast); animation: pulse 2s infinite; }
-    .whatsapp-btn:hover { background: #c4a030; transform: scale(1.1); }
-
-    /* Download Brochure Button */
-    .download-btn { position: fixed; right: 0; top: 50%; transform: translateY(-50%); background: black; color: white; padding: 12px 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; writing-mode: vertical-rl; text-orientation: mixed; border-radius: 8px 0 0 8px; box-shadow: 0 4px 14px var(--shadow-subtle); transition: right 0.3s ease; z-index: 1000; cursor: pointer; }
-    .download-btn:hover { right: 10px; }
-
-    /* Scroll Animations */
-    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* Keyframe Animations */
-    @keyframes slideDown { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 500px; } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
-    @keyframes glow { from { text-shadow: 0 0 15px rgba(212, 175, 55, 0.6); } to { text-shadow: 0 0 25px rgba(212, 175, 55, 1); } }
-    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
-    @keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
-    @keyframes fadeInScale { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-    @keyframes zoomIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
-    @keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); } 20%, 40%, 60%, 80% { transform: translateX(5px); } }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) { 
-        .hero-content h1 { font-size: 2.2rem; } 
-        .contact-grid { flex-direction: column; align-items: center; } 
-        section { padding: 4rem 1rem; }
-        .section-title { font-size: 2rem; }
-        .highlights-grid, .activities-grid, .packages-grid, .stay-grid, .amenities-grid { grid-template-columns: 1fr; gap: 2rem; }
-        .download-btn { font-size: 0.7rem; padding: 10px 6px; }
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2.2rem;
+        }
+        .contact-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+        section {
+          padding: 4rem 1rem;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+        .highlights-grid,
+        .activities-grid,
+        .packages-grid,
+        .stay-grid,
+        .amenities-grid,
+        .brochures-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
         .footer-content {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+          grid-template-columns: 1fr;
+          gap: 2rem;
         }
         .footer-section {
-            text-align: center;
+          text-align: center;
+        }
+        .social-icons {
+          justify-content: center;
         }
         footer {
-            padding: 3rem 1rem;
+          padding: 3rem 1rem;
         }
-    }
-</style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Resort",
-  "name": "Jungle Spring Resort & Adventure Park",
-  "image": "https://junglespringresort.com/assets/images/logo/jungle-spring-favicon.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Chitri Dam",
-    "addressLocality": "Ajara",
-    "addressRegion": "Maharashtra",
-    "postalCode": "416505",
-    "addressCountry": "IN"
-  },
-  "telephone": "+919090414343",
-  "priceRange": "₹₹",
-  "url": "https://junglespringresort.com/",
-  "sameAs": [
-    "https://www.facebook.com/share/1SSBBJPuiq/",
-    "https://www.instagram.com/junglespringresort/"
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Resort",
-  "name": "Jungle Spring Resort & Adventure Park",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Chitri Dam",
-    "addressLocality": "Ajara",
-    "addressRegion": "Maharashtra",
-    "postalCode": "416505",
-    "addressCountry": "IN"
-  },
-  "areaServed": [
-    "Kolhapur",
-    "Goa",
-    "Konkan",
-    "Belgaum",
-    "Maharashtra"
-  ],
-  "telephone": "+91-9090414343",
-  "url": "https://junglespringresort.com",
-  "priceRange": "₹₹",
-  "sameAs": [
-    "https://www.facebook.com/share/1SSBBJPuiq/",
-    "https://www.instagram.com/junglespringresort/"
-  ]
-}
-</script>
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
 
-</head>
-<body>
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Resort",
+        "name": "Jungle Spring Resort & Adventure Park",
+        "image": "https://junglespringresort.com/assets/images/logo/jungle-spring-favicon.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Chitri Dam",
+          "addressLocality": "Ajara",
+          "addressRegion": "Maharashtra",
+          "postalCode": "416505",
+          "addressCountry": "IN"
+        },
+        "telephone": "+919090414343",
+        "priceRange": "₹₹",
+        "url": "https://junglespringresort.com/",
+        "sameAs": ["https://www.facebook.com/share/1SSBBJPuiq/", "https://www.instagram.com/junglespringresort/"]
+      }
+    </script>
+  </head>
+  <body>
     <div id="app">
-        <!-- Header & Navigation -->
-        <header>
-            <nav>
-                <a href="#hero" class="logo-wrap">
-                    <img src="assets/images/logo/jungle-spring-favicon.png" alt="Jungle Spring Resort Logo">
-                </a>
-                                <ul class="nav-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#activities">Activities</a></li>
-                    <li><a href="#packages">Packages</a></li>
-                    <li><a href="#stay">Stay</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#safety">Safety</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="hamburger" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </header>
+      <!-- Header & Navigation -->
+      <header>
+        <nav>
+          <a href="#hero" class="logo-wrap">
+            <img src="assets/images/logo/jungle-spring-favicon.png" alt="Jungle Spring Resort Logo" />
+          </a>
+          <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#stay">Stay</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#safety">Safety</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </header>
 
-        <section id="hero" class="hero">
-            <div class="hero-slider">
-                <div class="slide active" style="background-image:url('assets/images/activities/zipline.JPG')"></div>
-                <div class="slide" style="background-image:url('assets/images/activities/sky-cycling.JPG')"></div>
-                <div class="slide" style="background-image:url('assets/images/activities/swimming-pool.jpg')"></div>
-            </div>
-            <div class="overlay">
-                <h1>Nature Meets Adventure</h1>
-                <p>Experience peace, greenery & thrill at Jungle Spring Resort</p>
-            </div>
-            <div class="hero-indicators">
-                <div class="indicator active" onclick="goToSlide(0)"></div>
-                <div class="indicator" onclick="goToSlide(1)"></div>
-                <div class="indicator" onclick="goToSlide(2)"></div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about">
-            <div class="content fade-in">
-                <h2 class="section-title">About Jungle Spring Resort</h2>
-                <p>Jungle Spring Resort blends adventure and nature in a dam backwater setting. Ideal for families, corporates, and schools, offering thrilling activities amidst lush greenery.</p>
-            </div>
-        </section>
-
-        <!-- Activities Section -->
-        <section id="activities">
-            <h2 class="section-title">Activities</h2>
-            <p class="section-subtitle">This is where the adventure begins</p>
-            <div class="activities-grid">
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/zipline.JPG" alt="Zip Line" loading="lazy">
-                    <div class="content">
-                        <h3>ZIPLINE</h3>
-                        <p>350+ ft long zipline has it’s own adventurous feel which you cannot experience anywhere else, because it’s just beside dam, giving you full view of dam backwater and surrounded by lush green mountains.</p>
-                        <p><strong>Safety:</strong> Harness and trained guides.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/sky-cycling.JPG" alt="Sky Cycle" loading="lazy">
-                    <div class="content">
-                        <h3>SKY CYCLE</h3>
-                        <p>Balance on air bike which keeps you up at 25ft from bottom in sky. No wonder why we call it sky cycle. It offers an adventurous feel, combined twists to cycling, combining speed & courage for an unforgettable ride above the ground.</p>
-                        <p><strong>Safety:</strong> Secure tracks and supervision.</p>
-                                                <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/rocket-ejector.jpeg" alt="Rocket Ejector" loading="lazy">
-                    <div class="content">
-                        <h3>ROCKET EJECTOR</h3>
-                        <p>It’s time you meet, rocket Ejector at jungle spring resort. It can give you wings, but it can catapult you 80 feet off the ground! Rocket ejector is perfect activity for adrenaline junkies.</p>
-                        <p><strong>Safety:</strong> Controlled ejection and safety nets.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/human-gyro.PNG" alt="Human Gyro" loading="lazy">
-                    <div class="content">
-                        <h3>HUMAN GYRO</h3>
-                        <p>Get ready to challenge gravity and enjoy this amazing game !!! Where you can enjoy with your best buddies.</p>
-                        <p><strong>Safety:</strong> Stabilized platform and harnesses.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/rope-course-level-1.JPG" alt="Rope Course Level 1" loading="lazy">
-                    <div class="content">
-                        <h3>ROPE COURSE – LEVEL 1</h3>
-                        <p>Zigzag suspension plank Burma bridge block walk swinging plank Balancing Rope tyre bridge high V swinging ladder net tunnel</p>
-                        <p><strong>Safety:</strong> Full harness and instructor guidance.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/rope-course-level-2.JPG" alt="Rope Course Level 2" loading="lazy">
-                    <div class="content">
-                        <h3>ROPE COURSE – LEVEL 2</h3>
-                        <p>Up & down swinging pipe sideways tyre crossing sky walk log to log wally crossing sideways plank swinging tyre crossing zigzag swinging plank commando net vertical rope crossing</p>
-                        <p><strong>Safety:</strong> Full harness and instructor guidance.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/bull-ride.JPG" alt="Bull Ride" loading="lazy">
-                    <div class="content">
-                        <h3>BULL RIDE</h3>
-                        <p>Get your inner cowboy out and show your balancing skills on bull ride. Hold the rope tightly & dare to ride.</p>
-                        <p><strong>Safety:</strong> Padded area.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/meltdown.jpeg" alt="Meltdown" loading="lazy">
-                    <div class="content">
-                        <h3>MELTDOWN</h3>
-                        <p>Melt down game is an immersive gaming experience that transcend boundaries. Continuously push the boundaries and delivering engaging narratives and unforgettable gaming moments.</p>
-                        <p><strong>Safety:</strong> Lifeguards and safe entry.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-                <div class="activity-card fade-in">
-                    <img src="assets/images/activities/swimming-pool.jpg" alt="Swimming Pool" loading="lazy">
-                    <div class="content">
-                        <h3>Swimming Pool</h3>
-                        <p>Relax in our refreshing pool after adventures.</p>
-                        <p><strong>Safety:</strong> Lifeguards on duty.</p>
-                        <button onclick="downloadBrochure()">Download Brochure</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="packages">
-            <h2 class="section-title">Adventure Packages</h2>
-            <div class="packages-grid">
-                <div class="package-card">
-                    <img src="assets/images/adventure packages/one-day.jpeg" alt="One Day Adventure" loading="lazy">
-                    <h3>One Day Adventure</h3>
-                    <div class="orange-line"></div>
-                    <button onclick="downloadBrochure()">Explore More</button>
-                </div>
-                <div class="package-card">
-                    <img src="assets/images/adventure packages/leisure-food.jpeg" alt="Leisure + Food" loading="lazy">
-                    <h3>Leisure + Food</h3>
-                    <div class="orange-line"></div>
-                    <button onclick="downloadBrochure()">Explore More</button>
-                </div>
-                <div class="package-card">
-                    <img src="assets/images/adventure packages/adult.jpeg" alt="Adult Adventure" loading="lazy">
-                    <h3>Adult Adventure</h3>
-                    <div class="orange-line"></div>
-                    <button onclick="downloadBrochure()">Explore More</button>
-                </div>
-                <div class="package-card">
-                    <img src="assets/images/adventure packages/kids-adventure.jpeg" alt="Kids Adventure" loading="lazy">
-                    <h3>Kids Adventure</h3>
-                    <div class="orange-line"></div>
-                    <button onclick="downloadBrochure()">Explore More</button>
-                </div>
-            </div>
-        </section>
-        <section id="stay">
-            <h2 class="section-title">Rooms / Stay</h2>
-            <div class="stay-grid">
-                <div class="stay-card">
-                    <img src="assets/images/room stay/deluxe_room.jpeg" alt="Deluxe Cottage" loading="lazy">
-                    <h3> Deluxe Cottage <br> 
-                        ₹2,899 (for 2 Persons)</h3>
-                    <div class="orange-line"></div>
-                    <button onclick="toggleStayDetails(this)">Explore More</button>
-                    <div class="stay-details">
-                        <p><strong>Description:</strong> Enjoy a beautiful stay with a direct view of our incredible infinity swimming pool, located beside the dam water and surrounded by lush green mountains.</p>
-                        <p><strong>Occupancy:</strong> Maximum 2 persons. Extra mattress: ₹500 per person.</p>
-                        <p><strong>Check-in:</strong> 12:00 PM | <strong>Check-out:</strong> 10:00 AM</p>
-                    </div>
-                </div>
-                <div class="stay-card">
-                    <img src="assets/images/room stay/premium_room.jpg" alt="Premium Cottage" loading="lazy">
-                    <h3> Premium Cottage <br> ₹3,999 (for 2 Persons)</h3>
-                    <div class="orange-line"></div>
-                    <button onclick="toggleStayDetails(this)">Explore More</button>
-                    <div class="stay-details">
-                        <p><strong>Description:</strong> Surrounded by nature, this cottage offers a unique floating-on-water experience, located just beside the dam water.</p>
-                        <p><strong>Occupancy:</strong> Maximum: 1 extra person allowed. Extra mattress: ₹500.</p>
-                        <p><strong>Check-in:</strong> 12:00 PM | <strong>Check-out:</strong> 10:00 AM</p>
-                    </div>
-                </div>
-                <div class="stay-card">
-                    <img src="assets/images/room stay/last_room.jpeg" alt="Last Premium Cottage" loading="lazy">
-                    <h3> Last Premium Cottage  ₹4,999 (for 2 Persons)</h3>
-                    <div class="orange-line"></div>
-                    <button onclick="toggleStayDetails(this)">Explore More</button>
-                    <div class="stay-details">
-                        <p><strong>Description:</strong> Experience nature like never before. These luxurious cottages are located beside the dam backwater and give a complete floating-on-water feel.</p>
-                        <p><strong>Occupancy:</strong> Maximum: 2 extra persons allowed. Extra mattress: ₹500 per person.</p>
-                        <p><strong>Check-in:</strong> 12:00 PM | <strong>Check-out:</strong> 10:00 AM</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Amenities Section -->
-        <section id="amenities">
-            <h2 class="section-title">Resort Amenities</h2>
-            <div class="amenities-grid">
-                <div class="amenity-item fade-in"><i class="fas fa-swimming-pool"></i><p>Infinity Pool</p></div>
-                <div class="amenity-item fade-in"><i class="fas fa-fire"></i><p>Bonfire</p></div>
-                <div class="amenity-item fade-in"><i class="fas fa-music"></i><p>DJ Night</p></div>
-                <div class="amenity-item fade-in"><i class="fas fa-stream"></i><p>Live Water Stream</p></div>
-                <div class="amenity-item fade-in"><i class="fas fa-gamepad"></i><p>Indoor Games</p></div>
-                <div class="amenity-item fade-in"><i class="fas fa-glass-cheers"></i><p>Welcome Drinks</p></div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery">
-            <h2 class="section-title">Gallery</h2>
-            <div class="gallery-grid">
-                <img class="gallery-item fade-in" src="assets/images/gallery/lake-side.JPG" alt="Lake Side" onclick="openModal(this.src)" loading="lazy">
-                <img class="gallery-item fade-in" src="assets/images/gallery/lake-view.jpg" alt="Lake View" onclick="openModal(this.src)" loading="lazy">
-                <img class="gallery-item fade-in" src="assets/images/gallery/nature.jpg" alt="Nature" onclick="openModal(this.src)" loading="lazy">
-                <img class="gallery-item fade-in" src="assets/images/gallery/room.jpg" alt="Room" onclick="openModal(this.src)" loading="lazy">
-                <img class="gallery-item fade-in" src="assets/images/gallery/serenity.JPG" alt="Serenity" onclick="openModal(this.src)" loading="lazy">
-                <img class="gallery-item fade-in" src="assets/images/gallery/stand-alone-cottage.JPG" alt="Stand-Alone Cottage" onclick="openModal(this.src)" loading="lazy">
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials">
-            <h2 class="section-title">What Our Guests Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card fade-in">
-                    <p>"An unforgettable adventure! The zipline over the dam was thrilling, and the stay was luxurious."</p>
-                    <h4>- Rahul Sharma</h4>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <p>"Perfect for families. Kids loved the adventure zone, and the pool was a great relax spot."</p>
-                    <h4>- Priya Patel</h4>
-                </div>
-                <div class="testimonial-card fade-in">
-                    <p>"Corporate outing was a hit! Activities were engaging, and the staff was professional."</p>
-                    <h4>- Amit Kumar</h4>
-                </div>
-            </div>
-        </section>
-
-        <!-- Safety Section -->
-        <section id="safety">
-            <h2 class="section-title">Safety & Rules</h2>
-            <p>Certified equipment, trained instructors, height/weight restrictions apply. Medical support available. Follow all guidelines for a safe experience.</p>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2 class="section-title">Contact & Booking</h2>
-            <p class="section-subtitle">Secure your spot for an unforgettable experience. Our team is here to assist with all your booking needs.</p>
-            <div class="contact-grid">
-                <div class="form">
-                    <h3 style="color: var(--accent-yellow); margin-bottom: 1rem;">Send Us a Message</h3> <input type="text" id="name" placeholder="Your Name" required> <input type="email" id="email" placeholder="Your Email" required> <input type="tel" id="phone" placeholder="Your Phone" required> <input type="date" id="checkin" placeholder="Check-in Date" required> <input type="date" id="checkout" placeholder="Check-out Date" required> <select id="guestType" required> <option value="">Select Guest Type</option> <option value="couple">Couple</option> <option value="family">Family</option> <option value="friends">Friends</option> <option value="corporate">Corporate</option> </select> <textarea id="message" placeholder="Your Message" rows="4"></textarea> <button type="submit" onclick="submitForm()">Submit Inquiry</button> <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-light-gray);"><i class="fas fa-clock" style="color: var(--accent-yellow);"></i> We respond within 24 hours.</p> </div> </div> </section>
-                        <!-- Footer -->
-    <!-- Footer -->
-<!-- Footer -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-section contact-us">
-            <h4>Contact Us</h4>
-            <p><i class="fas fa-phone"></i> +91 9090414343 / 6262393995</p>
-            <p><i class="fas fa-map-marker-alt"></i> Jungle spring resort , chitri dam, Ajara,Maharashtra 416505</p>
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <div class="hero-slider">
+          <div
+            class="slide"
+            style="background-image: url(&quot;assets/images/activities/zipline.JPG&quot;)"
+          ></div>
+          <div class="slide" style="background-image: url(&quot;assets/images/activities/sky-cycling.JPG&quot;)"></div>
+          <div
+            class="slide"
+            style="background-image: url(&quot;assets/images/activities/swimming-pool.jpg&quot;)"
+          ></div>
         </div>
-        <div class="footer-section connect-with-us">
+        <div class="overlay">
+          <h1>Nature Meets Adventure</h1>
+          <p>Experience peace, greenery &amp; thrill at Jungle Spring Resort</p>
+        </div>
+        <div class="hero-indicators">
+          <div class="indicator active" onclick="goToSlide(0)"></div>
+          <div class="indicator" onclick="goToSlide(1)"></div>
+          <div class="indicator" onclick="goToSlide(2)"></div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <div class="content fade-in">
+          <h2 class="section-title">About Jungle Spring Resort</h2>
+          <p>
+            Jungle Spring Resort blends adventure and nature in a dam backwater setting. Ideal for families, corporates,
+            and schools, offering thrilling activities amidst lush greenery.
+          </p>
+        </div>
+      </section>
+
+      <!-- Activities Section -->
+      <section id="activities">
+        <h2 class="section-title">Activities</h2>
+        <p class="section-subtitle">This is where the adventure begins</p>
+        <div class="activities-grid">
+          <div class="activity-card fade-in">
+            <div class="image-container">
+              <img src="assets/images/activities/zipline.jpg" alt="Zip Line" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>ZIPLINE</h3>
+              <p>
+                350+ ft long zipline has it's own adventurous feel which you cannot experience anywhere else, because
+                it's just beside dam, giving you full view of dam backwater and surrounded by lush green mountains.
+              </p>
+              <p>
+                <strong>Safety:</strong>
+                Harness and trained guides.
+              </p>
+              <button onclick="downloadBrochure('activities')">Download Brochure</button>
+            </div>
+          </div>
+          <div class="activity-card fade-in">
+            <div class="image-container">
+              <img src="assets/images/activities/sky-cycling.JPG" alt="Sky Cycle" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>SKY CYCLE</h3>
+              <p>
+                Balance on air bike which keeps you up at 25ft from bottom in sky. No wonder why we call it sky cycle.
+                It offers an adventurous feel, combined twists to cycling, combining speed &amp; courage for an
+                unforgettable ride above the ground.
+              </p>
+              <p>
+                <strong>Safety:</strong>
+                Secure tracks and supervision.
+              </p>
+              <button onclick="downloadBrochure('activities')">Download Brochure</button>
+            </div>
+          </div>
+          <div class="activity-card fade-in">
+            <div class="image-container">
+              <img src="assets/images/activities/rocket-ejector.jpeg" alt="Rocket Ejector" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>ROCKET EJECTOR</h3>
+              <p>
+                It's time you meet, rocket Ejector at jungle spring resort. It can give you wings, but it can catapult
+                you 80 feet off the ground! Rocket ejector is perfect activity for adrenaline junkies.
+              </p>
+              <p>
+                <strong>Safety:</strong>
+                Controlled ejection and safety nets.
+              </p>
+              <button onclick="downloadBrochure('activities')">Download Brochure</button>
+            </div>
+          </div>
+          <div class="activity-card fade-in">
+            <div class="image-container">
+              <img src="assets/images/activities/human-gyro.PNG" alt="Human Gyro" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>HUMAN GYRO</h3>
+              <p>
+                Get ready to challenge gravity and enjoy this amazing game !!! Where you can enjoy with your best
+                buddies.
+              </p>
+              <p>
+                <strong>Safety:</strong>
+                Stabilized platform and harnesses.
+              </p>
+              <button onclick="downloadBrochure('activities')">Download Brochure</button>
+            </div>
+          </div>
+          <div class="activity-card fade-in">
+            <div class="image-container">
+              <img src="assets/images/activities/rope-course-level-1.JPG" alt="Rope Course Level 1" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>ROPE COURSE – LEVEL 1</h3>
+              <p>
+                Zigzag suspension plank Burma bridge block walk swinging plank Balancing Rope tyre bridge high V
+                swinging ladder net tunnel
+              </p>
+              <p>
+                <strong>Safety:</strong>
+                Full harness and instructor guidance.
+              </p>
+              <button onclick="downloadBrochure('activities')">Download Brochure</button>
+            </div>
+          </div>
+          <div class="activity-card fade-in">
+            <div class="image-container">
+              <img src="assets/images/activities/rope-course-level-2.JPG" alt="Rope Course Level 2" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>ROPE COURSE – LEVEL 2</h3>
+              <p>
+                Up &amp; down swinging pipe sideways tyre crossing sky walk log to log wally crossing sideways plank
+                swinging tyre crossing zigzag swinging plank commando net vertical rope crossing
+              </p>
+              <p>
+                <strong>Safety:</strong>
+                Full harness and instructor guidance.
+              </p>
+              <button onclick="downloadBrochure('activities')">Download Brochure</button>
+            </div>
+          </div>
+          <div class="activity-card fade-in">
+            <div class="image-container">
+              <img src="assets/images/activities/bull-ride.JPG" alt="Bull Ride" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>BULL RIDE</h3>
+              <p>
+                Get your innercowboy out and show your balancing skills on bull ride. Hold the rope tightly &amp; dare to ride.
+              </p>
+              <p>
+                <strong>Safety:</strong>
+                Padded area.
+              </p>
+              <button onclick="downloadBrochure('activities')">Download Brochure</button>
+            </div>
+          </div>
+          <div class="activity-card fade-in">
+            <div class="image-container">
+              <img src="assets/images/activities/meltdown.jpeg" alt="Meltdown" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>MELTDOWN</h3>
+              <p>
+                Melt down game is an immersive gaming experience that transcend boundaries. Continuously push the
+                boundaries and delivering engaging narratives and unforgettable gaming moments.
+              </p>
+              <p>
+                <strong>Safety:</strong>
+                Lifeguards and safe entry.
+              </p>
+              <button onclick="downloadBrochure('activities')">Download Brochure</button>
+            </div>
+          </div>
+          <div class="activity-card fade-in">
+            <div class="image-container">
+              <img src="assets/images/activities/swimming-pool.jpg" alt="Swimming Pool" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>SWIMMING POOL</h3>
+              <p>Relax in our refreshing pool after adventures.</p>
+              <p>
+                <strong>Safety:</strong>
+                Lifeguards on duty.
+              </p>
+              <button onclick="downloadBrochure('activities')">Download Brochure</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Packages Section -->
+      <section id="packages">
+        <h2 class="section-title">Adventure Packages</h2>
+        <div class="packages-grid">
+          <div class="package-card">
+            <div class="image-container">
+              <img src="assets/images/adventure packages/one-day.jpeg" alt="One Day Adventure" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>One day adventure package</h3>
+              <button onclick="downloadBrochure('one-day-adventure')">Explore More</button>
+            </div>
+          </div>
+          <div class="package-card">
+            <div class="image-container">
+              <img src="assets/images/adventure packages/leisure-food.jpeg" alt="One Day Fun" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>One day fun package</h3>
+              <button onclick="downloadBrochure('one-day-fun')">Explore More</button>
+            </div>
+          </div>
+          <div class="package-card">
+            <div class="image-container">
+              <img src="assets/images/adventure packages/adult.jpeg" alt="One Day Package" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>One day package</h3>
+              <button onclick="downloadBrochure('one-day')">Explore More</button>
+            </div>
+          </div>
+          <div class="package-card">
+            <div class="image-container">
+              <img src="assets/images/adventure packages/kids-adventure.jpeg" alt="Premium Stay" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>premium stay package</h3>
+              <button onclick="downloadBrochure('premium-stay')">Explore More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+            <!-- Stay Section -->
+      <section id="stay">
+        <h2 class="section-title">Rooms / Stay</h2>
+        <div class="stay-grid">
+          <div class="stay-card">
+            <div class="image-container">
+              <img src="assets/images/room stay/deluxe_room.jpeg" alt="Deluxe Cottage" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>Deluxe Cottage</h3>
+              <p>₹2,999 (for 2 Persons)</p>
+              <button onclick="downloadStayBrochure('deluxe')">Explore More</button>
+            </div>
+          </div>
+          <div class="stay-card">
+            <div class="image-container">
+              <img src="assets/images/room stay/premium_room.jpg" alt="Premium Cottage" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>Premium Cottage</h3>
+              <p>₹3,999 (for 2 Persons)</p>
+              <button onclick="downloadStayBrochure('premium')">Explore More</button>
+            </div>
+          </div>
+          <div class="stay-card">
+            <div class="image-container">
+              <img src="assets/images/room stay/last_room.jpeg" alt="Last Premium Cottage" loading="lazy" />
+            </div>
+            <div class="content">
+              <h3>Last Premium Cottage</h3>
+              <p>₹4,999 (for 2 Persons)</p>
+              <button onclick="downloadStayBrochure('last-premium')">Explore More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     
+
+      <!-- Amenities Section -->
+      <section id="amenities">
+        <h2 class="section-title">Resort Amenities</h2>
+        <div class="amenities-grid">
+          <div class="amenity-item fade-in">
+            <i class="fas fa-swimming-pool"></i>
+            <p>Infinity Pool</p>
+          </div>
+          <div class="amenity-item fade-in">
+            <i class="fas fa-fire"></i>
+            <p>Bonfire</p>
+          </div>
+          <div class="amenity-item fade-in">
+            <i class="fas fa-music"></i>
+            <p>DJ Night</p>
+          </div>
+          <div class="amenity-item fade-in">
+            <i class="fas fa-stream"></i>
+            <p>Live Water Stream</p>
+          </div>
+          <div class="amenity-item fade-in">
+            <i class="fas fa-gamepad"></i>
+            <p>Indoor Games</p>
+          </div>
+          <div class="amenity-item fade-in">
+            <i class="fas fa-glass-cheers"></i>
+            <p>Welcome Drinks</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item fade-in" onclick="openModal(this.querySelector('img').src)">
+            <img src="assets/images/gallery/lake-side.JPG" alt="Lake Side" loading="lazy" />
+          </div>
+          <div class="gallery-item fade-in" onclick="openModal(this.querySelector('img').src)">
+            <img src="assets/images/gallery/lake-view.jpg" alt="Lake View" loading="lazy" />
+          </div>
+          <div class="gallery-item fade-in" onclick="openModal(this.querySelector('img').src)">
+            <img src="assets/images/gallery/nature.jpg" alt="Nature" loading="lazy" />
+          </div>
+          <div class="gallery-item fade-in" onclick="openModal(this.querySelector('img').src)">
+            <img src="assets/images/gallery/room.jpg" alt="Room" loading="lazy" />
+          </div>
+          <div class="gallery-item fade-in" onclick="openModal(this.querySelector('img').src)">
+            <img src="assets/images/gallery/serenity.JPG" alt="Serenity" loading="lazy" />
+          </div>
+          <div class="gallery-item fade-in" onclick="openModal(this.querySelector('img').src)">
+            <img src="assets/images/gallery/stand-alone-cottage.JPG" alt="Stand-Alone Cottage" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section id="testimonials">
+        <h2 class="section-title">What Our Guests Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card fade-in">
+            <p>
+              "Has alot of good things to enjoy for each age category. Clean toilets and clean room with surprisingly
+              tasty food.."
+            </p>
+            <h4>- Aniruddha Kodolikar</h4>
+          </div>
+          <div class="testimonial-card fade-in">
+            <p>
+              "We had a wonderful stay at this resort.staff was also helpful. And good thing is it's away from the
+              traffic and mall roads. Beautiful view of forest from rooms. probably the best food we had in entire trip
+              of kolhapur.."
+            </p>
+            <h4>- Vidisha Kulkarni</h4>
+          </div>
+          <div class="testimonial-card fade-in">
+            <p>
+              "Jungle Spring Resort is generally seen as a pleasant nature retreat, with a beautiful setting, tasty
+              food, and friendly staff — suitable for weekend trips, family stays, or nature-oriented vacations."
+            </p>
+            <h4>- Roshan Gopale</h4>
+          </div>
+          <div class="testimonial-card fade-in">
+            <p>"Comfartable room..Nice service.Staff is good,Natural beauty..So nice place!."</p>
+            <h4>- Aparna Vitekari</h4>
+          </div>
+          <div class="testimonial-card fade-in">
+            <p>
+              "Amazing location, and have fun, good service, lots of adventures activities. Infinity swimming pool also
+              very clean"
+            </p>
+            <h4>- Harshad Kamble</h4>
+          </div>
+          <div class="testimonial-card fade-in">
+            <p>
+              "I was their for one day out, took 1500 package enjoyed full day along with food, swimming pool, lunch and
+              adventure activities, it was worth money, enjoyed full day must visit once!"
+            </p>
+            <h4>-Shital Chavan</h4>
+          </div>
+        </div>
+      </section>
+
+      <!-- Safety Section -->
+      <section id="safety">
+        <h2 class="section-title">Safety &amp; Rules</h2>
+        <p>
+          Certified equipment, trained instructors, height/weight restrictions apply. Medical support available. Follow
+          all guidelines for a safe experience.
+        </p>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <h2 class="section-title">Contact &amp; Booking</h2>
+        <p class="section-subtitle">
+          Secure your spot for an unforgettable experience. Our team is here to assist with all your booking needs.
+        </p>
+        <div class="contact-grid">
+          <form class="form" onsubmit="submitForm(event)">
+            <h3 style="color: var(--accent-yellow); margin-bottom: 1rem; text-align: center">Send Us a Message</h3>
+            <div class="form-row">
+              <input type="text" id="name" placeholder="Your Name *" required="" />
+              <input type="email" id="email" placeholder="Your Email *" required="" />
+            </div>
+            <div class="form-row">
+              <input type="tel" id="phone" placeholder="Your Phone *" required="" />
+              <input type="date" id="checkin" placeholder="Check-in Date" />
+            </div>
+            <div class="form-row">
+              <input type="date" id="checkout" placeholder="Check-out Date" />
+              <select id="roomType" required="">
+                <option value="">Select Room/Package Type *</option>
+                <option value="deluxe">Deluxe Cottage - ₹2,999</option>
+                <option value="premium">Premium Cottage - ₹3,999</option>
+                <option value="last-premium">Last Premium Cottage - ₹4,999</option>
+                <option value="one-day">One Day Package</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <select id="guestType" required="">
+                <option value="">Select Guest Type *</option>
+                <option value="couple">Couple</option>
+                <option value="family">Family</option>
+                <option value="friends">Friends</option>
+                <option value="corporate">Corporate</option>
+                <option value="school">School Trip</option>
+              </select>
+              <input type="number" id="extraMembers" placeholder="Extra Members (0-4)" min="0" max="4" />
+            </div>
+            <textarea id="message" placeholder="Your Message" rows="4"></textarea>
+            <button type="submit">Submit Inquiry</button>
+            <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-light-gray); text-align: center">
+              <i class="fas fa-clock" style="color: var(--accent-yellow)"></i>
+              We respond within 24 hours.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section contact-us">
+            <h4>Contact Us</h4>
+            <p>
+              <i class="fas fa-phone"></i>
+              +91 9090414343 / 6262393995
+            </p>
+            <p>
+                            <i class="fas fa-map-marker-alt"></i>
+              Jungle spring resort , chitri dam, Ajara,Kolhapur,Maharashtra 416505
+            </p>
+          </div>
+          <div class="footer-section connect-with-us">
             <h4>Connect With Us</h4>
             <p>Stay connected for the latest adventures and updates.</p>
             <div class="social-icons">
-                <a href="https://www.facebook.com/share/1SSBBJPuiq/"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/junglespringresort/"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/share/1SSBBJPuiq/"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.instagram.com/junglespringresort/"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Jungle Spring Resort & Adventure Park. All rights reserved.</p>  <!-- Fixed: Updated year to 2024 -->
-        <p class="developed-by">--</p>  <!-- Fixed: Added placeholder text instead of empty -->
-    </div>
-</footer>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <p>© 2026 Jungle Spring Resort &amp; Adventure Park. All rights reserved.</p>
+          <p class="developed-by">V K Infotech</p>
+        </div>
+      </footer>
 
-    <!-- Modal for Gallery -->
-    <div class="modal" id="modal">
-        <img id="modal-img" src="" alt="">
-        <span onclick="closeModal()" style="position: absolute; top: 10px; right: 20px; color: var(--text-light-gray); font-size: 2rem; cursor: pointer;">&times;</span>
-    </div>
+      <!-- Modal for Gallery -->
+      <div class="modal" id="modal">
+        <img id="modal-img" src="" alt="" />
+        <span
+          onclick="closeModal()"
+          style="
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: var(--text-light-gray);
+            font-size: 2rem;
+            cursor: pointer;
+          "
+        >
+          ×
+        </span>
+      </div>
 
-    <!-- Sticky WhatsApp Button -->
-    <a href="https://wa.me/919090414343" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+      <!-- Sticky WhatsApp Button -->
+      <a href="https://wa.me/919975947060" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
 
-    <!-- Download Brochure Button -->
-    <a href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf" class="download-btn" download="Jungle-Spring-Resort-Brochure">
+      <!-- Download Brochure Button -->
+      <a
+        href="assets/brochure/Jungle-Spring-Resort-Brochure.pdf"
+        class="download-btn"
+        download="Jungle-Spring-Resort-Brochure"
+      >
         Download Brochure
-    </a>
-</div>
+      </a>
+    </div>
 
-<script>
-    // Menu Toggle with Animation
-    function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        const hamburger = document.querySelector('.hamburger');
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    }
+    <script>
+      // Menu Toggle with Animation
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      }
 
-    // Package Details Toggle
-    function toggleDetails(button) {
+      // Package Details Toggle
+      function toggleDetails(button) {
         const details = button.nextElementSibling;
-        details.classList.toggle('active');
-    }
+        details.classList.toggle("active");
+      }
 
-    // Stay Details Toggle
-    function toggleStayDetails(button) {
-        const details = button.nextElementSibling;
-        details.classList.toggle('active');
-    }
+      // Stay Details Toggle
+      function toggleStayDetails(button) {
+        const content = button.closest(".content");
+        const details = content.querySelector(".stay-details");
 
-    // Modal Gallery
-    function openModal(src) {
-        document.getElementById('modal-img').src = src;
-        document.getElementById('modal').classList.add('active');
-    }
-    function closeModal() {
-        document.getElementById('modal').classList.remove('active');
-    }
+        details.classList.toggle("active");
 
-    // Download Brochure Function
-    function downloadBrochure() {
-        const link = document.createElement('a');
-        link.href = 'assets/brochure/Jungle-Spring-Resort-Brochure.pdf';
-        link.download = 'Jungle-Spring-Resort-Brochure.pdf';
-        link.click();
-    }
+        // Change button text dynamically
+        button.textContent = details.classList.contains("active")
+          ? "Show Less"
+          : "Explore More";
+      }
 
-    // Form Submission Handler
-    function submitForm() {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const checkin = document.getElementById('checkin').value;
-        const checkout = document.getElementById('checkout').value;
-        const guestType = document.getElementById('guestType').value;
-        const message = document.getElementById('message').value;
+      // Modal Gallery
+      function openModal(src) {
+        document.getElementById("modal-img").src = src;
+        document.getElementById("modal").classList.add("active");
+      }
+      function closeModal() {
+        document.getElementById("modal").classList.remove("active");
+      }
 
-        if (name && email && phone && checkin && checkout && guestType) {
-            // Construct WhatsApp message
-            const whatsappMessage = `Booking Request from Website\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCheck-in Date: ${checkin}\nCheck-out Date: ${checkout}\nGuest Type: ${guestType}\nMessage: ${message}`;
-            const whatsappURL = `https://wa.me/919090414343?text=${encodeURIComponent(whatsappMessage)}`;
-            window.open(whatsappURL, '_blank');
-            alert(`Thank you, ${name}! Your inquiry has been submitted. We will contact you soon.`);
-        } else {
-            alert('Please fill in all required fields.');
+      // Download Brochure Function
+      function downloadBrochure(type) {
+        let brochureUrl = "";
+        switch (type) {
+          case "activities":
+            brochureUrl = "assets/brochure/Jungle-Spring-Resort-Brochure.pdf";
+            break;
+          case "one-day-adventure":
+            brochureUrl = "assets/brochure/One day adventure package.pdf";
+            break;
+          case "one-day-fun":
+            brochureUrl = "assets/brochure/One day fun package.pdf";
+            break;
+          case "one-day":
+            brochureUrl = "assets/brochure/One day package.pdf";
+            break;
+          case "premium-stay":
+            brochureUrl = "assets/brochure/premium-stay-package.pdf";
+            break;
+          case "stay":
+            brochureUrl = "assets/brochure/Jungle-Spring-Resort-Brochure.pdf";
+            break;
+          default:
+            brochureUrl = "assets/brochure/Jungle-Spring-Resort-Brochure.pdf";
         }
-    }
+        const link = document.createElement("a");
+        link.href = brochureUrl;
+        link.download = brochureUrl.split("/").pop();
+        link.click();
+      }
 
-    // Scroll Animations
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            // Stay Brochure Download Function
+      function downloadStayBrochure(type) {
+        let brochureUrl = "";
+
+        if (type === "deluxe") {
+          brochureUrl = "assets/brochure/deluxe-stay-package.pdf";
+        } else if (type === "premium") {
+          brochureUrl = "assets/brochure/premium-stay-package.pdf";
+        } else if (type === "last-premium") {
+          brochureUrl = "assets/brochure/last-premium-stay-package.pdf";
+        }
+
+        const link = document.createElement("a");
+        link.href = brochureUrl;
+        link.download = brochureUrl.split("/").pop();
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      // Form Submission Handler - Fixed with complete WhatsApp integration
+      function submitForm(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const checkin = document.getElementById("checkin").value;
+        const checkout = document.getElementById("checkout").value;
+        const roomType = document.getElementById("roomType").value;
+        const guestType = document.getElementById("guestType").value;
+        const extraMembers = document.getElementById("extraMembers").value || "0";
+        const message = document.getElementById("message").value;
+
+        if (name && email && phone && roomType && guestType) {
+          // Construct WhatsApp message with all form details
+          const whatsappMessage =
+            "Booking Request from junglespringresort.com\n\n" +
+            "Name: " +
+            name +
+            "\n" +
+            "Email: " +
+            email +
+            "\n" +
+            "Phone: " +
+            phone +
+            "\n" +
+            "Check-in Date: " +
+            (checkin || "Not specified") +
+            "\n" +
+            "Check-out Date: " +
+            (checkout || "Not specified") +
+            "\n" +
+            "Room/Package Type: " +
+            roomType +
+            "\n" +
+            "Guest Type: " +
+            guestType +
+            "\n" +
+            "Extra Members: " +
+            extraMembers +
+            "\n" +
+            "Message: " +
+            (message || "No additional message");
+
+          const whatsappURL = "https://wa.me/919607031831?text=" + encodeURIComponent(whatsappMessage);
+          window.open(whatsappURL, "_blank");
+          alert("Thank you, " + name + "! Your inquiry has been submitted. We will contact you soon.");
+          event.target.reset();
+        } else {
+          alert("Please fill in all required fields.");
+        }
+      }
+
+      // Scroll Animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
         });
-    });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      });
+      document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-            // Close the burger menu after clicking a link
-            const navLinks = document.querySelector('.nav-links');
-            const hamburger = document.querySelector('.hamburger');
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
+      // Smooth Scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+          // Close the burger menu after clicking a link
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".hamburger");
+          if (navLinks.classList.contains("active")) {
+            navLinks.classList.remove("active");
+            hamburger.classList.remove("active");
+          }
         });
-    });
+      });
 
-    // Hero Slideshow Logic
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const indicators = document.querySelectorAll('.indicator');
+      // Hero Slideshow Logic
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const indicators = document.querySelectorAll(".indicator");
 
-    function showSlide(index) {
+      function showSlide(index) {
         slides.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
+          slide.classList.toggle("active", i === index);
         });
         indicators.forEach((indicator, i) => {
-            indicator.classList.toggle('active', i === index);
+          indicator.classList.toggle("active", i === index);
         });
-    }
+      }
 
-    function nextSlide() {
+      function nextSlide() {
         currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
-    }
+      }
 
-    function goToSlide(index) {
+      function goToSlide(index) {
         currentSlide = index;
         showSlide(currentSlide);
-    }
+      }
 
-    setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
-    showSlide(currentSlide); // Initialize
+      setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
+      showSlide(currentSlide); // Initialize
 
-    // Interactive Hover Effects for Activities (Example: Add tooltips or more animations)
-    document.querySelectorAll('.activity-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-10px) rotate(2deg) scale(1.02)';
+      // Interactive Hover Effects for Activities
+      document.querySelectorAll(".activity-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.style.transform = "translateY(-10px) rotate(2deg) scale(1.02)";
         });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "";
         });
-    });
+      });
 
-        // Testimonials Carousel (Simple auto-rotate)
-    let testimonialIndex = 0;
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    function showTestimonial(index) {
+      // Testimonials Carousel (Simple auto-rotate)
+      let testimonialIndex = 0;
+      const testimonials = document.querySelectorAll(".testimonial-card");
+      function showTestimonial(index) {
         testimonials.forEach((t, i) => {
-            t.style.display = i === index ? 'block' : 'none';
+          t.style.display = i === index ? "block" : "none";
         });
-    }
-    function nextTestimonial() {
+      }
+      function nextTestimonial() {
         testimonialIndex = (testimonialIndex + 1) % testimonials.length;
         showTestimonial(testimonialIndex);
-    }
-    setInterval(nextTestimonial, 4000); // Rotate every 4 seconds
-    showTestimonial(testimonialIndex); // Initialize
-</script>
-</body>
+      }
+      setInterval(nextTestimonial, 4000); // Rotate every 4 seconds
+      showTestimonial(testimonialIndex); // Initialize
+    </script>
+  </body>
 </html>
-
